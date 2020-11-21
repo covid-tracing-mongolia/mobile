@@ -1,27 +1,27 @@
-import {Buffer} from 'buffer';
+import { Buffer } from 'buffer';
 
 import hmac256 from 'crypto-js/hmac-sha256';
 import encHex from 'crypto-js/enc-hex';
-import {ExposureConfiguration, TemporaryExposureKey} from 'bridge/ExposureNotification';
+import { ExposureConfiguration, TemporaryExposureKey } from 'bridge/ExposureNotification';
 import nacl from 'tweetnacl';
-import {getRandomBytes, downloadDiagnosisKeysFile} from 'bridge/CovidShield';
-import {blobFetch} from 'shared/fetch';
-import {MCC_CODE, REGION_JSON_URL, EN_CONFIG_URL} from 'env';
-import {captureMessage, captureException} from 'shared/log';
-import {getMillisSinceUTCEpoch, hoursSinceEpoch} from 'shared/date-fns';
-import {ContagiousDateInfo, ContagiousDateType} from 'shared/DataSharing';
+import { getRandomBytes, downloadDiagnosisKeysFile } from 'bridge/CovidShield';
+import { blobFetch } from 'shared/fetch';
+import { MCC_CODE, REGION_JSON_URL, EN_CONFIG_URL } from 'env';
+import { captureMessage, captureException } from 'shared/log';
+import { getMillisSinceUTCEpoch, hoursSinceEpoch } from 'shared/date-fns';
+import { ContagiousDateInfo, ContagiousDateType } from 'shared/DataSharing';
 import AsyncStorage from '@react-native-community/async-storage';
 import regionSchema from 'locale/translations/regionSchema.json';
 import JsonSchemaValidator from 'shared/JsonSchemaValidator';
 
-import {Observable} from '../../shared/Observable';
-import {Region, RegionContentResponse} from '../../shared/Region';
+import { Observable } from '../../shared/Observable';
+import { Region, RegionContentResponse } from '../../shared/Region';
 
-import {covidshield} from './covidshield';
-import {BackendInterface, SubmissionKeySet} from './types';
+import { covidshield } from './covidshield';
+import { BackendInterface, SubmissionKeySet } from './types';
 
 const MAX_UPLOAD_KEYS = 28;
-const FETCH_HEADERS = {headers: {'Cache-Control': 'no-store'}};
+const FETCH_HEADERS = { headers: { 'Cache-Control': 'no-store' } };
 const TRANSMISSION_RISK_LEVEL = 1;
 const TEN_MINUTE_PERIODS_PER_HOUR = 6;
 export const LAST_UPLOADED_TEK_START_TIME = 'LAST_UPLOADED_TEK_START_TIME';
@@ -55,7 +55,7 @@ export class BackendService implements BackendInterface {
     const message = `${MCC_CODE}:${periodStr}:${Math.floor(getMillisSinceUTCEpoch() / 1000 / 3600)}`;
     const hmac = hmac256(message, encHex.parse(this.hmacKey)).toString(encHex);
     const url = `${this.retrieveUrl}/retrieve/${MCC_CODE}/${periodStr}/${hmac}`;
-    captureMessage('retrieveDiagnosisKeys', {period, url});
+    captureMessage('retrieveDiagnosisKeys', { period, url });
     return downloadDiagnosisKeysFile(url);
   }
 
@@ -75,9 +75,9 @@ export class BackendService implements BackendInterface {
   async getStoredRegionContent(): Promise<RegionContentResponse> {
     const storedRegionContent = await AsyncStorage.getItem(this.getRegionContentUrl());
     if (storedRegionContent) {
-      return {status: 200, payload: JSON.parse(storedRegionContent)};
+      return { status: 200, payload: JSON.parse(storedRegionContent) };
     }
-    return {status: 400, payload: null};
+    return { status: 400, payload: null };
   }
 
   async getRegionContent(): Promise<RegionContentResponse> {
@@ -85,11 +85,11 @@ export class BackendService implements BackendInterface {
       // try fetching server content
       const response = await fetch(this.getRegionContentUrl(), FETCH_HEADERS);
       const payload = await response.json();
-      this.isValidRegionContent({status: response.status, payload});
+      this.isValidRegionContent({ status: response.status, payload });
       await AsyncStorage.setItem(this.getRegionContentUrl(), JSON.stringify(payload));
-      return {status: 200, payload};
+      return { status: 200, payload };
     } catch (err) {
-      captureMessage('getRegionContent - fetch error', {err: err.message});
+      captureMessage('getRegionContent - fetch error', { err: err.message });
       return this.getStoredRegionContent();
     }
   }
@@ -101,7 +101,7 @@ export class BackendService implements BackendInterface {
     const exposureConfigurationUrl = EN_CONFIG_URL
       ? EN_CONFIG_URL
       : `${this.retrieveUrl}/exposure-configuration/${region}.json`;
-    captureMessage('getExposureConfiguration', {exposureConfigurationUrl});
+    captureMessage('getExposureConfiguration', { exposureConfigurationUrl });
     return (await fetch(exposureConfigurationUrl, FETCH_HEADERS)).json();
   }
 
@@ -170,7 +170,7 @@ export class BackendService implements BackendInterface {
 
   filterOldTEKs = async () => {
     const lastUploadedTekStartTime = Number(await AsyncStorage.getItem(LAST_UPLOADED_TEK_START_TIME));
-    captureMessage('lastUploadedTekStartTime', {lastUploadedTekStartTime});
+    captureMessage('lastUploadedTekStartTime', { lastUploadedTekStartTime });
     return (key: TemporaryExposureKey) => {
       if (!lastUploadedTekStartTime) {
         return true;
@@ -178,7 +178,7 @@ export class BackendService implements BackendInterface {
       if (key.rollingStartIntervalNumber > lastUploadedTekStartTime) {
         return true;
       }
-      captureMessage('keyTooOld', {keyTooOld: key});
+      captureMessage('keyTooOld', { keyTooOld: key });
       return false;
     };
   };
@@ -188,7 +188,7 @@ export class BackendService implements BackendInterface {
     _exposureKeys: TemporaryExposureKey[],
     contagiousDateInfo: ContagiousDateInfo,
   ) {
-    captureMessage('contagiousDateInfo', {contagiousDateInfo});
+    captureMessage('contagiousDateInfo', { contagiousDateInfo });
     const filteredExposureKeys = Object.values(
       _exposureKeys
         .filter(this.filterNonContagiousTEKs(contagiousDateInfo))
@@ -196,24 +196,24 @@ export class BackendService implements BackendInterface {
         .sort((first, second) => second.rollingStartIntervalNumber - first.rollingStartIntervalNumber),
     );
     const exposureKeys = filteredExposureKeys.slice(0, MAX_UPLOAD_KEYS);
-    captureMessage('keyPair', {keyPair});
+    captureMessage('keyPair', { keyPair });
     captureMessage('unfiltered exposureKeys', {
       unfilteredExposureKeys: _exposureKeys.map(x => {
-        const y: any = {...x};
+        const y: any = { ...x };
         y.startDate = new Date((x.rollingStartIntervalNumber * 1000 * 3600) / 6);
         return y;
       }),
     });
     captureMessage('filtered exposureKeys', {
       filteredExposureKeys: exposureKeys.map(x => {
-        const y: any = {...x};
+        const y: any = { ...x };
         y.startDate = new Date((x.rollingStartIntervalNumber * 1000 * 3600) / 6);
         return y;
       }),
     });
 
     const upload = covidshield.Upload.create({
-      timestamp: {seconds: Math.floor(getMillisSinceUTCEpoch() / 1000)},
+      timestamp: { seconds: Math.floor(getMillisSinceUTCEpoch() / 1000) },
       keys: exposureKeys.map(key =>
         covidshield.TemporaryExposureKey.create({
           keyData: Buffer.from(key.keyData, 'base64'),
@@ -252,6 +252,8 @@ export class BackendService implements BackendInterface {
     });
 
     const body = covidshield.KeyClaimRequest.encode(uploadPayload).finish();
+    console.log('url: ', this.submitUrl);
+    console.log('body: ', body);
     const response = await blobFetch(`${this.submitUrl}/claim-key`, 'POST', body);
     const keyClaimResponse = covidshield.KeyClaimResponse.decode(Buffer.from(response.buffer));
     if (response.error) {
