@@ -1,15 +1,15 @@
 import React from 'react';
-import {Box, Text, TextMultiline, ButtonSingleLine} from 'components';
-import {useStorage} from 'services/StorageService';
-import {useAccessibilityAutoFocus} from 'shared/useAccessibilityAutoFocus';
-import {BulletPointOrdered} from 'components/BulletPointOrdered';
-import {Linking} from 'react-native';
-import {captureException} from 'shared/log';
-import {useRegionalI18n} from 'locale/regional';
+import { Box, Text, TextMultiline, ButtonSingleLine } from 'components';
+import { useStorage } from 'services/StorageService';
+import { useAccessibilityAutoFocus } from 'shared/useAccessibilityAutoFocus';
+import { BulletPointOrdered } from 'components/BulletPointOrdered';
+import { Linking } from 'react-native';
+import { captureException } from 'shared/log';
+import { useRegionalI18n } from 'locale/regional';
 
 export const ActiveListView = () => {
   const regionalI18n = useRegionalI18n();
-  const {region} = useStorage();
+  const { region } = useStorage();
   const autoFocusRef = useAccessibilityAutoFocus(true);
   const onClick = () =>
     Linking.openURL(regionalI18n.translate(`RegionContent.NoCode.Active.${region}.Link`)).catch(error =>

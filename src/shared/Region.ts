@@ -1,10 +1,10 @@
-export type Region = 'AB' | 'BC' | 'MB' | 'NB' | 'NL' | 'NT' | 'NS' | 'NU' | 'ON' | 'PE' | 'QC' | 'SK' | 'YT' | 'None';
+export type Region = 'BN' | 'BH' | 'BG' | 'BZ' | 'NL' | 'SH' | 'SB' | 'KU' | 'CH' | 'None';
 export type RegionCase = 'regionNotActive' | 'noRegionSet' | 'regionActive';
 
 export interface RegionContent {
   Active: Region[];
   en: any;
-  fr: any;
+  mn: any;
 }
 
 export interface RegionContentResponse {

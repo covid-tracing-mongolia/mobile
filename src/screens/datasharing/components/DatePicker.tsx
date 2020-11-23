@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
-import {Picker} from '@react-native-community/picker';
-import {Platform, Modal, StyleSheet} from 'react-native';
-import {Box, Button, ButtonSelect} from 'components';
-import {addDays, getCurrentDate} from 'shared/date-fns';
-import {useI18n} from 'locale';
-import {FormContext} from 'shared/FormContext';
+import React, { useContext } from 'react';
+import { Picker } from '@react-native-community/picker';
+import { Platform, Modal, StyleSheet } from 'react-native';
+import { Box, Button, ButtonSelect } from 'components';
+import { addDays, getCurrentDate } from 'shared/date-fns';
+import { useI18n } from 'locale';
+import { FormContext } from 'shared/FormContext';
 
 const capitalizeFirstLetter = (x: string) => {
   return x[0].toUpperCase() + x.slice(1);
@@ -16,8 +16,8 @@ interface ModalWrapperProps {
   buttonText: string;
 }
 
-const ModalWrapper = ({labelDict, children, selectedDate, buttonText}: ModalWrapperProps) => {
-  const {data, toggleModal} = useContext(FormContext);
+const ModalWrapper = ({ labelDict, children, selectedDate, buttonText }: ModalWrapperProps) => {
+  const { data, toggleModal } = useContext(FormContext);
   return (
     <>
       <Modal animationType="slide" transparent visible={data.modalVisible}>
@@ -53,10 +53,10 @@ interface DatePickerInternalProps {
   setDate: (x: string) => void;
 }
 
-const DatePickerInternal = ({dateOptions, pickerStyles, selectedDate, setDate}: DatePickerInternalProps) => {
+const DatePickerInternal = ({ dateOptions, pickerStyles, selectedDate, setDate }: DatePickerInternalProps) => {
   return (
     <Picker
-      style={{...pickerStyles}}
+      style={{ ...pickerStyles }}
       selectedValue={selectedDate}
       onValueChange={value => setDate(value.toString())}
       mode="dialog"
@@ -74,12 +74,12 @@ interface DatePickerProps {
   setDate: (x: string) => void;
 }
 
-export const DatePicker = ({daysBack, selectedDate, setDate}: DatePickerProps) => {
+export const DatePicker = ({ daysBack, selectedDate, setDate }: DatePickerProps) => {
   const i18n = useI18n();
   const today = getCurrentDate();
 
   const getLabel = (step: number, date: Date) => {
-    const dateLocale = i18n.locale === 'fr' ? 'fr-CA' : 'en-CA';
+    const dateLocale = i18n.locale === 'mn' ? 'mn-MN' : 'en-CA';
     switch (step) {
       case 0:
         return i18n.translate('DataUpload.Today');
@@ -98,15 +98,15 @@ export const DatePicker = ({daysBack, selectedDate, setDate}: DatePickerProps) =
         );
     }
   };
-  const dateOptions = [{label: '', value: ''}];
-  const labelDict: {[key: string]: string} = {'': ''};
+  const dateOptions = [{ label: '', value: '' }];
+  const labelDict: { [key: string]: string } = { '': '' };
   for (let step = 0; step < daysBack; step++) {
     const date = addDays(today, -1 * step);
     const dateAtMidnight = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     const dateString = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     const label = getLabel(step, dateAtMidnight);
     labelDict[dateString] = label;
-    dateOptions.push({label, value: dateString});
+    dateOptions.push({ label, value: dateString });
   }
 
   if (Platform.OS === 'ios') {
@@ -114,7 +114,7 @@ export const DatePicker = ({daysBack, selectedDate, setDate}: DatePickerProps) =
       <ModalWrapper labelDict={labelDict} selectedDate={selectedDate} buttonText={i18n.translate('DataUpload.Close')}>
         <DatePickerInternal
           // eslint-disable-next-line react-native/no-inline-styles
-          pickerStyles={{height: 200}}
+          pickerStyles={{ height: 200 }}
           dateOptions={dateOptions}
           selectedDate={selectedDate}
           setDate={setDate}
@@ -123,7 +123,7 @@ export const DatePicker = ({daysBack, selectedDate, setDate}: DatePickerProps) =
     );
   }
   return (
-    <Box style={{...styles.outline}} marginBottom="m">
+    <Box style={{ ...styles.outline }} marginBottom="m">
       <DatePickerInternal dateOptions={dateOptions} selectedDate={selectedDate} setDate={setDate} />
     </Box>
   );

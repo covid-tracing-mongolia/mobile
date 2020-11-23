@@ -16,11 +16,11 @@ describe('locale utils', () => {
   describe('getSystemLocale', () => {
     it('returns languageCode for first available locale', () => {
       mockCallback.mockReturnValueOnce([
-        {countryCode: 'CA', languageTag: 'fr-CA', languageCode: 'fr', isRTL: false},
+        {countryCode: 'MN', languageTag: 'mn-MN', languageCode: 'mn', isRTL: false},
         {countryCode: 'CA', languageTag: 'en-CA', languageCode: 'en', isRTL: false},
       ]);
 
-      expect(getSystemLocale()).toStrictEqual('fr');
+      expect(getSystemLocale()).toStrictEqual('mn');
     });
 
     it('returns en as default locale', () => {

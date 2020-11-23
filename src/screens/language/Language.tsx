@@ -1,10 +1,10 @@
-import React, {useCallback} from 'react';
-import {TouchableOpacity, ScrollView, StyleSheet} from 'react-native';
-import {Box, Text, Icon, Toolbar} from 'components';
-import {useStorage} from 'services/StorageService';
-import {useNavigation} from '@react-navigation/native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {useI18n} from 'locale';
+import React, { useCallback } from 'react';
+import { TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { Box, Text, Icon, Toolbar } from 'components';
+import { useStorage } from 'services/StorageService';
+import { useNavigation } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useI18n } from 'locale';
 
 interface LanguageSelectItemProps {
   onPress: () => void;
@@ -12,13 +12,13 @@ interface LanguageSelectItemProps {
   isActive?: boolean;
   lastItem?: boolean;
 }
-const LanguageSelectItem = ({onPress, text, lastItem, isActive}: LanguageSelectItemProps) => (
+const LanguageSelectItem = ({ onPress, text, lastItem, isActive }: LanguageSelectItemProps) => (
   <>
     <TouchableOpacity
       activeOpacity={0.6}
       onPress={onPress}
       accessibilityRole="radio"
-      accessibilityState={{selected: isActive}}
+      accessibilityState={{ selected: isActive }}
     >
       <Box
         paddingVertical="s"
@@ -48,9 +48,9 @@ export const LanguageScreen = () => {
   const i18n = useI18n();
   const navigation = useNavigation();
   const close = useCallback(() => navigation.goBack(), [navigation]);
-  const {setLocale} = useStorage();
+  const { setLocale } = useStorage();
   const toggle = useCallback(
-    (newLocale: 'en' | 'fr') => () => {
+    (newLocale: 'en' | 'mn') => () => {
       setLocale(newLocale);
     },
     [setLocale],
@@ -90,9 +90,9 @@ export const LanguageScreen = () => {
               isActive={i18n.locale === 'en'}
             />
             <LanguageSelectItem
-              onPress={toggle('fr')}
-              text={i18n.translate('LanguageSelect.Fr')}
-              isActive={i18n.locale === 'fr'}
+              onPress={toggle('mn')}
+              text={i18n.translate('LanguageSelect.Mn')}
+              isActive={i18n.locale === 'mn'}
               lastItem
             />
           </Box>

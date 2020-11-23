@@ -24,7 +24,7 @@
       },
       "additionalProperties": true
     },
-    "fr": {
+    "mn": {
       "type": "object",
       "properties": {
         "RegionContent": {
@@ -43,6 +43,6 @@
   "required": [
     "Active",
     "en",
-    "fr"
+    "mn"
   ]
 }

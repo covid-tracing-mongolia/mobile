@@ -64,16 +64,16 @@ describe('StorageService', () => {
       await storageService.setLocale('en');
       expect(AsyncStorage.setItem).toHaveBeenCalledWith(Key.Locale, 'en');
 
-      await storageService.setLocale('fr_CA');
-      expect(AsyncStorage.setItem).toHaveBeenCalledWith(Key.Locale, 'fr_CA');
+      await storageService.setLocale('mn_MN');
+      expect(AsyncStorage.setItem).toHaveBeenCalledWith(Key.Locale, 'mn_MN');
     });
 
     it('exposes set value as StorageService attribute', async () => {
       await storageService.setLocale('en_US');
       expect(storageService.locale.get()).toStrictEqual('en_US');
 
-      await storageService.setLocale('fr');
-      expect(storageService.locale.get()).toStrictEqual('fr');
+      await storageService.setLocale('mn');
+      expect(storageService.locale.get()).toStrictEqual('mn');
     });
   });
 

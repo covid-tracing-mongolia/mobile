@@ -29,7 +29,7 @@ import IconWarning from 'assets/icon-warning.svg';
 import IconExposureNotificationsDisabled from 'assets/icon-exposure-notifications-disabled.svg';
 import IconExposureNotificationsOff from 'assets/icon-exposure-notifications-off.svg';
 import CovidAlertEn from 'assets/covid-alert-en.svg';
-import CovidAlertFr from 'assets/covid-alert-fr.svg';
+import CovidAlertMn from 'assets/covid-alert-mn.svg';
 import ProgressCircleEmpty from 'assets/progress-circle-empty.svg';
 import ProgressCircleFilled from 'assets/progress-circle-filled.svg';
 import ShareHeading from 'assets/share-heading.svg';
@@ -81,7 +81,7 @@ const ICONS = {
   'icon-exposure-notifications-disabled': IconExposureNotificationsDisabled,
   'icon-warning': IconWarning,
   'covid-alert-en': CovidAlertEn,
-  'covid-alert-fr': CovidAlertFr,
+  'covid-alert-mn': CovidAlertMn,
   'header-logo-rings': HeaderLogoRings,
   'progress-circle-filled': ProgressCircleFilled,
   'progress-circle-empty': ProgressCircleEmpty,
@@ -112,7 +112,7 @@ export interface IconProps {
   height?: number;
 }
 
-export const Icon = ({name, size = 24, width, height}: IconProps) => {
+export const Icon = ({ name, size = 24, width, height }: IconProps) => {
   const IconImpl = name !== undefined ? ICONS[name] : null; // eslint-disable-line no-negated-condition
   return IconImpl ? <IconImpl width={width ? width : size} height={height ? height : size} /> : null;
 };

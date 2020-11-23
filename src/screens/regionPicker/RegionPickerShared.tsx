@@ -1,6 +1,6 @@
 import React from 'react';
-import {Box, Text, Icon} from 'components';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import { Box, Text, Icon } from 'components';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import AbFlag from 'assets/flags/ab-flag.png';
 import BcFlag from 'assets/flags/bc-flag.png';
 import MbFlag from 'assets/flags/mb-flag.png';
@@ -10,11 +10,7 @@ import NtFlag from 'assets/flags/nt-flag.png';
 import NsFlag from 'assets/flags/ns-flag.png';
 import NuFlag from 'assets/flags/nu-flag.png';
 import OnFlag from 'assets/flags/on-flag.png';
-import PeFlag from 'assets/flags/pe-flag.png';
-import QcFlag from 'assets/flags/qc-flag.png';
-import SkFlag from 'assets/flags/sk-flag.png';
-import YtFlag from 'assets/flags/yt-flag.png';
-import {Region} from 'shared/Region';
+import { Region } from 'shared/Region';
 
 interface RegionItemProps {
   code: Region;
@@ -27,29 +23,24 @@ interface RegionItemProps {
 }
 
 export const regionData: Omit<RegionItemProps, 'onPress' | 'selected' | 'name'>[] = [
-  {code: 'AB', flagIcon: AbFlag},
-  {code: 'BC', flagIcon: BcFlag},
-  {code: 'MB', flagIcon: MbFlag},
-  {code: 'NB', flagIcon: NbFlag},
-  {code: 'NL', flagIcon: NlFlag},
-  {code: 'NT', flagIcon: NtFlag},
-  {code: 'NS', flagIcon: NsFlag},
-  {code: 'NU', flagIcon: NuFlag},
-  {code: 'ON', flagIcon: OnFlag},
-  {code: 'PE', flagIcon: PeFlag},
-  {code: 'QC', flagIcon: QcFlag},
-  {code: 'SK', flagIcon: SkFlag},
-  {code: 'YT', flagIcon: YtFlag},
-  {code: 'None', flagIcon: null},
+  { code: 'BN', flagIcon: AbFlag },
+  { code: 'BH', flagIcon: BcFlag },
+  { code: 'BG', flagIcon: MbFlag },
+  { code: 'BZ', flagIcon: NbFlag },
+  { code: 'NL', flagIcon: NlFlag },
+  { code: 'SH', flagIcon: NtFlag },
+  { code: 'SB', flagIcon: NsFlag },
+  { code: 'KU', flagIcon: NuFlag },
+  { code: 'CH', flagIcon: OnFlag },
 ];
 
-const RegionItem_ = ({code, onPress, name, lastItem, selected, testID}: RegionItemProps) => (
+const RegionItem_ = ({ code, onPress, name, lastItem, selected, testID }: RegionItemProps) => (
   <>
     <TouchableOpacity
       activeOpacity={0.6}
       onPress={() => onPress(code)}
       accessibilityRole="radio"
-      accessibilityState={{selected}}
+      accessibilityState={{ selected }}
       testID={testID}
     >
       <Box
