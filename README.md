@@ -18,7 +18,7 @@ Apache 2.0 лицензийн дагуу доорх нээлттэй эхийн 
 
 ## Жишээ
 
-![S1](/images/1.png){:height="48px" width="24px"}
+<img src="/images/1.png" width="48">
 
 ## Хөгжүүлэлтийн Орчинд
 
