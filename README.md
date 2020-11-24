@@ -18,7 +18,27 @@ Apache 2.0 лицензийн дагуу доорх нээлттэй эхийн 
 
 ## Жишээ
 
-<img src="/images/1.png" width="48">
+<img src="/images/1.png" width="80">
+<img src="/images/2.png" width="80">
+<img src="/images/3.png" width="80">
+<img src="/images/4.png" width="80">
+<img src="/images/5.png" width="80">
+<img src="/images/6.png" width="80">
+<img src="/images/7.png" width="80">
+<img src="/images/8.png" width="80">
+<img src="/images/9.png" width="80">
+<img src="/images/10.png" width="80">
+<img src="/images/11.png" width="80">
+<img src="/images/12.png" width="80">
+<img src="/images/13.png" width="80">
+<img src="/images/14.png" width="80">
+<img src="/images/15.png" width="80">
+<img src="/images/16.png" width="80">
+<img src="/images/17.png" width="80">
+<img src="/images/18.png" width="80">
+<img src="/images/19.png" width="80">
+<img src="/images/20.png" width="80">
+<img src="/images/21.png" width="80">
 
 ## Хөгжүүлэлтийн Орчинд
 
