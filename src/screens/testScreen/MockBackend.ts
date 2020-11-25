@@ -1,7 +1,6 @@
 import {TemporaryExposureKey} from 'bridge/ExposureNotification';
 import {BackendInterface, SubmissionKeySet} from 'services/BackendService';
 import REGION_CONTENT from 'locale/translations/region.json';
-import {RegionContent, RegionContentResponse} from 'shared/Region';
 
 const DefaultConfiguration = {
   attenuationDurationThresholds: [50, 63],
@@ -37,8 +36,8 @@ class MockBackend implements BackendInterface {
     return '';
   };
 
-  getRegionContent = async (): Promise<RegionContentResponse> => {
-    return {status: 200, payload: REGION_CONTENT as RegionContent};
+  getRegionContent = async (): Promise<any> => {
+    return {status: 200, payload: REGION_CONTENT};
   };
 
   getExposureConfiguration = async () => {

@@ -2,10 +2,8 @@ import React, {useCallback} from 'react';
 import {Linking, TouchableOpacity, TouchableOpacityProps} from 'react-native';
 import {Box, Text, Icon, IconProps} from 'components';
 import {useNavigation} from '@react-navigation/native';
-import {useI18n, useRegionalI18n} from 'locale';
+import {useI18n} from 'locale';
 import {captureException} from 'shared/log';
-import {useStorage} from 'services/StorageService';
-import {getExposedHelpMenuURL} from 'shared/RegionLogic';
 
 interface InfoShareItemProps extends TouchableOpacityProps {
   onPress: () => void;
@@ -43,8 +41,6 @@ const InfoShareItem = ({onPress, text, icon, lastItem, ...touchableProps}: InfoS
 
 export const InfoShareView = () => {
   const i18n = useI18n();
-  const {region} = useStorage();
-  const regionalI18n = useRegionalI18n();
   const navigation = useNavigation();
 
   const onPrivacy = useCallback(() => {
@@ -54,15 +50,12 @@ export const InfoShareView = () => {
   const onGetCode = useCallback(() => navigation.navigate('NoCode'), [navigation]);
   const onLearnMore = useCallback(() => navigation.navigate('Tutorial'), [navigation]);
   const onLanguage = useCallback(() => navigation.navigate('LanguageSelect'), [navigation]);
-  const onRegion = useCallback(() => navigation.navigate('RegionSelect'), [navigation]);
   const onHelp = useCallback(() => {
     Linking.openURL(i18n.translate('Info.HelpUrl')).catch(error => captureException('An error occurred', error));
   }, [i18n]);
   const onExposedHelp = useCallback(() => {
-    Linking.openURL(getExposedHelpMenuURL(region, regionalI18n)).catch(error =>
-      captureException('An error occurred', error),
-    );
-  }, [region, regionalI18n]);
+    Linking.openURL(`http://nema.gov.mn`).catch(error => captureException('An error occurred', error));
+  }, []);
 
   return (
     <>
@@ -95,12 +88,6 @@ export const InfoShareView = () => {
         </Text>
       </Box>
       <Box paddingHorizontal="m" borderRadius={10} overflow="hidden" marginBottom="m">
-        <InfoShareItem
-          onPress={onRegion}
-          text={i18n.translate('Info.ChangeRegion')}
-          icon="icon-chevron"
-          testID="changeRegion"
-        />
         <InfoShareItem onPress={onLanguage} text={i18n.translate('Info.ChangeLanguage')} icon="icon-chevron" lastItem />
       </Box>
       <Box marginTop="l" marginBottom="m">

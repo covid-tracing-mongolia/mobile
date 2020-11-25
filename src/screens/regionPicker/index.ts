@@ -1,1 +1,0 @@
-export {RegionPickerSettingsScreen} from './RegionPickerSettings';
