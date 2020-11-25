@@ -39,14 +39,6 @@ export const LandingScreen = () => {
           <Box paddingHorizontal="m">
             <Button testID="frButton" onPress={toggle('mn')} text={i18n.translate('Landing.Mn')} variant="thinFlat" />
           </Box>
-          <Box
-            accessible
-            accessibilityLabel={i18n.translate('Landing.CanadaAltText')}
-            alignSelf="center"
-            marginVertical="m"
-          >
-            <Icon height={32} width={135} name="canada-logo" />
-          </Box>
         </Box>
       </Box>
     </SafeAreaView>
