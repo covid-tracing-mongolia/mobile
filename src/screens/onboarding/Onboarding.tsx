@@ -1,32 +1,32 @@
-import React, {useState, useCallback, useRef} from 'react';
-import {ListRenderItem, StyleSheet, useWindowDimensions, View} from 'react-native';
+import React, { useState, useCallback, useRef } from 'react';
+import { ListRenderItem, StyleSheet, useWindowDimensions, View } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import {useNavigation} from '@react-navigation/native';
-import {Box, Button, ProgressCircles} from 'components';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {useI18n} from 'locale';
-import {useStorage} from 'services/StorageService';
-import {useStartExposureNotificationService} from 'services/ExposureNotificationService';
-import {getCurrentDate} from 'shared/date-fns';
-import {useAccessibilityService} from 'services/AccessibilityService';
+import { useNavigation } from '@react-navigation/native';
+import { Box, Button, ProgressCircles } from 'components';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useI18n } from 'locale';
+import { useStorage } from 'services/StorageService';
+import { useStartExposureNotificationService } from 'services/ExposureNotificationService';
+import { getCurrentDate } from 'shared/date-fns';
+import { useAccessibilityService } from 'services/AccessibilityService';
 
-import {OnboardingContent, onboardingData, OnboardingKey} from './OnboardingContent';
+import { OnboardingContent, onboardingData, OnboardingKey } from './OnboardingContent';
 
 export const OnboardingScreen = () => {
   const navigation = useNavigation();
-  const {width: viewportWidth} = useWindowDimensions();
+  const { width: viewportWidth } = useWindowDimensions();
   const carouselRef = useRef<Carousel<OnboardingKey>>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const i18n = useI18n();
-  const {setOnboarded, setOnboardedDatetime, setRegion} = useStorage();
+  const { setOnboarded, setOnboardedDatetime, setRegion } = useStorage();
   const startExposureNotificationService = useStartExposureNotificationService();
   const isStart = currentStep === 0;
   const isEnd = currentStep === onboardingData.length - 1;
-  const {isScreenReaderEnabled} = useAccessibilityService();
+  const { isScreenReaderEnabled } = useAccessibilityService();
   const currentStepForRenderItem = isScreenReaderEnabled ? currentStep : -1;
 
   const renderItem: ListRenderItem<OnboardingKey> = useCallback(
-    ({item, index}) => {
+    ({ item, index }) => {
       return (
         <View style={styles.flex} accessibilityElementsHidden={index !== currentStepForRenderItem}>
           <OnboardingContent key={item} item={item} isActive={index === currentStepForRenderItem} />
@@ -46,7 +46,7 @@ export const OnboardingScreen = () => {
           if (error.message === 'API_NOT_CONNECTED') {
             navigation.reset({
               index: 0,
-              routes: [{name: 'ErrorScreen'}],
+              routes: [{ name: 'ErrorScreen' }],
             });
           }
         }
@@ -66,7 +66,7 @@ export const OnboardingScreen = () => {
       await setOnboardedDatetime(getCurrentDate());
       navigation.reset({
         index: 0,
-        routes: [{name: 'Home'}],
+        routes: [{ name: 'Home' }],
       });
       return;
     }
@@ -102,15 +102,15 @@ export const OnboardingScreen = () => {
           />
         </View>
         <Box flexDirection="row" borderTopWidth={2} borderTopColor="gray5">
-          <Box flex={0} style={{...styles.offset1}}>
+          <Box flex={0} style={{ ...styles.offset1 }}>
             {!isStart && <Button text={i18n.translate(`Onboarding.ActionBack`)} variant="text" onPress={prevItem} />}
           </Box>
 
-          <Box flex={2} justifyContent="center" style={{...styles.offset2}}>
+          <Box flex={2} justifyContent="center" style={{ ...styles.offset2 }}>
             <ProgressCircles numberOfSteps={onboardingData.length} activeStep={currentStep + 1} marginBottom="none" />
           </Box>
 
-          <Box flex={0} style={{...styles.offset3}}>
+          <Box flex={0} style={{ ...styles.offset3 }}>
             <Button
               testID="onboardingNextButton"
               text={i18n.translate(`Onboarding.Action${isEnd ? 'End' : 'Next'}`)}
