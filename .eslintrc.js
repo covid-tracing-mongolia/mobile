@@ -34,7 +34,6 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'jsx-a11y/no-autofocus': 'off',
     'jest/no-try-expect': 'off',
-    'babel/object-curly-spacing': [0, 'never'],
   },
   ignorePatterns: [
     '**/node_modules',
