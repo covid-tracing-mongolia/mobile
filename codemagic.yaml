@@ -6,11 +6,11 @@ workflows:
     name: React Native App
     environment:
       vars:
-        XCODE_WORKSPACE: "CovidShield"
-        XCODE_SCHEME: "CovidShield"
+        XCODE_WORKSPACE: CovidShield
+        XCODE_SCHEME: CovidShield
       node: latest
     scripts:
-      - npm install
+      - yarn install
       - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
       - |
         # build Android
