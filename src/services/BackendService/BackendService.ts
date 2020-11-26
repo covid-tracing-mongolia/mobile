@@ -1,27 +1,22 @@
-import { Buffer } from 'buffer';
+import {Buffer} from 'buffer';
 
 import hmac256 from 'crypto-js/hmac-sha256';
 import encHex from 'crypto-js/enc-hex';
-import { ExposureConfiguration, TemporaryExposureKey } from 'bridge/ExposureNotification';
+import {ExposureConfiguration, TemporaryExposureKey} from 'bridge/ExposureNotification';
 import nacl from 'tweetnacl';
-import { getRandomBytes, downloadDiagnosisKeysFile } from 'bridge/CovidShield';
-import { blobFetch } from 'shared/fetch';
-import { MCC_CODE, REGION_JSON_URL, EN_CONFIG_URL } from 'env';
-import { captureMessage, captureException } from 'shared/log';
-import { getMillisSinceUTCEpoch, hoursSinceEpoch } from 'shared/date-fns';
-import { ContagiousDateInfo, ContagiousDateType } from 'shared/DataSharing';
+import {getRandomBytes, downloadDiagnosisKeysFile} from 'bridge/CovidShield';
+import {blobFetch} from 'shared/fetch';
+import {MCC_CODE} from 'env';
+import {captureMessage, captureException} from 'shared/log';
+import {getMillisSinceUTCEpoch, hoursSinceEpoch} from 'shared/date-fns';
+import {ContagiousDateInfo, ContagiousDateType} from 'shared/DataSharing';
 import AsyncStorage from '@react-native-community/async-storage';
-import regionSchema from 'locale/translations/regionSchema.json';
-import JsonSchemaValidator from 'shared/JsonSchemaValidator';
 
-import { Observable } from '../../shared/Observable';
-import { Region, RegionContentResponse } from '../../shared/Region';
-
-import { covidshield } from './covidshield';
-import { BackendInterface, SubmissionKeySet } from './types';
+import {covidshield} from './covidshield';
+import {BackendInterface, SubmissionKeySet} from './types';
 
 const MAX_UPLOAD_KEYS = 28;
-const FETCH_HEADERS = { headers: { 'Cache-Control': 'no-store' } };
+// const FETCH_HEADERS = {headers: {'Cache-Control': 'no-store'}};
 const TRANSMISSION_RISK_LEVEL = 1;
 const TEN_MINUTE_PERIODS_PER_HOUR = 6;
 export const LAST_UPLOADED_TEK_START_TIME = 'LAST_UPLOADED_TEK_START_TIME';
@@ -36,18 +31,11 @@ export class BackendService implements BackendInterface {
   retrieveUrl: string;
   submitUrl: string;
   hmacKey: string;
-  region: Observable<Region | undefined> | undefined;
 
-  constructor(
-    retrieveUrl: string,
-    submitUrl: string,
-    hmacKey: string,
-    region: Observable<Region | undefined> | undefined,
-  ) {
+  constructor(retrieveUrl: string, submitUrl: string, hmacKey: string) {
     this.retrieveUrl = retrieveUrl;
     this.submitUrl = submitUrl;
     this.hmacKey = hmacKey;
-    this.region = region;
   }
 
   async retrieveDiagnosisKeys(period: number) {
@@ -55,54 +43,47 @@ export class BackendService implements BackendInterface {
     const message = `${MCC_CODE}:${periodStr}:${Math.floor(getMillisSinceUTCEpoch() / 1000 / 3600)}`;
     const hmac = hmac256(message, encHex.parse(this.hmacKey)).toString(encHex);
     const url = `${this.retrieveUrl}/retrieve/${MCC_CODE}/${periodStr}/${hmac}`;
-    captureMessage('retrieveDiagnosisKeys', { period, url });
+    captureMessage('retrieveDiagnosisKeys', {period, url});
     return downloadDiagnosisKeysFile(url);
   }
 
-  getRegionContentUrl(): string {
-    return REGION_JSON_URL ? REGION_JSON_URL : `${this.retrieveUrl}/exposure-configuration/region.json`;
-  }
+  // TODO: what this region about?
+  // getRegionContentUrl(): string {
+  //   return REGION_JSON_URL ? REGION_JSON_URL : `${this.retrieveUrl}/exposure-configuration/region.json`;
+  // }
 
-  isValidRegionContent = (content: RegionContentResponse) => {
-    if (content.status === 200 || content.status === 304) {
-      new JsonSchemaValidator().validateJson(content.payload, regionSchema);
-      return true;
-    }
+  // isValidRegionContent = (content: any) => {
+  //   if (content.status === 200 || content.status === 304) {
+  //     new JsonSchemaValidator().validateJson(content.payload, regionSchema);
+  //     return true;
+  //   }
 
-    throw new Error("Region content didn't validate");
-  };
-
-  async getStoredRegionContent(): Promise<RegionContentResponse> {
-    const storedRegionContent = await AsyncStorage.getItem(this.getRegionContentUrl());
-    if (storedRegionContent) {
-      return { status: 200, payload: JSON.parse(storedRegionContent) };
-    }
-    return { status: 400, payload: null };
-  }
-
-  async getRegionContent(): Promise<RegionContentResponse> {
-    try {
-      // try fetching server content
-      const response = await fetch(this.getRegionContentUrl(), FETCH_HEADERS);
-      const payload = await response.json();
-      this.isValidRegionContent({ status: response.status, payload });
-      await AsyncStorage.setItem(this.getRegionContentUrl(), JSON.stringify(payload));
-      return { status: 200, payload };
-    } catch (err) {
-      captureMessage('getRegionContent - fetch error', { err: err.message });
-      return this.getStoredRegionContent();
-    }
-  }
+  //   throw new Error("Region content didn't validate");
+  // };
 
   async getExposureConfiguration(): Promise<ExposureConfiguration> {
+    // TODO: ON region config
+    return {
+      minimumRiskScore: 0,
+      minimumExposureDurationMinutes: 2,
+      attenuationDurationThresholds: [1, 2],
+      attenuationLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
+      attenuationWeight: 50,
+      daysSinceLastExposureLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
+      daysSinceLastExposureWeight: 50,
+      durationLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
+      durationWeight: 50,
+      transmissionRiskLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
+      transmissionRiskWeight: 50,
+    };
     // purposely setting 'region' to the default value of `CA` regardless of what the user selected.
     // this is only for the purpose of downloading the configuration file.
-    const region = 'CA';
-    const exposureConfigurationUrl = EN_CONFIG_URL
-      ? EN_CONFIG_URL
-      : `${this.retrieveUrl}/exposure-configuration/${region}.json`;
-    captureMessage('getExposureConfiguration', { exposureConfigurationUrl });
-    return (await fetch(exposureConfigurationUrl, FETCH_HEADERS)).json();
+    // const region = 'CA';
+    // const exposureConfigurationUrl = EN_CONFIG_URL
+    //   ? EN_CONFIG_URL
+    //   : `${this.retrieveUrl}/exposure-configuration/${region}.json`;
+    // captureMessage('getExposureConfiguration', {exposureConfigurationUrl});
+    // return (await fetch(exposureConfigurationUrl, FETCH_HEADERS)).json();
   }
 
   async claimOneTimeCode(oneTimeCode: string): Promise<SubmissionKeySet> {
@@ -170,7 +151,7 @@ export class BackendService implements BackendInterface {
 
   filterOldTEKs = async () => {
     const lastUploadedTekStartTime = Number(await AsyncStorage.getItem(LAST_UPLOADED_TEK_START_TIME));
-    captureMessage('lastUploadedTekStartTime', { lastUploadedTekStartTime });
+    captureMessage('lastUploadedTekStartTime', {lastUploadedTekStartTime});
     return (key: TemporaryExposureKey) => {
       if (!lastUploadedTekStartTime) {
         return true;
@@ -178,7 +159,7 @@ export class BackendService implements BackendInterface {
       if (key.rollingStartIntervalNumber > lastUploadedTekStartTime) {
         return true;
       }
-      captureMessage('keyTooOld', { keyTooOld: key });
+      captureMessage('keyTooOld', {keyTooOld: key});
       return false;
     };
   };
@@ -188,7 +169,7 @@ export class BackendService implements BackendInterface {
     _exposureKeys: TemporaryExposureKey[],
     contagiousDateInfo: ContagiousDateInfo,
   ) {
-    captureMessage('contagiousDateInfo', { contagiousDateInfo });
+    captureMessage('contagiousDateInfo', {contagiousDateInfo});
     const filteredExposureKeys = Object.values(
       _exposureKeys
         .filter(this.filterNonContagiousTEKs(contagiousDateInfo))
@@ -196,24 +177,24 @@ export class BackendService implements BackendInterface {
         .sort((first, second) => second.rollingStartIntervalNumber - first.rollingStartIntervalNumber),
     );
     const exposureKeys = filteredExposureKeys.slice(0, MAX_UPLOAD_KEYS);
-    captureMessage('keyPair', { keyPair });
+    captureMessage('keyPair', {keyPair});
     captureMessage('unfiltered exposureKeys', {
       unfilteredExposureKeys: _exposureKeys.map(x => {
-        const y: any = { ...x };
+        const y: any = {...x};
         y.startDate = new Date((x.rollingStartIntervalNumber * 1000 * 3600) / 6);
         return y;
       }),
     });
     captureMessage('filtered exposureKeys', {
       filteredExposureKeys: exposureKeys.map(x => {
-        const y: any = { ...x };
+        const y: any = {...x};
         y.startDate = new Date((x.rollingStartIntervalNumber * 1000 * 3600) / 6);
         return y;
       }),
     });
 
     const upload = covidshield.Upload.create({
-      timestamp: { seconds: Math.floor(getMillisSinceUTCEpoch() / 1000) },
+      timestamp: {seconds: Math.floor(getMillisSinceUTCEpoch() / 1000)},
       keys: exposureKeys.map(key =>
         covidshield.TemporaryExposureKey.create({
           keyData: Buffer.from(key.keyData, 'base64'),
@@ -252,8 +233,8 @@ export class BackendService implements BackendInterface {
     });
 
     const body = covidshield.KeyClaimRequest.encode(uploadPayload).finish();
-    console.log('url: ', this.submitUrl);
-    console.log('body: ', body);
+    // console.log('url: ', this.submitUrl);
+    // console.log('body: ', body);
     const response = await blobFetch(`${this.submitUrl}/claim-key`, 'POST', body);
     const keyClaimResponse = covidshield.KeyClaimResponse.decode(Buffer.from(response.buffer));
     if (response.error) {

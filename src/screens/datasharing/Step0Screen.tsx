@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import {Box, Text, Button, ButtonSingleLine} from 'components';
+import {Box, Text, Button} from 'components';
 import {useI18n} from 'locale';
 import {useNavigation} from '@react-navigation/native';
 
@@ -10,8 +10,6 @@ export const Step0Screen = () => {
   const i18n = useI18n();
   const navigation = useNavigation();
   const onNext = useCallback(() => navigation.navigate('FormView'), [navigation]);
-
-  const onNoCode = useCallback(() => navigation.navigate('NoCode'), [navigation]);
 
   return (
     <BaseDataSharingView showBackButton={false}>
@@ -40,14 +38,6 @@ export const Step0Screen = () => {
 
           <Box marginTop="m">
             <Button variant="thinFlat" text={i18n.translate('DataUpload.Step0.CTA')} onPress={onNext} />
-          </Box>
-          <Box alignSelf="stretch" marginTop="xl" marginBottom="l">
-            <ButtonSingleLine
-              text={i18n.translate('DataUpload.Step0.NoCode')}
-              variant="bigFlatNeutralGrey"
-              internalLink
-              onPress={onNoCode}
-            />
           </Box>
         </Box>
       </ScrollView>

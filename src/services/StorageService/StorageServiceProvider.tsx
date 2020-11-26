@@ -44,9 +44,6 @@ export const useStorage = () => {
     [storageService],
   );
 
-  const [region, setRegionInternal] = useState(storageService.region.get());
-  const setRegion = useMemo(() => storageService.setRegion, [storageService.setRegion]);
-
   const [onboardedDatetime, setOnboardedDatetimeInternal] = useState(storageService.onboardedDatetime.get());
   const setOnboardedDatetime = useMemo(() => storageService.setOnboardedDatetime, [
     storageService.setOnboardedDatetime,
@@ -60,7 +57,6 @@ export const useStorage = () => {
 
   useEffect(() => storageService.isOnboarding.observe(setIsOnboarding), [storageService.isOnboarding]);
   useEffect(() => storageService.locale.observe(setLocaleInternal), [storageService.locale]);
-  useEffect(() => storageService.region.observe(setRegionInternal), [storageService.region]);
   useEffect(() => storageService.onboardedDatetime.observe(setOnboardedDatetimeInternal), [
     storageService.onboardedDatetime,
   ]);
@@ -70,14 +66,13 @@ export const useStorage = () => {
   const reset = useCallback(async () => {
     setOnboarded(false);
     setLocale(getSystemLocale());
-    setRegion(undefined);
     setOnboardedDatetime(undefined);
     setSkipAllSet(false);
     await AsyncStorage.clear();
     if (__DEV__) {
       DevSettings.reload('Reset app');
     }
-  }, [setLocale, setOnboarded, setOnboardedDatetime, setRegion, setSkipAllSet]);
+  }, [setLocale, setOnboarded, setOnboardedDatetime, setSkipAllSet]);
 
   return useMemo(
     () => ({
@@ -85,8 +80,6 @@ export const useStorage = () => {
       setOnboarded,
       locale,
       setLocale,
-      region,
-      setRegion,
       onboardedDatetime,
       setOnboardedDatetime,
       forceScreen,
@@ -100,14 +93,12 @@ export const useStorage = () => {
       isOnboarding,
       locale,
       onboardedDatetime,
-      region,
       skipAllSet,
       reset,
       setForceScreen,
       setLocale,
       setOnboarded,
       setOnboardedDatetime,
-      setRegion,
       setSkipAllSet,
     ],
   );

@@ -1,11 +1,11 @@
-import React, { useCallback } from 'react';
-import { TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { useI18n } from 'locale';
-import { TEST_MODE } from 'env';
+import React, {useCallback} from 'react';
+import {TouchableWithoutFeedback} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {useI18n} from 'locale';
+import {TEST_MODE} from 'env';
 
-import { Box } from './Box';
-import { Icon } from './Icon';
+import {Box} from './Box';
+import {Icon} from './Icon';
 
 export interface HeaderProps {
   isOverlay?: boolean;

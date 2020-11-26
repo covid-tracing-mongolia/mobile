@@ -1,15 +1,15 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, {createContext, useCallback, useContext, useEffect, useMemo, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
-import { useI18nRef } from 'locale';
-import ExposureNotification, { Status as SystemStatus } from 'bridge/ExposureNotification';
-import { AppState, AppStateStatus, Platform } from 'react-native';
+import {useI18nRef} from 'locale';
+import ExposureNotification, {Status as SystemStatus} from 'bridge/ExposureNotification';
+import {AppState, AppStateStatus, Platform} from 'react-native';
 import RNSecureKeyStore from 'react-native-secure-key-store';
 import SystemSetting from 'react-native-system-setting';
-import { ContagiousDateInfo } from 'shared/DataSharing';
+import {ContagiousDateInfo} from 'shared/DataSharing';
 
-import { BackendInterface } from '../BackendService';
-import { BackgroundScheduler } from '../BackgroundSchedulerService';
-import { captureMessage } from '../../shared/log';
+import {BackendInterface} from '../BackendService';
+import {BackgroundScheduler} from '../BackgroundSchedulerService';
+import {captureMessage} from '../../shared/log';
 
 import {
   ExposureNotificationService,
@@ -165,14 +165,14 @@ export function useExposureNotificationSystemStatusAutomaticUpdater() {
     const locationListenerPromise =
       Platform.OS === 'android'
         ? SystemSetting.addLocationListener(() => {
-          exposureNotificationService.updateSystemStatus();
-        })
+            exposureNotificationService.updateSystemStatus();
+          })
         : undefined;
 
     return () => {
       AppState.removeEventListener('change', updateStatus);
-      bluetoothListenerPromise.then(listener => listener.remove()).catch(() => { });
-      locationListenerPromise?.then(listener => listener.remove()).catch(() => { });
+      bluetoothListenerPromise.then(listener => listener.remove()).catch(() => {});
+      locationListenerPromise?.then(listener => listener.remove()).catch(() => {});
     };
   }, [exposureNotificationService]);
 }

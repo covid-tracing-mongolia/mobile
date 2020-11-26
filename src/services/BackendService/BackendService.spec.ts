@@ -122,7 +122,7 @@ describe('BackendService', () => {
 
   describe('reportDiagnosisKeys', () => {
     it('returns last 28 keys if there is more than 28', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', undefined);
+      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
       const keys = generateRandomKeys(30);
       await backendService.reportDiagnosisKeys(
         {
@@ -149,7 +149,7 @@ describe('BackendService', () => {
     });
 
     it('throws if random generator is not available', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', undefined);
+      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
       const keys = generateRandomKeys(20);
       const submissionKeys = {
         clientPrivateKey: 'mock',
@@ -164,7 +164,7 @@ describe('BackendService', () => {
     });
 
     it('throws if backend returns an error', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', undefined);
+      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
       const keys = generateRandomKeys(20);
 
       blobFetch.mockImplementationOnce(() => ({
@@ -190,7 +190,7 @@ describe('BackendService', () => {
     });
 
     it('throws a code unknown error if decode does not resolve', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', undefined);
+      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
       const keys = generateRandomKeys(20);
 
       blobFetch.mockImplementationOnce(() => ({
@@ -246,7 +246,7 @@ describe('BackendService', () => {
     });
 
     it('does not upload TEKs with timestamps before the LAST_UPLOADED_TEK_START_TIME, saves new most recent time', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', undefined);
+      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
       const keys = generateRandomKeys(10);
       AsyncStorage.getItem.mockReturnValueOnce(keys[1].rollingStartIntervalNumber.toString());
 
@@ -284,7 +284,7 @@ describe('BackendService', () => {
     });
 
     it('returns keys file for set period', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', undefined);
+      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
 
       await backendService.retrieveDiagnosisKeys(18457);
 
@@ -294,7 +294,7 @@ describe('BackendService', () => {
     });
 
     it('returns keys file for 14 days if period is 0', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', undefined);
+      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
 
       await backendService.retrieveDiagnosisKeys(0);
 
@@ -308,7 +308,7 @@ describe('BackendService', () => {
     let backendService;
 
     beforeEach(() => {
-      backendService = new BackendService('http://localhost', 'https://localhost', 'mock', 'region');
+      backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
       const bytes = new Uint8Array(34);
       nacl.box.keyPair = () => ({publicKey: bytes, secretKey: bytes});
       covidshield.KeyClaimResponse.decode.mockImplementation(() => ({
@@ -348,150 +348,8 @@ describe('BackendService', () => {
     });
   });
 
-  describe('getExposureConfiguration', () => {
-    it('retrieves configuration from backend', async () => {
-      const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', 'region');
-
-      // eslint-disable-next-line no-global-assign
-      fetch = jest.fn(() => Promise.resolve({json: () => ({})}));
-
-      await backendService.getExposureConfiguration();
-      const anticipatedURL = 'http://localhost/exposure-configuration/CA.json';
-      expect(fetch).toHaveBeenCalledWith(anticipatedURL, {headers: {'Cache-Control': 'no-store'}});
-    });
-  });
-
-  describe('getRegionContentUrl', () => {
-    const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', 'region');
-
-    it('returns REGION_JSON_URL if it is not false or undefined', () => {
-      envs.REGION_JSON_URL = 'foo';
-      expect(backendService.getRegionContentUrl()).toStrictEqual(envs.REGION_JSON_URL);
-    });
-
-    it('returns a composite URL if REGION_JSON_URL is undefined', () => {
-      envs.REGION_JSON_URL = undefined;
-      expect(backendService.getRegionContentUrl()).toStrictEqual(`http://localhost/exposure-configuration/region.json`);
-    });
-
-    it('returns a composite URL if REGION_JSON_URL is false', () => {
-      envs.REGION_JSON_URL = false;
-      expect(backendService.getRegionContentUrl()).toStrictEqual(`http://localhost/exposure-configuration/region.json`);
-    });
-  });
-
-  describe('isValidRegionContent', () => {
-    const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', 'region');
-
-    it('returns true if content.status is 200 and payload is valid', () => {
-      jest.spyOn(JsonSchemaValidator.prototype, 'validateJson').mockImplementation(() => true);
-      const content = {status: 200, payload: null};
-      const result = backendService.isValidRegionContent(content);
-      expect(result).toStrictEqual(true);
-      expect(JsonSchemaValidator.prototype.validateJson).toHaveBeenCalled();
-    });
-
-    it('returns true if content.status is 304 and payload is valid', () => {
-      jest.spyOn(JsonSchemaValidator.prototype, 'validateJson').mockImplementation(() => true);
-      const content = {status: 304, payload: null};
-      const result = backendService.isValidRegionContent(content);
-      expect(result).toStrictEqual(true);
-      expect(JsonSchemaValidator.prototype.validateJson).toHaveBeenCalled();
-    });
-
-    it('throws error if content.status is not 200 or 304', () => {
-      const content = {status: 400, payload: null};
-      expect(() => {
-        backendService.isValidRegionContent(content);
-      }).toThrow("Region content didn't validate");
-    });
-
-    it('throws error if content.status is valid but they payload is not', () => {
-      jest
-        .spyOn(JsonSchemaValidator.prototype, 'validateJson')
-        .mockImplementation()
-        .mockImplementationOnce(() => {
-          // eslint-disable-next-line no-template-curly-in-string
-          throw new Error('Invalid JSON. ${validatorResult.errors.toString()}');
-        });
-      const content = {status: 200, payload: null};
-      expect(() => {
-        backendService.isValidRegionContent(content);
-        // eslint-disable-next-line no-template-curly-in-string
-      }).toThrow('Invalid JSON. ${validatorResult.errors.toString()}');
-    });
-  });
-
-  describe('getStoredRegionContent', () => {
-    const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', 'region');
-
-    it('returns {status: 400, payload: null} if there is not storage item', async () => {
-      const result = await backendService.getStoredRegionContent();
-      expect(AsyncStorage.getItem).toHaveBeenCalledWith('http://localhost/exposure-configuration/region.json');
-      expect(result).toStrictEqual({status: 400, payload: null});
-    });
-
-    it('returns {status: 200, payload: content} if there is a storage item', async () => {
-      const key = 'http://localhost/exposure-configuration/region.json';
-      const payload = {foo: 'bar'};
-      AsyncStorage.getItem.mockReturnValue(JSON.stringify(payload));
-      const result = await backendService.getStoredRegionContent();
-      expect(AsyncStorage.getItem).toHaveBeenCalledWith(key);
-      expect(result).toStrictEqual({status: 200, payload});
-    });
-  });
-
-  describe('getRegionContent', () => {
-    const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', 'region');
-
-    it('returns stored content if fetch throws an error', async () => {
-      // eslint-disable-next-line no-global-assign
-      fetch = jest.fn().mockImplementation(() => {
-        throw new Error('fetch');
-      });
-
-      const call = jest.spyOn(backendService, 'getStoredRegionContent');
-
-      await backendService.getRegionContent();
-      expect(captureMessage).toHaveBeenCalledWith('getRegionContent - fetch error', {err: 'fetch'});
-      expect(backendService.getStoredRegionContent).toHaveBeenCalled();
-      call.mockReset();
-    });
-
-    it('returns stored content if isValidRegionContent throws an error', async () => {
-      // eslint-disable-next-line no-global-assign
-      fetch = jest.fn(() => Promise.resolve({json: () => ({})}));
-
-      const spy = jest.spyOn(backendService, 'isValidRegionContent').mockImplementation(() => {
-        throw new Error('isValidRegionContent');
-      });
-      const call = jest.spyOn(backendService, 'getStoredRegionContent');
-
-      await backendService.getRegionContent();
-      expect(captureMessage).toHaveBeenCalledWith('getRegionContent - fetch error', {err: 'isValidRegionContent'});
-      expect(backendService.getStoredRegionContent).toHaveBeenCalled();
-
-      spy.mockReset();
-      call.mockReset();
-    });
-
-    it('saves the content to AsyncStorage and returns it as {status: 200, payload}', async () => {
-      const payload = {foo: 'bar'};
-      // eslint-disable-next-line no-global-assign
-      fetch = jest.fn(() => Promise.resolve({json: () => payload}));
-      const spy = jest.spyOn(backendService, 'isValidRegionContent').mockImplementation(() => true);
-
-      expect(await backendService.getRegionContent()).toStrictEqual({status: 200, payload});
-      expect(AsyncStorage.setItem).toHaveBeenCalledWith(
-        'http://localhost/exposure-configuration/region.json',
-        JSON.stringify(payload),
-      );
-
-      spy.mockReset();
-    });
-  });
   describe('filterNonContagiousTEKs', () => {
-    const backendService = new BackendService('http://localhost', 'https://localhost', 'mock', 'region');
+    const backendService = new BackendService('http://localhost', 'https://localhost', 'mock');
 
     it('does not filter out TEKs if no date is provided', async () => {
       const contagiousDateInfo: ContagiousDateInfo = {
