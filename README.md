@@ -8,7 +8,7 @@ Apache 2.0 лицензийн дагуу доорх нээлттэй эхийн 
 Энэхүү репо нь Apple болон Google компаниудаас гаргасан [Exposure Notification API](https://www.apple.com/covid19/contacttracing) технологийн дагуу хэрэглэгчдэд хэрэглүүлэх, React Native технологи дээр суурилсан гар утасны шийдэл юм.
 
 - [Ерөнхий](#Ерөнхий)
-- [Хөгжүүлэлтийн Орчинд](#lХөгжүүлэлтийн-Орчинд)
+- [Хөгжүүлэлтийн Орчинд](#Хөгжүүлэлтийн-Орчинд)
 - [Өөрчлөлт Оруулах](#Өөрчлөлт-Оруулах)
 - [Орчуулга](#Орчуулга)
 
@@ -62,7 +62,7 @@ React Native технологи дээр суурилсан учир нэн тү
 #### 1. Репог хуулж авах
 
 ```bash
-git clone git@github.com:cds-snc/covid-shield-mobile.git
+git clone git@github.com:covid-tracing-mongolia/mobile.git
 ```
 
 #### 2. Dependencies суулгах
@@ -153,7 +153,7 @@ yarn generate-translations
 
 1. [src/locale/translations/](./src/locale/translations/) дотор шинэ i18n файл нэмж үүсгэх.
 2. Шинээр `pt` гэсэн сонголт [translations.js](./translations.js) дотор нэмж өгнө.
-3. `yarn generate-translations` комманд ажиллуулж шинэ орчуулгыг  апп-руу оруулна.
+3. `yarn generate-translations` комманд ажиллуулж шинэ орчуулгыг апп-руу оруулна.
 4. [src/components/LanguageToggle.tsx](./src/components/LanguageToggle.tsx) дотор шинэ хэлний сонголтыг нэмнэ.
 5. [src/screens/language/Language.tsx](./src/screens/language/Language.tsx) дотор шинэ хэлний сонголтыг нэмнэ.
 6. Xcode доторх `Localizations` гэсэн тохиргоонд шинэ сонголтыг нэмнэ (Project -> CovidShield -> Info tab -> Localizations) and make sure `Launch Screen.storyboard` is checked.
@@ -165,7 +165,7 @@ yarn generate-translations
 
 ## COVID Tracing Mongolia-г хэн хөгжүүлсэн бэ?
 
-COVID Tracing Mongolia нь [CovidShield]((https://www.covidshield.app/)) гэсэн нээлттэй эхийн (Apache 2.0 License) төсөл дээр үндэслэн хийсэн төсөл юм. CovidShield төслийг Канада-д төвтэй Shopify компанийн сайн дурын инженерүүд зохион бүтээж, хөгжүүлсэн байдаг. COVID Tracing Mongolia-г Цар Тахалтай тэмцэж байгаа өнөө үед технологийн салбарт олон жил ажилласаны хувьд улсдаа чадах зүйлээрээ хувь нэмрээ оруулах үүднээс сайн дурын, Монгол мэргэжилтнүүд хөгжүүлсэн юм.
+COVID Tracing Mongolia нь [CovidShield](<(https://www.covidshield.app/)>) гэсэн нээлттэй эхийн (Apache 2.0 License) төсөл дээр үндэслэн хийсэн төсөл юм. CovidShield төслийг Канада-д төвтэй Shopify компанийн сайн дурын инженерүүд зохион бүтээж, хөгжүүлсэн байдаг. COVID Tracing Mongolia-г Цар Тахалтай тэмцэж байгаа өнөө үед технологийн салбарт олон жил ажилласаны хувьд улсдаа чадах зүйлээрээ хувь нэмрээ оруулах үүднээс сайн дурын, Монгол мэргэжилтнүүд хөгжүүлсэн юм.
 
 Холбоо барих хүсэлтэй бол: amarbayar.amarsanaa@gmail.com гэсэн хаягаар холбогдоорой.
 
@@ -211,7 +211,7 @@ ERROR:  Loading command: install (LoadError)
 ERROR:  While executing gem ... (NoMethodError)
 ```
 
-Таний хөгжүүлэлтийн орчинд суулгасан байгаа Ruby нь OpenSSL байхгүй хувилбар байна гэсэн үг. Тэгэхээр OpenSSL тэй Ruby суулгавал болно гэсэн үг. :
+Таны хөгжүүлэлтийн орчинд суулгасан байгаа Ruby нь OpenSSL байхгүй хувилбар байна гэсэн үг. Тэгэхээр OpenSSL тэй Ruby суулгавал болно гэсэн үг. :
 
 1. rvm эсвэл rbenv суулгаад: https://rvm.io/
 1. Доорх коммандыг ажиллуулна. Багагүй хугацаа зарцуулж магадгүй учир тэвчээртэй байхыг хүсье.
@@ -225,6 +225,7 @@ rvm reinstall 2.6.5 --with-openssl-dir=/usr/local/opt/openssl
 ## License
 
 ### Apache License 2.0
+
 covid-tracing-mongolia/mobile is licensed under the Apache License 2.0. A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
 ---

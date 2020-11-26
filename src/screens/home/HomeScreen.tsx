@@ -13,12 +13,9 @@ import {
   useSystemStatus,
 } from 'services/ExposureNotificationService';
 import {useStorage} from 'services/StorageService';
-import {getRegionCase} from 'shared/RegionLogic';
 import {usePrevious} from 'shared/usePrevious';
-import {useRegionalI18n} from 'locale';
 
 import {useExposureNotificationSystemStatusAutomaticUpdater} from '../../services/ExposureNotificationService';
-import {RegionCase} from '../../shared/Region';
 
 import {BluetoothDisabledView} from './views/BluetoothDisabledView';
 import {CollapsedOverlayView} from './views/CollapsedOverlayView';
@@ -27,8 +24,6 @@ import {DiagnosedView} from './views/DiagnosedView';
 import {ExposureNotificationsDisabledView} from './views/ExposureNotificationsDisabledView';
 import {ExposureNotificationsUnauthorizedView} from './views/ExposureNotificationsUnauthorizedView';
 import {ExposureView} from './views/ExposureView';
-import {NoExposureUncoveredRegionView} from './views/NoExposureUncoveredRegionView';
-import {NoExposureCoveredRegionView} from './views/NoExposureCoveredRegionView';
 import {NoExposureNoRegionView} from './views/NoExposureNoRegionView';
 import {NetworkDisabledView} from './views/NetworkDisabledView';
 import {OverlayView} from './views/OverlayView';
@@ -45,9 +40,6 @@ interface ContentProps {
 }
 
 const Content = ({isBottomSheetExpanded}: ContentProps) => {
-  const {region} = useStorage();
-  const regionalI18n = useRegionalI18n();
-  const regionCase = getRegionCase(region, regionalI18n.activeRegions);
   const exposureStatus = useExposureStatus();
   const [systemStatus] = useSystemStatus();
   const [, turnNotificationsOn] = useNotificationPermissionStatus();
@@ -57,15 +49,8 @@ const Content = ({isBottomSheetExpanded}: ContentProps) => {
 
   const network = useNetInfo();
 
-  const getNoExposureView = (_regionCase: RegionCase) => {
-    switch (_regionCase) {
-      case 'noRegionSet':
-        return <NoExposureNoRegionView isBottomSheetExpanded={isBottomSheetExpanded} />;
-      case 'regionActive':
-        return <NoExposureCoveredRegionView isBottomSheetExpanded={isBottomSheetExpanded} />;
-      case 'regionNotActive':
-        return <NoExposureUncoveredRegionView isBottomSheetExpanded={isBottomSheetExpanded} />;
-    }
+  const getNoExposureView = () => {
+    return <NoExposureNoRegionView isBottomSheetExpanded={isBottomSheetExpanded} />;
   };
 
   // this is for the test menu
@@ -73,7 +58,7 @@ const Content = ({isBottomSheetExpanded}: ContentProps) => {
   if (TEST_MODE) {
     switch (forceScreen) {
       case 'NoExposureView':
-        return getNoExposureView(regionCase);
+        return getNoExposureView();
       case 'ExposureView':
         return <ExposureView isBottomSheetExpanded={isBottomSheetExpanded} />;
       case 'DiagnosedShareView':
@@ -87,7 +72,7 @@ const Content = ({isBottomSheetExpanded}: ContentProps) => {
 
   switch (systemStatus) {
     case SystemStatus.Undefined:
-      return null;
+      return <UnknownProblemView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.Unauthorized:
       return <ExposureNotificationsUnauthorizedView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.Disabled:
@@ -120,7 +105,7 @@ const Content = ({isBottomSheetExpanded}: ContentProps) => {
         case SystemStatus.LocationOff:
           return <LocationOffView isBottomSheetExpanded={isBottomSheetExpanded} />;
         case SystemStatus.Active:
-          return getNoExposureView(regionCase);
+          return getNoExposureView();
         default:
           return <UnknownProblemView isBottomSheetExpanded={isBottomSheetExpanded} />;
       }
