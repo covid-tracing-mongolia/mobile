@@ -19,7 +19,7 @@ module.exports = {
     'import/no-named-as-default': 'off',
     '@shopify/images-no-direct-imports': 'off',
     '@shopify/jest/no-snapshots': 'off',
-    'no-console': 'error',
+    'no-console': 'warn',
     camelcase: 'off',
     'no-extend-native': 'off',
     'max-params': 'off',
