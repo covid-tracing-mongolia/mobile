@@ -149,21 +149,6 @@ describe('date-fns', () => {
     });
   });
 
-  // formatExposedDate
-  // TODO: fix this test
-  // describe('formatExposedDate', () => {
-  //   it('returns formatted date for en', () => {
-  //     const dateFormatOptions = {
-  //       month: 'short',
-  //       day: 'numeric',
-  //       year: 'numeric',
-  //     };
-  //     // en-CA
-  //     const enStr = new Date(1605814310000).toLocaleString('en-CA', dateFormatOptions);
-  //     expect(formatExposedDate('en-CA', enStr)).toStrictEqual('Nov.\u00a019,\u00a02020');
-  //   });
-  // });
-
   describe('getUploadDaysLeft', () => {
     const now = getCurrentDate();
 
