@@ -20,6 +20,8 @@ module.exports = {
     '@shopify/images-no-direct-imports': 'off',
     '@shopify/jest/no-snapshots': 'off',
     'no-console': 'warn',
+    'eslint-comments/no-unlimited-disable': 'warn',
+    'eslint-comments/no-unused-disable': 'warn',
     camelcase: 'off',
     'no-extend-native': 'off',
     'max-params': 'off',
