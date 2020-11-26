@@ -72,7 +72,7 @@ const Content = ({isBottomSheetExpanded}: ContentProps) => {
 
   switch (systemStatus) {
     case SystemStatus.Undefined:
-      return null;
+      return <UnknownProblemView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.Unauthorized:
       return <ExposureNotificationsUnauthorizedView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.Disabled:
