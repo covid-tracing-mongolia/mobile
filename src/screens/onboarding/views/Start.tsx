@@ -10,7 +10,7 @@ export const Start = (props: Pick<ItemViewProps, 'isActive'>) => {
   return (
     <ItemView
       {...props}
-      image={require('assets/onboarding-start.png')}
+      image={require('assets/onboarding/start.png')}
       altText={i18n.translate('Onboarding.Start.ImageAltText')}
       header={i18n.translate('Onboarding.Start.Title')}
       item="step-1"
