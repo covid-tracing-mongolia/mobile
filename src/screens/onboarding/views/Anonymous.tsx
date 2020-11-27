@@ -12,7 +12,7 @@ export const Anonymous = (props: Pick<ItemViewProps, 'isActive'>) => {
   return (
     <ItemView
       {...props}
-      image={require('assets/onboarding-nogps.png')}
+      image={require('assets/onboarding/info-security.png')}
       altText={i18n.translate('Onboarding.Anonymous.ImageAltText')}
       header={i18n.translate('Onboarding.Anonymous.Title')}
       item="step-2"
