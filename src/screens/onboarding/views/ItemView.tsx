@@ -28,7 +28,7 @@ export const ItemView = ({item, image, isActive, altText, header, children}: Ite
         {[i18n.translate('Onboarding.Of'), onboardingData.length].join(' ')}
       </Text>
       {image ? (
-        <Box marginHorizontal="-m" marginTop="s" marginBottom="l" borderBottomWidth={2} borderBottomColor="gray5">
+        <Box marginTop="s" marginBottom="l">
           <Image accessible style={styles.image} source={image} accessibilityLabel={altText} />
         </Box>
       ) : null}
@@ -44,7 +44,7 @@ export const ItemView = ({item, image, isActive, altText, header, children}: Ite
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 168,
+    height: 178,
     resizeMode: 'contain',
     alignSelf: 'center',
   },
