@@ -10,7 +10,7 @@ export const PartOf = (props: Pick<ItemViewProps, 'isActive'>) => {
   return (
     <ItemView
       {...props}
-      image={require('assets/onboarding-partof.png')}
+      image={require('assets/onboarding/part-of.png')}
       altText={i18n.translate('Onboarding.PartOf.ImageAltText')}
       header={i18n.translate('Onboarding.PartOf.Title')}
       item="step-4"
