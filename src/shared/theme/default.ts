@@ -1,6 +1,5 @@
 export const palette = {
   brandBlue: '#26374A',
-  linkBlue: '#2B4380',
   bodyBlack: '#000000',
   bodySubdued: '#5B5B5B',
   greenBright: '#A4DE82',
@@ -49,6 +48,9 @@ export const palette = {
 
   textColorDark: '#142E63',
   textColorLight: '#677694',
+
+  // Old color: #2B4380
+  linkBlue: '#0055FF',
 };
 
 const theme = {
@@ -384,6 +386,16 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 16,
       borderWidth: undefined,
+      disabled: {},
+    },
+    // New button variants
+    bigFlatLink: {
+      color: palette.linkBlue,
+      textColor: palette.white,
+      height: 52,
+      fontFamily: 'URW Geometric',
+      fontSize: 16,
+      borderBottomWidth: undefined,
       disabled: {},
     },
   },
