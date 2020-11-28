@@ -284,9 +284,9 @@ const theme = {
       },
     },
     thinFlatBlue: {
-      color: palette.neutralGrey,
+      color: palette.info100,
       height: 52,
-      textColor: palette.black,
+      textColor: palette.white,
       fontFamily: 'URW Geometric',
       fontSize: 20,
       borderBottomWidth: 4,

@@ -15,11 +15,12 @@ export const ExposedHelpButton = () => {
   return (
     <Box alignSelf="stretch" marginTop="s" marginBottom="m">
       <ButtonSingleLine
-        text="Find out if you need to be tested"
-        variant="bigFlatPurple"
+        text="Тусламж авах"
+        variant="thinFlatBlue"
         externalLink
         onPress={onPress}
       />
+
     </Box>
   );
 };

@@ -78,8 +78,8 @@ const Content = ({ isBottomSheetExpanded }: ContentProps) => {
       return <ExposureNotificationsUnauthorizedView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.Disabled:
     case SystemStatus.Restricted:
-      //return <ExposureView isBottomSheetExpanded={isBottomSheetExpanded} />;
-      return <ExposureNotificationsDisabledView isBottomSheetExpanded={isBottomSheetExpanded} />;
+      return <ExposureView isBottomSheetExpanded={isBottomSheetExpanded} />;
+    //return <ExposureNotificationsDisabledView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.PlayServicesNotAvailable:
       return <FrameworkUnavailableView isBottomSheetExpanded={isBottomSheetExpanded} />;
   }
