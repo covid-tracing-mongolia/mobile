@@ -18,7 +18,7 @@ export const ItemView = ({item, image, isActive}: ItemViewProps) => {
 
   return (
     <>
-      <Box marginHorizontal="-m" marginTop="s" marginBottom="l" borderBottomWidth={2} borderBottomColor="gray5">
+      <Box marginHorizontal="-m" marginTop="s" marginBottom="l">
         <Image
           accessible
           ref={autoFocusRef}
