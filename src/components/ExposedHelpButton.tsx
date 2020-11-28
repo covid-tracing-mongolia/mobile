@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
-import { Box, ButtonSingleLine } from 'components';
-import { Linking } from 'react-native';
-import { captureException } from 'shared/log';
+import React, {useCallback} from 'react';
+import {Box, ButtonSingleLine} from 'components';
+import {Linking} from 'react-native';
+import {captureException} from 'shared/log';
 
 export const ExposedHelpButton = () => {
   const onPress = useCallback(() => {
@@ -14,13 +14,7 @@ export const ExposedHelpButton = () => {
 
   return (
     <Box alignSelf="stretch" marginTop="s" marginBottom="m">
-      <ButtonSingleLine
-        text="Тусламж авах"
-        variant="thinFlatBlue"
-        externalLink
-        onPress={onPress}
-      />
-
+      <ButtonSingleLine text="Тусламж авах" variant="thinFlatBlue" externalLink onPress={onPress} />
     </Box>
   );
 };

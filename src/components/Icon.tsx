@@ -53,7 +53,8 @@ import PurpleBullet from 'assets/purple-bullet.svg';
 import HeaderLogo from 'assets/header-logo.svg';
 import ErrorIcon from 'assets/error-icon.svg';
 import DisabledIcon from 'assets/icon-disabled.svg';
-import ContactImage from 'assets/contact-image.svg'
+import ContactImage from 'assets/contact-image.svg';
+
 const ICONS = {
   'icon-x': IconX,
   'icon-back-arrow': IconBackArrow,
@@ -122,7 +123,7 @@ export interface IconProps {
   height?: number;
 }
 
-export const Icon = ({ name, size = 24, width, height }: IconProps) => {
+export const Icon = ({name, size = 24, width, height}: IconProps) => {
   const IconImpl = name !== undefined ? ICONS[name] : null; // eslint-disable-line no-negated-condition
   return IconImpl ? <IconImpl width={width ? width : size} height={height ? height : size} /> : null;
 };

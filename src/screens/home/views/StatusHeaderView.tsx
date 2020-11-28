@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Icon, Text } from 'components';
-import { useI18n } from 'locale';
+import {Box, Icon, Text} from 'components';
+import {useI18n} from 'locale';
 
 interface Props {
   enabled: boolean;
 }
-export const StatusHeaderView = ({ enabled }: Props) => {
+export const StatusHeaderView = ({enabled}: Props) => {
   const i18n = useI18n();
   const color = enabled ? 'statusSuccess' : 'statusError';
   return (

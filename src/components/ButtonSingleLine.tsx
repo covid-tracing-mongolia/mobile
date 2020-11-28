@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '@shopify/restyle';
+import {useTheme} from '@shopify/restyle';
 import {
   Platform,
   StyleSheet,
@@ -9,13 +9,13 @@ import {
   ActivityIndicator,
   AccessibilityRole,
 } from 'react-native';
-import { Theme, palette } from 'shared/theme';
-import { useI18n } from 'locale';
+import {Theme, palette} from 'shared/theme';
+import {useI18n} from 'locale';
 
-import { Box, BoxProps } from './Box';
-import { Icon, IconName } from './Icon';
-import { Text } from './Text';
-import { Ripple } from './Ripple';
+import {Box, BoxProps} from './Box';
+import {Icon, IconName} from './Icon';
+import {Text} from './Text';
+import {Ripple} from './Ripple';
 
 export interface ButtonSingleLineProps {
   text?: string;
@@ -46,19 +46,19 @@ export const ButtonSingleLine = ({
   const theme = useTheme<Theme>();
   const variantProps = theme.buttonVariants[variant];
   const disabledProps = disabled ? variantProps.disabled || {} : {};
-  const themedStyles = { ...variantProps, ...disabledProps };
-  const { color, borderWidth, height, borderBottomWidth, borderBottomColor } = (themedStyles as unknown) as TextStyle &
+  const themedStyles = {...variantProps, ...disabledProps};
+  const {color, borderWidth, height, borderBottomWidth, borderBottomColor} = (themedStyles as unknown) as TextStyle &
     ViewStyle;
   const textColor = themedStyles.textColor;
   const buttonColor = buttonColorName && theme.colors[buttonColorName];
 
-  const onPressHandler = loading ? () => { } : onPress;
+  const onPressHandler = loading ? () => {} : onPress;
   const externalLinkProps = externalLink
     ? {
-      accessibilityLabel: text,
-      accessibilityHint: i18n.translate('Home.ExternalLinkHint'),
-      accessibilityRole: 'link' as AccessibilityRole,
-    }
+        accessibilityLabel: text,
+        accessibilityHint: i18n.translate('Home.ExternalLinkHint'),
+        accessibilityRole: 'link' as AccessibilityRole,
+      }
     : {};
   const externalArrowIcon = 'icon-external-arrow-light';
   const borderRadius = 13;
@@ -93,44 +93,44 @@ export const ButtonSingleLine = ({
       {loading ? (
         <ActivityIndicator color={textColor} size="large" />
       ) : (
-          <Box flexDirection="row-reverse" alignItems="flex-start" justifyContent="flex-start">
-            {externalLink && (
-              <Box flex={0} style={{ ...styles.iconOffsetExternal }}>
-                <Icon name={externalArrowIcon} size={23} />
-              </Box>
-            )}
-            {internalLink && (
-              <Box flex={0} style={{ ...styles.iconOffsetChevron }}>
-                <Icon size={25} name="icon-chevron-white" />
-              </Box>
-            )}
-            {iconName && (
-              <Box flex={0} style={{ ...styles.iconOffsetChevron }}>
-                <Icon size={25} name={iconName} />
-              </Box>
-            )}
-            <Box flex={1} marginLeft="s" alignItems="flex-start" justifyContent="flex-end">
-              <Text
-                variant="menuItemTitle"
-                style={{
-                  ...styles.content,
-                  color: textColor || buttonColor,
-                  fontWeight: 'bold',
-                  fontSize: 18,
-                  lineHeight: 29,
-                }}
-              >
-                {text}
-              </Text>
+        <Box flexDirection="row-reverse" alignItems="flex-start" justifyContent="flex-start">
+          {externalLink && (
+            <Box flex={0} style={{...styles.iconOffsetExternal}}>
+              <Icon name={externalArrowIcon} size={23} />
             </Box>
+          )}
+          {internalLink && (
+            <Box flex={0} style={{...styles.iconOffsetChevron}}>
+              <Icon size={25} name="icon-chevron-white" />
+            </Box>
+          )}
+          {iconName && (
+            <Box flex={0} style={{...styles.iconOffsetChevron}}>
+              <Icon size={25} name={iconName} />
+            </Box>
+          )}
+          <Box flex={1} marginLeft="s" alignItems="flex-start" justifyContent="flex-end">
+            <Text
+              variant="menuItemTitle"
+              style={{
+                ...styles.content,
+                color: textColor || buttonColor,
+                fontWeight: 'bold',
+                fontSize: 18,
+                lineHeight: 29,
+              }}
+            >
+              {text}
+            </Text>
           </Box>
-        )}
+        </Box>
+      )}
     </Box>
   );
 
   const accessibilityProps = {
     accessibilityRole: 'button' as 'button',
-    accessibilityState: { disabled },
+    accessibilityState: {disabled},
     ...externalLinkProps,
   };
 
@@ -147,17 +147,17 @@ export const ButtonSingleLine = ({
         {content}
       </TouchableOpacity>
     ) : (
-        <Ripple
-          disabled={disabled}
-          onPress={onPressHandler}
-          backgroundColor={color}
-          borderRadius={borderRadius}
-          testID={testID}
-          {...accessibilityProps}
-        >
-          {content}
-        </Ripple>
-      );
+      <Ripple
+        disabled={disabled}
+        onPress={onPressHandler}
+        backgroundColor={color}
+        borderRadius={borderRadius}
+        testID={testID}
+        {...accessibilityProps}
+      >
+        {content}
+      </Ripple>
+    );
   }
   return (
     <TouchableOpacity

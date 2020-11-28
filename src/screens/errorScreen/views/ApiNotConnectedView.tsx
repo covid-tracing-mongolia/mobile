@@ -1,9 +1,9 @@
-import { useI18n } from 'locale';
-import { Text, TextMultiline } from 'components';
+import {useI18n} from 'locale';
+import {Text, TextMultiline} from 'components';
 import React from 'react';
-import { useAccessibilityAutoFocus } from 'shared/useAccessibilityAutoFocus';
+import {useAccessibilityAutoFocus} from 'shared/useAccessibilityAutoFocus';
 
-import { BaseErrorView } from '../components/BaseErrorView';
+import {BaseErrorView} from '../components/BaseErrorView';
 
 export const ApiNotConnectedView = () => {
   const i18n = useI18n();

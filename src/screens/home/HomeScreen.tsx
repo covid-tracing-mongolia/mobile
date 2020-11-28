@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useState, useRef, useLayoutEffect } from 'react';
-import { useNetInfo } from '@react-native-community/netinfo';
-import { useNavigation } from '@react-navigation/native';
-import { BottomSheet, BottomSheetBehavior, Box, Header } from 'components';
-import { DevSettings, Linking, Animated, StyleSheet } from 'react-native';
-import { TEST_MODE } from 'env';
+import React, {useCallback, useEffect, useState, useRef, useLayoutEffect} from 'react';
+import {useNetInfo} from '@react-native-community/netinfo';
+import {useNavigation} from '@react-navigation/native';
+import {BottomSheet, BottomSheetBehavior, Box, Header} from 'components';
+import {DevSettings, Linking, Animated, View, StyleSheet} from 'react-native';
+import {TEST_MODE} from 'env';
 import {
   ExposureStatusType,
   SystemStatus,
@@ -12,35 +12,35 @@ import {
   useStartExposureNotificationService,
   useSystemStatus,
 } from 'services/ExposureNotificationService';
-import { useStorage } from 'services/StorageService';
-import { usePrevious } from 'shared/usePrevious';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {useStorage} from 'services/StorageService';
+import {usePrevious} from 'shared/usePrevious';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
-import { useExposureNotificationSystemStatusAutomaticUpdater } from '../../services/ExposureNotificationService';
+import {useExposureNotificationSystemStatusAutomaticUpdater} from '../../services/ExposureNotificationService';
 
-import { BluetoothDisabledView } from './views/BluetoothDisabledView';
-import { CollapsedOverlayView } from './views/CollapsedOverlayView';
-import { DiagnosedShareView } from './views/DiagnosedShareView';
-import { DiagnosedView } from './views/DiagnosedView';
-import { ExposureNotificationsDisabledView } from './views/ExposureNotificationsDisabledView';
-import { ExposureNotificationsUnauthorizedView } from './views/ExposureNotificationsUnauthorizedView';
-import { ExposureView } from './views/ExposureView';
-import { NoExposureNoRegionView } from './views/NoExposureNoRegionView';
-import { NetworkDisabledView } from './views/NetworkDisabledView';
-import { OverlayView } from './views/OverlayView';
-import { FrameworkUnavailableView } from './views/FrameworkUnavailableView';
-import { UnknownProblemView } from './views/UnknownProblemView';
+import {BluetoothDisabledView} from './views/BluetoothDisabledView';
+import {CollapsedOverlayView} from './views/CollapsedOverlayView';
+import {DiagnosedShareView} from './views/DiagnosedShareView';
+import {DiagnosedView} from './views/DiagnosedView';
+import {ExposureNotificationsDisabledView} from './views/ExposureNotificationsDisabledView';
+import {ExposureNotificationsUnauthorizedView} from './views/ExposureNotificationsUnauthorizedView';
+import {ExposureView} from './views/ExposureView';
+import {NoExposureNoRegionView} from './views/NoExposureNoRegionView';
+import {NetworkDisabledView} from './views/NetworkDisabledView';
+import {OverlayView} from './views/OverlayView';
+import {FrameworkUnavailableView} from './views/FrameworkUnavailableView';
+import {UnknownProblemView} from './views/UnknownProblemView';
 import {
   useNotificationPermissionStatus,
   NotificationPermissionStatusProvider,
 } from './components/NotificationPermissionStatus';
-import { LocationOffView } from './views/LocationOffView';
+import {LocationOffView} from './views/LocationOffView';
 
 interface ContentProps {
   isBottomSheetExpanded: boolean;
 }
 
-const Content = ({ isBottomSheetExpanded }: ContentProps) => {
+const Content = ({isBottomSheetExpanded}: ContentProps) => {
   const exposureStatus = useExposureStatus();
   const [systemStatus] = useSystemStatus();
   const [, turnNotificationsOn] = useNotificationPermissionStatus();
@@ -55,7 +55,7 @@ const Content = ({ isBottomSheetExpanded }: ContentProps) => {
   };
 
   // this is for the test menu
-  const { forceScreen } = useStorage();
+  const {forceScreen} = useStorage();
   if (TEST_MODE) {
     switch (forceScreen) {
       case 'NoExposureView':
@@ -78,7 +78,6 @@ const Content = ({ isBottomSheetExpanded }: ContentProps) => {
       return <ExposureNotificationsUnauthorizedView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.Disabled:
     case SystemStatus.Restricted:
-      //return <ExposureView isBottomSheetExpanded={isBottomSheetExpanded} />;
       return <ExposureNotificationsDisabledView isBottomSheetExpanded={isBottomSheetExpanded} />;
     case SystemStatus.PlayServicesNotAvailable:
       return <FrameworkUnavailableView isBottomSheetExpanded={isBottomSheetExpanded} />;
@@ -94,8 +93,8 @@ const Content = ({ isBottomSheetExpanded }: ContentProps) => {
       return exposureStatus.needsSubmission ? (
         <DiagnosedShareView isBottomSheetExpanded={isBottomSheetExpanded} />
       ) : (
-          <DiagnosedView isBottomSheetExpanded={isBottomSheetExpanded} />
-        );
+        <DiagnosedView isBottomSheetExpanded={isBottomSheetExpanded} />
+      );
     case ExposureStatusType.Monitoring:
     default:
       if (!network.isConnected) {
@@ -208,7 +207,7 @@ export const HomeScreen = () => {
         >
           <SafeAreaView>
             <Header />
-            <Animated.View style={[styles.card, { opacity: fadeAnim }]}>
+            <Animated.View style={[styles.card, {opacity: fadeAnim}]}>
               <Content isBottomSheetExpanded={isBottomSheetExpanded} />
             </Animated.View>
           </SafeAreaView>
@@ -216,8 +215,7 @@ export const HomeScreen = () => {
         <BottomSheet ref={bottomSheetRef} expandedComponent={ExpandedContent} collapsedComponent={CollapsedContent} />
       </Box>
     </NotificationPermissionStatusProvider>
-
-  )
+  );
 };
 
 const styles = StyleSheet.create({
@@ -225,3 +223,16 @@ const styles = StyleSheet.create({
     margin: 12,
   },
 });
+
+/*
+prettier rc
+extent rc
+
+eslint
+tslint
+
+
+yarn global add typesript
+yarn global add tslint
+
+*/

@@ -22,12 +22,11 @@ export const DiagnosedView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: b
     if (exposureStatus.type !== ExposureStatusType.Diagnosed) return null;
     daysLeft = getUploadDaysLeft(exposureStatus.cycleEndsAt);
   }
-
   return (
     <BaseHomeView iconName="hand-thank-you-with-love" testID="diagnosed">
+      <Text>jflkdsfjlsk</Text>
       <Text focusRef={autoFocusRef} variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
-        {i18n.translate('Home.DiagnosedView.Title')}
-        {/* No exposure detected */}
+        {i18n.translate('Home.DiagnosedView.Title')} fjkslfjs No exposure detected
       </Text>
       {daysLeft < 1 ? null : (
         <>

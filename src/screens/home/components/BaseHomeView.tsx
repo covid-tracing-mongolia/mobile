@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Box, Icon, IconName } from 'components';
+import {StyleSheet, ScrollView, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Box, Icon, IconName} from 'components';
 
 import BackgroundSvg from '../../../assets/homescreen-status-background.svg';
 
@@ -10,7 +10,7 @@ interface BaseHomeViewProps {
   iconName?: IconName;
   testID?: string;
 }
-export const BaseHomeView = ({ children, iconName, testID }: BaseHomeViewProps) => {
+export const BaseHomeView = ({children, iconName, testID}: BaseHomeViewProps) => {
   return (
     <>
       <ScrollView
@@ -19,7 +19,7 @@ export const BaseHomeView = ({ children, iconName, testID }: BaseHomeViewProps) 
         testID={testID}
         contentContainerStyle={styles.scrollContainer}
       >
-        <SafeAreaView edges={['left', 'right']} style={{ width: '100%' }}>
+        <SafeAreaView edges={['left', 'right']} style={{width: '100%'}}>
           <View style={styles.iconContainer}>
             <BackgroundSvg
               height="105%"
@@ -28,7 +28,7 @@ export const BaseHomeView = ({ children, iconName, testID }: BaseHomeViewProps) 
                 position: 'absolute',
               }}
             />
-            <View style={{ marginTop: 23, marginBottom: 36 }}>
+            <View style={{marginTop: 23, marginBottom: 36}}>
               <Icon name={iconName} width={120} height={120} />
             </View>
           </View>
@@ -50,7 +50,7 @@ export const BaseHomeView = ({ children, iconName, testID }: BaseHomeViewProps) 
 };
 
 const styles = StyleSheet.create({
-  primaryIcon: { alignSelf: "center", marginHorizontal: 20, marginBottom: 30 },
+  primaryIcon: {alignSelf: 'center', marginHorizontal: 20, marginBottom: 30},
   scrollContainerWithAnimation: {
     marginTop: -100,
   },
