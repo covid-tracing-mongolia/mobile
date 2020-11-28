@@ -15,7 +15,7 @@ export const ExposedHelpButton = () => {
   return (
     <Box alignSelf="stretch" marginTop="s" marginBottom="m">
       <ButtonSingleLine
-        text="Find out if you need to be testeds"
+        text="Find out if you need to be tested"
         variant="bigFlatPurple"
         externalLink
         onPress={onPress}

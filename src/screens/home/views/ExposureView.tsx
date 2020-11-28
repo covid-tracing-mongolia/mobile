@@ -15,7 +15,7 @@ const ExposureText = ({ isBottomSheetExpanded }: { isBottomSheetExpanded: boolea
 
   return (
     <>
-      <Text focusRef={autoFocusRef} color={"titleBlue"} variant="titleBlue" marginBottom="m" accessibilityRole="header">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.ExposureDetected.Title')}
       </Text>
       <Text marginBottom="m">{i18n.translate('Home.ExposureDetected.Body1')}</Text>
@@ -32,7 +32,7 @@ const ExposureText = ({ isBottomSheetExpanded }: { isBottomSheetExpanded: boolea
 
 export const ExposureView = ({ isBottomSheetExpanded }: { isBottomSheetExpanded: boolean }) => {
   return (
-    <BaseHomeView iconName="contact-image" testID="exposure">
+    <BaseHomeView iconName="hand-caution" testID="exposure">
       <ExposureText isBottomSheetExpanded={isBottomSheetExpanded} />
       <ExposedHelpButton />
       {/* <ClearExposureView /> */}
