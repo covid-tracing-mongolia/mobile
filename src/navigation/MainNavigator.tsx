@@ -128,13 +128,12 @@ const MainNavigator = () => {
     <MainStack.Navigator
       screenOptions={{headerShown: false}}
       initialRouteName={isOnboarding ? 'Landing' : 'Home'}
-      // initialRouteName="Landing"
       mode="modal"
     >
-      {/* <MainStack.Screen name="Landing" component={LandingScreenWithNavBar} /> */}
+      <MainStack.Screen name="Landing" component={LandingScreenWithNavBar} />
       <MainStack.Screen name="Home" component={HomeScreenWithNavBar} />
-      {/* <MainStack.Screen
-        options={{ cardStyleInterpolator: forFade }}
+      <MainStack.Screen
+        options={{cardStyleInterpolator: forFade}}
         name="OnboardingNavigator"
         component={OnboardingNavigator}
       />
@@ -144,7 +143,6 @@ const MainNavigator = () => {
       <MainStack.Screen name="LanguageSelect" component={LanguageScreenWithNavBar} />
       <MainStack.Screen name="TestScreen" component={TestScreenWithNavBar} />
       <MainStack.Screen name="ErrorScreen" component={ErrorScreenWithNavBar} />
-      */}
     </MainStack.Navigator>
   );
 };

@@ -14,7 +14,6 @@ export const ApiNotConnectedView = () => {
       <Text focusRef={autoFocusRef} variant="bodyTitle" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Errors.ApiNotConnected.Title')}
       </Text>
-      <Text>test</Text>
       <TextMultiline marginBottom="m" text={i18n.translate('Errors.ApiNotConnected.Body')} />
     </BaseErrorView>
   );

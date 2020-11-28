@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState, useRef, useLayoutEffect} from '
 import {useNetInfo} from '@react-native-community/netinfo';
 import {useNavigation} from '@react-navigation/native';
 import {BottomSheet, BottomSheetBehavior, Box, Header} from 'components';
-import {DevSettings, Linking, Animated, View, StyleSheet} from 'react-native';
+import {DevSettings, Linking, Animated, StyleSheet} from 'react-native';
 import {TEST_MODE} from 'env';
 import {
   ExposureStatusType,
@@ -223,16 +223,3 @@ const styles = StyleSheet.create({
     margin: 12,
   },
 });
-
-/*
-prettier rc
-extent rc
-
-eslint
-tslint
-
-
-yarn global add typesript
-yarn global add tslint
-
-*/
