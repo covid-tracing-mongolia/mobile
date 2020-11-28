@@ -16,6 +16,8 @@
 		4A5C897C24B63BE00074FF89 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A5C897E24B63BE00074FF89 /* InfoPlist.strings */; };
 		7482404F246F9C0E009F68EA /* CovidShield.m in Sources */ = {isa = PBXBuildFile; fileRef = 7482404E246F9C0E009F68EA /* CovidShield.m */; };
 		74B6941E245F15B20077B9DA /* ExposureNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B6941D245F15B20077B9DA /* ExposureNotification.m */; };
+		843B6BB725722A8400D445C5 /* URWGeometric-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843B6BB525722A8400D445C5 /* URWGeometric-Regular.ttf */; };
+		843B6BB825722A8400D445C5 /* URWGeometric-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843B6BB625722A8400D445C5 /* URWGeometric-Bold.ttf */; };
 		92B51DEAB84B429696C44822 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 190AEBD50CE3434EBCFCFBB4 /* NotoSans-Bold.ttf */; };
 		9DCF98527548A48AED34959C /* libPods-CovidShield-CovidShieldTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A1C8C77A874BCC9042935F /* libPods-CovidShield-CovidShieldTests.a */; };
 		A10A691626414D8AABBB659C /* Device-Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 431D5AB0AA364B5C9E7BFF1D /* Device-Large.png */; };
@@ -35,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* CovidShieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidShieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* CovidShieldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CovidShieldTests.m; sourceTree = "<group>"; };
@@ -61,6 +62,8 @@
 		74B6941C245F15B20077B9DA /* ExposureNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExposureNotification.h; path = CovidShield/ExposureNotification.h; sourceTree = "<group>"; };
 		74B6941D245F15B20077B9DA /* ExposureNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExposureNotification.m; path = CovidShield/ExposureNotification.m; sourceTree = "<group>"; };
 		77A1C8C77A874BCC9042935F /* libPods-CovidShield-CovidShieldTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CovidShield-CovidShieldTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		843B6BB525722A8400D445C5 /* URWGeometric-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "URWGeometric-Regular.ttf"; sourceTree = "<group>"; };
+		843B6BB625722A8400D445C5 /* URWGeometric-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "URWGeometric-Bold.ttf"; sourceTree = "<group>"; };
 		94B4DC3E27534960AEAA5640 /* img_0.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = img_0.png; path = ../src/assets/animation/images/img_0.png; sourceTree = "<group>"; };
 		B850EA562569729500300878 /* mn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mn; path = "mn.lproj/Launch Screen.strings"; sourceTree = "<group>"; };
 		B850EA572569729500300878 /* mn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mn; path = mn.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				179621B4246C643100B9FC0D /* CovidShield.entitlements */,
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -129,6 +131,8 @@
 		230799A3CC6E45FCAF228799 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				843B6BB625722A8400D445C5 /* URWGeometric-Bold.ttf */,
+				843B6BB525722A8400D445C5 /* URWGeometric-Regular.ttf */,
 				94B4DC3E27534960AEAA5640 /* img_0.png */,
 				431D5AB0AA364B5C9E7BFF1D /* Device-Large.png */,
 				FAA4C78E2EF7441687865846 /* img_0.svg */,
@@ -291,7 +295,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				843B6BB825722A8400D445C5 /* URWGeometric-Bold.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				843B6BB725722A8400D445C5 /* URWGeometric-Regular.ttf in Resources */,
 				4A5C897C24B63BE00074FF89 /* InfoPlist.strings in Resources */,
 				195904142488B84300430369 /* Launch Screen.storyboard in Resources */,
 				E0C908AD8D97409895BCF901 /* img_0.png in Resources */,
