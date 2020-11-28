@@ -25,7 +25,7 @@ const InfoShareItem = ({onPress, text, icon, lastItem, ...touchableProps}: InfoS
         borderRadius={5}
       >
         <Box flex={1}>
-          <Text variant="bodyText" marginVertical="s" color="overlayBodyText">
+          <Text variant="menuItemText" marginVertical="s" color="darkText">
             {text}
           </Text>
         </Box>
@@ -83,7 +83,7 @@ export const InfoShareView = () => {
         />
       </Box>
       <Box marginTop="l" marginBottom="m">
-        <Text variant="settingTitle" fontWeight="normal">
+        <Text variant="settingTitle" fontWeight="bold">
           {i18n.translate('Info.SettingsTitle')}
         </Text>
       </Box>
@@ -91,7 +91,7 @@ export const InfoShareView = () => {
         <InfoShareItem onPress={onLanguage} text={i18n.translate('Info.ChangeLanguage')} icon="icon-chevron" lastItem />
       </Box>
       <Box marginTop="l" marginBottom="m">
-        <Text variant="settingTitle" fontWeight="normal">
+        <Text variant="settingTitle" fontWeight="bold">
           {i18n.translate('Info.InformationTitle')}
         </Text>
       </Box>

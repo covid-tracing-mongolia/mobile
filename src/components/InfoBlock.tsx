@@ -42,7 +42,7 @@ export const InfoBlock = ({
         </Box>
       )}
       {(title || titleBolded) && (
-        <Box marginBottom="s" justifyContent="center" flexDirection="row" flexWrap="wrap">
+        <Box marginBottom="m" justifyContent="center" flexDirection="row" flexWrap="wrap">
           <Text
             focusRef={focusOnTitle ? autoFocusRef : null}
             variant="menuItemTitle"
@@ -58,7 +58,7 @@ export const InfoBlock = ({
           </Text>
         </Box>
       )}
-      <Text variant="bodyText" color={color}>
+      <Text variant="bodyDescription" color="lightText" marginBottom="m">
         {text}
       </Text>
       {showButton ? (

@@ -8,7 +8,7 @@ export const BluetoothDisabledView = () => {
   const i18n = useI18n();
 
   return (
-    <BaseHomeView iconName="icon-bluetooth-disabled">
+    <BaseHomeView iconName="icon-disabled">
       <Text variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.BluetoothDisabled')}
       </Text>

@@ -71,12 +71,22 @@ export const Button = ({
     : {};
   const externalArrowIcon = textColor === palette.white ? 'icon-external-arrow-light' : 'icon-external-arrow';
 
-  const borderRadius = 5;
+  const borderRadius = 13;
   const boxStyles: BoxProps['style'] = {
     backgroundColor: Platform.OS === 'ios' ? color : 'transparent',
     minHeight: height,
     borderBottomWidth,
     borderBottomColor: Platform.OS === 'ios' ? palette.fadedWhiteDark : borderBottomColor,
+
+    shadowColor: color,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+
+    elevation: 3,
   };
   const content = (
     <Box

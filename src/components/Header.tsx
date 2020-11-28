@@ -14,7 +14,7 @@ export interface HeaderProps {
 const BasicHeader = () => {
   return (
     <Box flexDirection="row" alignItems="center" justifyContent="center">
-      <Icon style={{width: 21, height: 24}} name="header-logo" />
+      <Icon width={21} height={24} name="header-logo" />
       <Text color="headerText" style={{marginLeft: 10}} variant="header">
         COVID Tracing Mongolia
       </Text>

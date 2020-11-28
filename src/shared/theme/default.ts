@@ -18,7 +18,7 @@ export const palette = {
   brandRed: '#AF3C43',
   brandGreen: '#333000',
   lightBlue: '#CCEFFF',
-  neutralGrey: '#EEEEEE',
+  neutralGrey: '#F5F9FF',
   darkGrey: '#cecece',
   fadedYellow: '#FFF5D9',
   warn: '#FFCDB3',
@@ -39,11 +39,11 @@ export const palette = {
   link: '#2B4380',
   green2: '#C9E7DE',
   greenCheck: '#33D1A1',
-  info100: '#005B99',
+  info100: '#0055FF',
   focus: '#44BBEE',
 
   // new theme colors
-  backgroundIce: '#F6F6F6',
+  backgroundIce: '#F5F9FF',
   mainBlack: '#00133A',
 
   textColorDark: '#142E63',
@@ -145,8 +145,10 @@ const theme = {
     },
     settingTitle: {
       fontFamily: 'URW Geometric',
-      fontSize: 23,
-      lineHeight: 30,
+      fontStyle: 'normal',
+      fontWeight: '800',
+      fontSize: 24,
+      lineHeight: 29,
     },
     bodyTitle: {
       fontFamily: 'URW Geometric',
@@ -168,8 +170,11 @@ const theme = {
     },
     overlayTitle: {
       fontFamily: 'URW Geometric',
-      fontSize: 23,
-      lineHeight: 30,
+      fontSize: 20,
+      lineHeight: 23,
+
+      fontStyle: 'normal',
+      fontWeight: '800',
     },
     codeInput: {
       fontFamily: 'URW Geometric',
@@ -180,11 +185,21 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       lineHeight: 25,
+      fontWeight: '800',
     },
     menuItemSubtitle: {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       lineHeight: 25,
+    },
+    menuItemText: {
+      fontFamily: 'URW Geometric',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      fontSize: 18,
+      lineHeight: 24,
+
+      /* identical to box height, or 133% */
     },
     header: {
       fontFamily: 'URW Geometric',
@@ -265,12 +280,12 @@ const theme = {
     },
     thinFlat: {
       color: palette.info100,
-      height: 52,
+      height: 51,
       textColor: palette.white,
       fontFamily: 'URW Geometric',
-      fontSize: 20,
-      borderBottomWidth: 4,
-      borderBottomColor: palette.brandBlue,
+      fontWeight: 'bold',
+      fontSize: 18,
+      lineHeight: 29,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
