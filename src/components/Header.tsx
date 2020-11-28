@@ -1,21 +1,23 @@
-import React, { useCallback } from 'react';
-import { TouchableWithoutFeedback } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { useI18n } from 'locale';
-import { TEST_MODE } from 'env';
+import React, {useCallback} from 'react';
+import {TouchableWithoutFeedback} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {TEST_MODE} from 'env';
 
-import { Box } from './Box';
-import { Icon } from './Icon';
+import {Box} from './Box';
+import {Icon} from './Icon';
+import {Text} from './Text';
 
 export interface HeaderProps {
   isOverlay?: boolean;
 }
 
 const BasicHeader = () => {
-  const i18n = useI18n();
   return (
-    <Box maxHeight={30} flexDirection="row" alignItems="center" justifyContent="center">
-      {i18n.locale === 'mn' ? <Icon size={40} name="covid-alert-mn" /> : <Icon size={129} name="covid-alert-en" />}
+    <Box flexDirection="row" alignItems="center" justifyContent="center">
+      <Icon style={{width: 21, height: 24}} name="header-logo" />
+      <Text color="headerText" style={{marginLeft: 10}} variant="header">
+        COVID Tracing Mongolia
+      </Text>
     </Box>
   );
 };

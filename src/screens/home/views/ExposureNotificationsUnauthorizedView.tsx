@@ -27,11 +27,11 @@ export const ExposureNotificationsUnauthorizedView = ({isBottomSheetExpanded}: {
   };
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
   return (
-    <BaseHomeView iconName="icon-exposure-notifications-disabled" testID="exposureNotificationsDisabled">
-      <Text focusRef={autoFocusRef} variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
+    <BaseHomeView iconName="icon-disabled" testID="exposureNotificationsDisabled">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.EnDisabled.Title')}
       </Text>
-      <Text variant="bodyText" color="bodyText">
+      <Text variant="bodyDescription" color="lightText">
         {i18n.translate('Home.EnUnauthorized.Body1')}
       </Text>
       <Box alignSelf="stretch" marginBottom="m" marginTop="l">

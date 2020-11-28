@@ -4,10 +4,7 @@ import {Text} from 'components';
 import {ExposureStatusType, useExposureStatus} from 'services/ExposureNotificationService';
 import {getUploadDaysLeft} from 'shared/date-fns';
 import {pluralizeKey} from 'shared/pluralization';
-import {useStorage} from 'services/StorageService';
 import {useAccessibilityAutoFocus} from 'shared/useAccessibilityAutoFocus';
-import {isRegionActive} from 'shared/RegionLogic';
-import {useRegionalI18n} from 'locale/regional';
 import {TEST_MODE} from 'env';
 
 import {BaseHomeView} from '../components/BaseHomeView';
@@ -15,8 +12,6 @@ import {Tip} from '../components/Tip';
 
 export const DiagnosedView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: boolean}) => {
   const i18n = useI18n();
-  const regionalI18n = useRegionalI18n();
-  const {region} = useStorage();
   const exposureStatus = useExposureStatus();
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
 
@@ -45,7 +40,7 @@ export const DiagnosedView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: b
           <Text variant="bodyText" color="bodyText" marginBottom="m">
             {i18n.translate('Home.DiagnosedView.Body3')}
           </Text>
-          {isRegionActive(region, regionalI18n.activeRegions) ? <Tip /> : null}
+          <Tip />
         </>
       )}
     </BaseHomeView>

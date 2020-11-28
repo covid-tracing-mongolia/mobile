@@ -60,8 +60,8 @@ export const ButtonSingleLine = ({
         accessibilityRole: 'link' as AccessibilityRole,
       }
     : {};
-  const externalArrowIcon = textColor === palette.white ? 'icon-external-arrow-light' : 'icon-external-arrow';
-  const borderRadius = 10;
+  const externalArrowIcon = 'icon-external-arrow-light';
+  const borderRadius = 13;
   const boxStyles: BoxProps['style'] = {
     backgroundColor: Platform.OS === 'ios' || externalLink ? color : 'transparent',
     minHeight: height,
@@ -69,6 +69,16 @@ export const ButtonSingleLine = ({
     borderColor: buttonColor,
     borderBottomWidth,
     borderBottomColor: Platform.OS === 'ios' ? palette.fadedWhiteDark : borderBottomColor,
+
+    shadowColor: color,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+
+    elevation: 3,
   };
   const content = (
     <Box
@@ -91,7 +101,7 @@ export const ButtonSingleLine = ({
           )}
           {internalLink && (
             <Box flex={0} style={{...styles.iconOffsetChevron}}>
-              <Icon size={25} name="icon-chevron" />
+              <Icon size={25} name="icon-chevron-white" />
             </Box>
           )}
           {iconName && (
@@ -105,7 +115,9 @@ export const ButtonSingleLine = ({
               style={{
                 ...styles.content,
                 color: textColor || buttonColor,
-                fontWeight: variant === 'bigFlatPurple' ? 'bold' : 'normal',
+                fontWeight: 'bold',
+                fontSize: 18,
+                lineHeight: 29,
               }}
             >
               {text}

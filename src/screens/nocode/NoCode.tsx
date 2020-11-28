@@ -1,33 +1,14 @@
-import React, { useCallback } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { Box, Toolbar } from 'components';
-import { useI18n } from 'locale';
-import { useNavigation } from '@react-navigation/native';
-import { useStorage } from 'services/StorageService';
-import { getRegionCase } from 'shared/RegionLogic';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRegionalI18n } from 'locale/regional';
+import React, {useCallback} from 'react';
+import {ScrollView, StyleSheet} from 'react-native';
+import {Box, Toolbar} from 'components';
+import {useI18n} from 'locale';
+import {useNavigation} from '@react-navigation/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
-import { NoRegionView } from './views/NoRegionView';
-import { RegionNotCoveredView } from './views/RegionNotCoveredView';
-import { ActiveListView } from './views/ActiveListView';
-import { ActiveParagraphView } from './views/ActiveParagraphView';
+import {NoRegionView} from './views/NoRegionView';
 
 const Content = () => {
-  const { region } = useStorage();
-  const regionalI18n = useRegionalI18n();
-  const regionCase = getRegionCase(region, regionalI18n.activeRegions);
-  switch (regionCase) {
-    case 'regionNotActive':
-      return <RegionNotCoveredView />;
-    case 'regionActive':
-      if (region === 'BZ') {
-        return <ActiveListView />;
-      }
-      return <ActiveParagraphView />;
-    default:
-      return <NoRegionView />;
-  }
+  return <NoRegionView />;
 };
 
 export const NoCodeScreen = () => {

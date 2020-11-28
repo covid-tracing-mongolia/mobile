@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
-import { Text } from 'components';
-import { useI18n } from 'locale';
-import { useExposureNotificationService } from 'services/ExposureNotificationService';
-import { formatExposedDate } from 'shared/date-fns';
+import React, {useMemo} from 'react';
+import {Text} from 'components';
+import {useI18n} from 'locale';
+import {useExposureNotificationService} from 'services/ExposureNotificationService';
+import {formatExposedDate} from 'shared/date-fns';
 
 export const ExposureDateView = () => {
   const i18n = useI18n();

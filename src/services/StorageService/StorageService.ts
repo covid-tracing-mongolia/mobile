@@ -1,12 +1,10 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import {Observable} from 'shared/Observable';
-import {Region} from 'shared/Region';
 import {getSystemLocale} from 'locale/utils';
 
 export enum Key {
   IsOnboarded = 'IsOnboarded',
   Locale = 'Locale',
-  Region = 'Region',
   OnboardedDatetime = 'OnboardedDatetime',
   ForceScreen = 'ForceScreen',
   SkipAllSet = 'SkipAllSet',
@@ -15,7 +13,6 @@ export enum Key {
 export class StorageService {
   isOnboarding: Observable<boolean>;
   locale: Observable<string>;
-  region: Observable<Region | undefined>;
   onboardedDatetime: Observable<Date | undefined>;
   forceScreen: Observable<string | undefined>;
   skipAllSet: Observable<boolean>;
@@ -23,7 +20,6 @@ export class StorageService {
   constructor() {
     this.isOnboarding = new Observable<boolean>(true);
     this.locale = new Observable<string>(getSystemLocale());
-    this.region = new Observable<Region | undefined>(undefined);
     this.onboardedDatetime = new Observable<Date | undefined>(undefined);
     this.forceScreen = new Observable<string | undefined>(undefined);
     this.skipAllSet = new Observable<boolean>(false);
@@ -37,11 +33,6 @@ export class StorageService {
   setLocale = async (value: string) => {
     await AsyncStorage.setItem(Key.Locale, value);
     this.locale.set(value);
-  };
-
-  setRegion = async (value: Region | undefined) => {
-    await AsyncStorage.setItem(Key.Region, value ? value : '');
-    this.region.set(value);
   };
 
   setOnboardedDatetime = async (value: Date | undefined) => {
@@ -65,9 +56,6 @@ export class StorageService {
 
     const locale = (await AsyncStorage.getItem(Key.Locale)) || this.locale.get();
     this.locale.set(locale);
-
-    const region = ((await AsyncStorage.getItem(Key.Region)) as Region | undefined) || undefined;
-    this.region.set(region);
 
     const onboardedDatetimeStr =
       ((await AsyncStorage.getItem(Key.OnboardedDatetime)) as string | undefined) || undefined;

@@ -24,10 +24,6 @@ describe('StorageService', () => {
       expect(AsyncStorage.getItem).toHaveBeenCalledWith(Key.Locale);
     });
 
-    it('initalizes region from persistent storage', async () => {
-      expect(AsyncStorage.getItem).toHaveBeenCalledWith(Key.Region);
-    });
-
     it('initializes onboardedDateTime from persistent storage', async () => {
       expect(AsyncStorage.getItem).toHaveBeenCalledWith(Key.OnboardedDatetime);
     });
@@ -74,24 +70,6 @@ describe('StorageService', () => {
 
       await storageService.setLocale('mn');
       expect(storageService.locale.get()).toStrictEqual('mn');
-    });
-  });
-
-  describe('setRegion', () => {
-    it('stores the region to permanent storage', async () => {
-      await storageService.setRegion('ABC');
-      expect(AsyncStorage.setItem).toHaveBeenCalledWith(Key.Region, 'ABC');
-
-      await storageService.setRegion('asd');
-      expect(AsyncStorage.setItem).toHaveBeenCalledWith(Key.Region, 'asd');
-    });
-
-    it('exposes set value as StorageService attribute', async () => {
-      await storageService.setRegion('qwe');
-      expect(storageService.region.get()).toStrictEqual('qwe');
-
-      await storageService.setRegion('fddd');
-      expect(storageService.region.get()).toStrictEqual('fddd');
     });
   });
 
