@@ -1,13 +1,13 @@
-import {useI18n} from 'locale';
-import {Box, ButtonSingleLine, Text} from 'components';
-import React, {useCallback} from 'react';
-import {Linking, Platform} from 'react-native';
-import {useStartExposureNotificationService} from 'services/ExposureNotificationService';
-import {useAccessibilityAutoFocus} from 'shared/useAccessibilityAutoFocus';
+import { useI18n } from 'locale';
+import { Box, ButtonSingleLine, Text } from 'components';
+import React, { useCallback } from 'react';
+import { Linking, Platform } from 'react-native';
+import { useStartExposureNotificationService } from 'services/ExposureNotificationService';
+import { useAccessibilityAutoFocus } from 'shared/useAccessibilityAutoFocus';
 
-import {BaseHomeView} from '../components/BaseHomeView';
+import { BaseHomeView } from '../components/BaseHomeView';
 
-export const ExposureNotificationsDisabledView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: boolean}) => {
+export const ExposureNotificationsDisabledView = ({ isBottomSheetExpanded }: { isBottomSheetExpanded: boolean }) => {
   const i18n = useI18n();
   const startExposureNotificationService = useStartExposureNotificationService();
 
@@ -32,7 +32,7 @@ export const ExposureNotificationsDisabledView = ({isBottomSheetExpanded}: {isBo
         {i18n.translate('Home.EnDisabled.Title')}
       </Text>
       <Text variant="bodyText" color="bodyText">
-        {i18n.translate('Home.EnDisabled.Body1')}
+        {i18n.translate('Home.EnDisabled.Body1')} test
       </Text>
       <Box alignSelf="stretch" marginBottom="m" marginTop="l">
         <ButtonSingleLine

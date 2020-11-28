@@ -42,10 +42,12 @@ export const palette = {
   greenCheck: '#33D1A1',
   info100: '#005B99',
   focus: '#44BBEE',
+  titleBlue: '#142E63'
 };
 
 const theme = {
   colors: {
+    titleBlue: palette.titleBlue,
     focus: palette.focus,
     linkText: palette.link,
     mainBackground: palette.neutralGrey,
@@ -163,6 +165,13 @@ const theme = {
       fontFamily: 'notosans',
       fontSize: 18,
       lineHeight: 25,
+    },
+    titleBlue: {
+      fontFamily: 'notosans',
+      fontWeight: 'bold',
+      fontSize: 18,
+      color: 'titleBlue',
+      lineHeight: 30,
     },
   },
   buttonVariants: {

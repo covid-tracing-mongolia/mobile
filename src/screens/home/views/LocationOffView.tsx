@@ -1,13 +1,13 @@
-import {useI18n} from 'locale';
-import {Box, ButtonSingleLine, Text} from 'components';
-import React, {useCallback} from 'react';
-import {Linking, Platform} from 'react-native';
-import {useStartExposureNotificationService} from 'services/ExposureNotificationService';
-import {useAccessibilityAutoFocus} from 'shared/useAccessibilityAutoFocus';
+import { useI18n } from 'locale';
+import { Box, ButtonSingleLine, Text } from 'components';
+import React, { useCallback } from 'react';
+import { Linking, Platform } from 'react-native';
+import { useStartExposureNotificationService } from 'services/ExposureNotificationService';
+import { useAccessibilityAutoFocus } from 'shared/useAccessibilityAutoFocus';
 
-import {BaseHomeView} from '../components/BaseHomeView';
+import { BaseHomeView } from '../components/BaseHomeView';
 
-export const LocationOffView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: boolean}) => {
+export const LocationOffView = ({ isBottomSheetExpanded }: { isBottomSheetExpanded: boolean }) => {
   const i18n = useI18n();
   const startExposureNotificationService = useStartExposureNotificationService();
 

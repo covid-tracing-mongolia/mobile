@@ -1,15 +1,15 @@
 import React from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Box, Header, Icon, IconName} from 'components';
+import { StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Box, Header, Icon, IconName } from 'components';
 
 interface BaseHomeViewProps {
   children?: React.ReactNode;
   iconName?: IconName;
   testID?: string;
 }
-
-export const BaseHomeView = ({children, iconName, testID}: BaseHomeViewProps) => {
+const { width } = Dimensions.get("screen")
+export const BaseHomeView = ({ children, iconName, testID }: BaseHomeViewProps) => {
   return (
     <>
       <SafeAreaView edges={['top']}>
@@ -23,8 +23,9 @@ export const BaseHomeView = ({children, iconName, testID}: BaseHomeViewProps) =>
       >
         <SafeAreaView edges={['left', 'right']}>
           <Box width="100%" justifyContent="flex-start" marginBottom="-l">
-            <Box style={{...styles.primaryIcon}}>
-              <Icon name={iconName} height={120} width={150} />
+            <Box style={{ ...styles.primaryIcon }}>
+              <Icon name={iconName}
+                height={165} width={width - 40} />
             </Box>
           </Box>
           <Box
@@ -44,7 +45,7 @@ export const BaseHomeView = ({children, iconName, testID}: BaseHomeViewProps) =>
 };
 
 const styles = StyleSheet.create({
-  primaryIcon: {marginLeft: -40, marginBottom: 30},
+  primaryIcon: { alignSelf: "center", marginHorizontal: 20, marginBottom: 30 },
   scrollContainerWithAnimation: {
     marginTop: -100,
   },
