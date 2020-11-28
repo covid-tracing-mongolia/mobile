@@ -57,21 +57,33 @@ export const InfoButton = ({
         accessibilityRole: 'link' as AccessibilityRole,
       }
     : {};
-  const externalArrowIcon = textColor === palette.white ? 'icon-external-arrow-light' : 'icon-external-arrow';
-  const borderRadius = 10;
+  const borderRadius = 13;
+
+  const boxStyle = {
+    shadowColor: buttonColor,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+
+    elevation: 3,
+
+    padding: 14,
+  };
+
   const content = (
     <Box
       borderRadius={borderRadius}
-      alignItems="center"
-      justifyContent="center"
       style={{
         minHeight: height,
         borderWidth,
         borderColor: buttonColor,
         backgroundColor: Platform.OS === 'ios' ? buttonColor : undefined,
+
+        ...boxStyle,
       }}
-      paddingHorizontal="m"
-      paddingVertical="m"
       flexDirection="row"
     >
       {loading ? (
@@ -79,14 +91,16 @@ export const InfoButton = ({
       ) : (
         <>
           <Box>
-            <Text variant="menuItemTitle" fontWeight="bold" marginBottom="s">
+            <Text variant="menuItemTitle" fontWeight="bold" color="bodyTitleWhite" marginBottom="s">
               {title}
             </Text>
-            <Text variant="menuItemTitle">{text}</Text>
+            <Text variant="menuItemTitle" color="bodyTextWhite">
+              {text}
+            </Text>
           </Box>
           <Box style={{...styles.chevronOffset}}>
-            {externalLink && <Icon name={externalArrowIcon} />}
-            {internalLink && <Icon size={25} name="icon-chevron" />}
+            {externalLink && <Icon name="icon-external-arrow-light" />}
+            {internalLink && <Icon size={25} name="icon-chevron-white" />}
           </Box>
         </>
       )}
@@ -113,13 +127,7 @@ export const InfoButton = ({
     );
   }
   return (
-    <TouchableOpacity
-      activeOpacity={0.6}
-      onPress={onPressHandler}
-      style={styles.stretch}
-      disabled={disabled}
-      {...accessibilityProps}
-    >
+    <TouchableOpacity activeOpacity={0.6} onPress={onPressHandler} disabled={disabled} {...accessibilityProps}>
       {content}
     </TouchableOpacity>
   );
@@ -128,16 +136,6 @@ export const InfoButton = ({
 const styles = StyleSheet.create({
   stretch: {
     alignSelf: 'stretch',
-  },
-  contentBold: {
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'left',
-    marginRight: 20,
-  },
-  content: {
-    textAlign: 'left',
-    marginRight: 20,
   },
   chevronOffset: {
     position: 'absolute',

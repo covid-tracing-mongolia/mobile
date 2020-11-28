@@ -66,7 +66,7 @@ const theme = {
     greenBackground: palette.greenBright,
     overlayBackground: palette.white,
     danger10: palette.danger10,
-    danger25Background: palette.danger25,
+    danger25Background: palette.danger50,
     overlayBodyText: palette.bodyBlack,
     fadedBackground: palette.fadedWhite,
     bodyText: palette.bodyBlack,
