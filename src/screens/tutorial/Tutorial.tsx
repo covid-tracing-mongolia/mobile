@@ -75,7 +75,9 @@ export const TutorialScreen = () => {
         </View>
         <Box flexDirection="row" borderTopWidth={2} borderTopColor="gray5">
           <Box flex={0} style={{...styles.offset1}}>
-            {!isStart && <Button text={i18n.translate(`Tutorial.ActionBack`)} variant="text" onPress={prevItem} />}
+            {!isStart && (
+              <Button text={i18n.translate(`Tutorial.ActionBack`)} variant="navigation" onPress={prevItem} />
+            )}
           </Box>
 
           <Box flex={2} justifyContent="center" style={{...styles.offset2}}>
@@ -86,7 +88,7 @@ export const TutorialScreen = () => {
             <Button
               testID="howItWorksNextButton"
               text={i18n.translate(`Tutorial.Action${isEnd ? 'End' : 'Next'}`)}
-              variant="text"
+              variant="navigation"
               onPress={nextItem}
             />
           </Box>
