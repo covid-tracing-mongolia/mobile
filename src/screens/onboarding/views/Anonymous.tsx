@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bodyContent: {
-    fontFamily: 'Noto Sans',
+    fontFamily: 'URW Geometric',
     fontSize: 18,
   },
 });
