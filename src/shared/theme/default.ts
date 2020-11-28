@@ -42,13 +42,20 @@ export const palette = {
   greenCheck: '#33D1A1',
   info100: '#005B99',
   focus: '#44BBEE',
+
+  // new theme colors
+  backgroundIce: '#F5F9FF',
+  mainBlack: '#00133A',
+
+  textColorDark: '#142E63',
+  textColorLight: '#677694',
 };
 
 const theme = {
   colors: {
     focus: palette.focus,
     linkText: palette.link,
-    mainBackground: palette.neutralGrey,
+    mainBackground: palette.backgroundIce,
     purpleBackground: palette.purple,
     regionCoveredBackground: palette.mint,
     exposureBackground: palette.warn,
@@ -88,6 +95,11 @@ const theme = {
     gray4: palette.gray4,
     gray5: palette.neutralGrey,
     green2: palette.green2,
+
+    // new
+    headerText: palette.mainBlack,
+    darkText: palette.textColorDark,
+    lightText: palette.textColorLight,
   },
   spacing: {
     /* eslint-disable id-length */
@@ -134,9 +146,17 @@ const theme = {
     },
     bodyTitle: {
       fontFamily: 'URW Geometric',
-      fontWeight: 'bold',
-      fontSize: 23,
-      lineHeight: 30,
+      fontSize: 24,
+      fontWeight: '800',
+      lineHeight: 29,
+      color: 'darkText',
+    },
+    bodyDescription: {
+      fontFamily: 'URW Geometric',
+      fontSize: 18,
+      fontWeight: '500',
+      lineHeight: 24,
+      color: 'lightText',
     },
     bodyTitle2: {
       fontFamily: 'URW Geometric',
@@ -163,6 +183,12 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       lineHeight: 25,
+    },
+    header: {
+      fontFamily: 'URW Geometric',
+      fontSize: 18,
+      lineHeight: 40,
+      fontWeight: '900',
     },
   },
   buttonVariants: {

@@ -16,11 +16,13 @@ export const UnknownProblemView = ({isBottomSheetExpanded}: {isBottomSheetExpand
 
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
   return (
-    <BaseHomeView iconName="icon-bluetooth-disabled" testID="unknownProblem">
-      <Text focusRef={autoFocusRef} variant="bodyTitle" marginBottom="m" accessibilityRole="header">
+    <BaseHomeView iconName="error-icon" testID="unknownProblem">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.UnknownProblem.Title')}
       </Text>
-      <Text marginBottom="m">{i18n.translate('Home.UnknownProblem.Body')}</Text>
+      <Text marginBottom="m" variant="bodyDescription" color="lightText">
+        {i18n.translate('Home.UnknownProblem.Body')}
+      </Text>
       <Box alignSelf="stretch" marginBottom="m" marginTop="l">
         <ButtonSingleLine
           text={i18n.translate('Home.UnknownProblem.CTA')}

@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState, useRef, useLayoutEffect} from 'react';
 import {useNetInfo} from '@react-native-community/netinfo';
 import {useNavigation} from '@react-navigation/native';
-import {BottomSheet, BottomSheetBehavior, Box} from 'components';
-import {DevSettings, Linking, Animated} from 'react-native';
+import {BottomSheet, BottomSheetBehavior, Box, Header} from 'components';
+import {DevSettings, Linking, Animated, StyleSheet} from 'react-native';
 import {TEST_MODE} from 'env';
 import {
   ExposureStatusType,
@@ -14,6 +14,7 @@ import {
 } from 'services/ExposureNotificationService';
 import {useStorage} from 'services/StorageService';
 import {usePrevious} from 'shared/usePrevious';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {useExposureNotificationSystemStatusAutomaticUpdater} from '../../services/ExposureNotificationService';
 
@@ -205,12 +206,21 @@ export const HomeScreen = () => {
           accessibilityElementsHidden={isBottomSheetExpanded}
           importantForAccessibility={isBottomSheetExpanded ? 'no-hide-descendants' : undefined}
         >
-          <Animated.View style={{opacity: fadeAnim}}>
-            <Content isBottomSheetExpanded={isBottomSheetExpanded} />
-          </Animated.View>
+          <SafeAreaView>
+            <Header />
+            <Animated.View style={[styles.card, {opacity: fadeAnim}]}>
+              <Content isBottomSheetExpanded={isBottomSheetExpanded} />
+            </Animated.View>
+          </SafeAreaView>
         </Box>
         <BottomSheet ref={bottomSheetRef} expandedComponent={ExpandedContent} collapsedComponent={CollapsedContent} />
       </Box>
     </NotificationPermissionStatusProvider>
   );
 };
+
+const styles = StyleSheet.create({
+  card: {
+    margin: 12,
+  },
+});
