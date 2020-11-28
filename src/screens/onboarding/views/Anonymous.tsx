@@ -3,6 +3,7 @@ import {Box, BulletPointX} from 'components';
 import {useI18n} from 'locale';
 import Markdown from 'react-native-markdown-display';
 import {StyleSheet} from 'react-native';
+import theme from 'shared/theme/default';
 
 import {ItemView, ItemViewProps} from './ItemView';
 
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bodyContent: {
+    color: theme.colors.darkText,
     fontFamily: 'URW Geometric',
     fontSize: 18,
   },

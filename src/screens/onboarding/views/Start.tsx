@@ -17,12 +17,12 @@ export const Start = (props: Pick<ItemViewProps, 'isActive'>) => {
     >
       <>
         <Box marginBottom="m">
-          <Text variant="bodyText" color="overlayBodyText">
+          <Text variant="bodyText" color="lightText">
             {i18n.translate('Onboarding.Start.Body1')}
           </Text>
         </Box>
         <Box marginBottom="m">
-          <Text variant="bodyText" color="overlayBodyText">
+          <Text variant="bodyText" color="lightText">
             {i18n.translate('Onboarding.Start.Body2')}
           </Text>
         </Box>

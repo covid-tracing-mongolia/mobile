@@ -1,6 +1,6 @@
 import React from 'react';
 import {useI18n} from 'locale';
-import {Box, BulletPointPurple} from 'components';
+import {Box, BulletPointCheck} from 'components';
 
 import {ItemView, ItemViewProps} from './ItemView';
 
@@ -17,9 +17,9 @@ export const PartOf = (props: Pick<ItemViewProps, 'isActive'>) => {
     >
       <>
         <Box marginRight="s">
-          <BulletPointPurple listAccessibile="listStart" text={i18n.translate('Onboarding.PartOf.Body1')} />
-          <BulletPointPurple listAccessibile="item" text={i18n.translate('Onboarding.PartOf.Body2')} />
-          <BulletPointPurple listAccessibile="listEnd" text={i18n.translate('Onboarding.PartOf.Body3')} />
+          <BulletPointCheck listAccessibile="listStart" text={i18n.translate('Onboarding.PartOf.Body1')} />
+          <BulletPointCheck listAccessibile="item" text={i18n.translate('Onboarding.PartOf.Body2')} />
+          <BulletPointCheck listAccessibile="listEnd" text={i18n.translate('Onboarding.PartOf.Body3')} />
         </Box>
       </>
     </ItemView>

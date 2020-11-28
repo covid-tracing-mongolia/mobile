@@ -4,6 +4,7 @@ import {Box, ButtonSingleLine} from 'components';
 import Markdown from 'react-native-markdown-display';
 import {Linking, StyleSheet} from 'react-native';
 import {captureException} from 'shared/log';
+import theme from 'shared/theme/default';
 
 import {ItemView, ItemViewProps} from './ItemView';
 
@@ -45,7 +46,7 @@ export const Permissions = (props: Pick<ItemViewProps, 'isActive'>) => {
             <ButtonSingleLine
               testID="privacyPolicyCTA"
               text={i18n.translate('Onboarding.Permissions.PrivacyButtonCTA')}
-              variant="bigFlatNeutralGrey"
+              variant="bigFlatLink"
               externalLink
               onPress={onPrivacy}
             />
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bodyContent: {
+    color: theme.colors.darkText,
     fontFamily: 'URW Geometric',
     fontSize: 18,
   },

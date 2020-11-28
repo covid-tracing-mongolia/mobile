@@ -29,7 +29,7 @@ export const HowItWorks = (props: Pick<ItemViewProps, 'isActive'>) => {
             <ButtonSingleLine
               testID="howItWorksCTA"
               text={i18n.translate('Onboarding.HowItWorks.HowItWorksCTA')}
-              variant="bigFlatNeutralGrey"
+              variant="bigFlatLink"
               internalLink
               onPress={onLearnMore}
             />

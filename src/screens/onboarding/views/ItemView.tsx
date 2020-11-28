@@ -21,11 +21,11 @@ export const ItemView = ({item, image, isActive, altText, header, children}: Ite
 
   return (
     <>
-      <Text focusRef={autoFocusRef} marginBottom="s" marginTop="s" color="gray2">
+      <Text focusRef={autoFocusRef} marginBottom="s" marginTop="s" color="darkText">
         <Text fontSize={24} fontWeight="bold" color="infoBlockNeutralText">
           {[i18n.translate('Onboarding.Step'), onboardingData.indexOf(item) + 1].join(' ')}
         </Text>
-        {[i18n.translate('Onboarding.Of'), onboardingData.length].join(' ')}
+        {[i18n.translate('Onboarding.Of'), onboardingData.length].join('')}
       </Text>
       {image ? (
         <Box marginTop="s" marginBottom="l">
@@ -33,7 +33,7 @@ export const ItemView = ({item, image, isActive, altText, header, children}: Ite
         </Box>
       ) : null}
 
-      <Text variant="bodyTitle" color="overlayBodyText" marginBottom="l" accessibilityRole="header">
+      <Text variant="bodyTitle" color="headerText" marginBottom="l" accessibilityRole="header">
         {header}
       </Text>
       {children}
