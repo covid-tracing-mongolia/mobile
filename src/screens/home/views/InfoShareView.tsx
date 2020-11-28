@@ -25,7 +25,7 @@ const InfoShareItem = ({onPress, text, icon, lastItem, ...touchableProps}: InfoS
         borderRadius={5}
       >
         <Box flex={1}>
-          <Text variant="bodyText" marginVertical="s" color="overlayBodyText">
+          <Text variant="menuItemText" marginVertical="s" color="darkText">
             {text}
           </Text>
         </Box>
