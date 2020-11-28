@@ -17,10 +17,15 @@ export const FrameworkUnavailableView = ({isBottomSheetExpanded}: {isBottomSheet
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
   return (
     <BaseHomeView iconName="icon-bluetooth-disabled">
-      <Text focusRef={autoFocusRef} variant="bodyTitle" marginBottom="m" accessibilityRole="header">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.FrameworkUnavailable.Title')}
       </Text>
-      <TextMultiline marginBottom="m" text={i18n.translate('Home.FrameworkUnavailable.Body')} />
+      <TextMultiline
+        variant="bodyDescription"
+        color="lightText"
+        marginBottom="m"
+        text={i18n.translate('Home.FrameworkUnavailable.Body')}
+      />
       <Box alignSelf="stretch" marginBottom="m" marginTop="l">
         <ButtonSingleLine
           text={i18n.translate('Home.FrameworkUnavailable.CTA')}

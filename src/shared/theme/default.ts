@@ -30,7 +30,7 @@ export const palette = {
   buttonGrey: '#EEEEEE',
   danger10: '#FEE9E6',
   danger25: '#FFC1B3',
-  danger50: '#F7635D',
+  danger50: '#FF4D3D',
   pink: '#FFC1B3',
   purple: '#573EC5',
   gray1Text: '#333333',
@@ -44,7 +44,7 @@ export const palette = {
   focus: '#44BBEE',
 
   // new theme colors
-  backgroundIce: '#F5F9FF',
+  backgroundIce: '#F6F6F6',
   mainBlack: '#00133A',
 
   textColorDark: '#142E63',
@@ -149,14 +149,12 @@ const theme = {
       fontSize: 24,
       fontWeight: '800',
       lineHeight: 29,
-      color: 'darkText',
     },
     bodyDescription: {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       fontWeight: '500',
       lineHeight: 24,
-      color: 'lightText',
     },
     bodyTitle2: {
       fontFamily: 'URW Geometric',
@@ -194,12 +192,15 @@ const theme = {
   buttonVariants: {
     danger50Flat: {
       color: palette.danger50,
-      height: 52,
-      textColor: palette.black,
+      height: 51,
+      textColor: palette.white,
       fontFamily: 'URW Geometric',
-      fontSize: 16,
-      borderBottomWidth: 4,
-      borderBottomColor: palette.brandRed,
+      // fontSize: 16,
+      // font-family: SF Pro Display;
+      fontWeight: 'bold',
+      fontSize: 18,
+      lineHeight: 29,
+
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
