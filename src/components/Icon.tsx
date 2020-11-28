@@ -54,6 +54,8 @@ import HeaderLogo from 'assets/header-logo.svg';
 import ErrorIcon from 'assets/error-icon.svg';
 import DisabledIcon from 'assets/icon-disabled.svg';
 import ContactImage from 'assets/contact-image.svg';
+import CrossIcon from 'assets/icons/cross.svg';
+import TickIcon from 'assets/icons/tick.svg';
 
 const ICONS = {
   'icon-x': IconX,
@@ -112,6 +114,9 @@ const ICONS = {
   'error-icon': ErrorIcon,
   'icon-disabled': DisabledIcon,
   'contact-image': ContactImage,
+
+  cross: CrossIcon,
+  tick: TickIcon,
 };
 
 export type IconName = keyof typeof ICONS;
