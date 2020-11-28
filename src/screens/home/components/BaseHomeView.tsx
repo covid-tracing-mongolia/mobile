@@ -10,7 +10,6 @@ interface BaseHomeViewProps {
   iconName?: IconName;
   testID?: string;
 }
-
 export const BaseHomeView = ({children, iconName, testID}: BaseHomeViewProps) => {
   return (
     <>
@@ -51,7 +50,7 @@ export const BaseHomeView = ({children, iconName, testID}: BaseHomeViewProps) =>
 };
 
 const styles = StyleSheet.create({
-  primaryIcon: {marginLeft: -40, marginBottom: 30},
+  primaryIcon: {alignSelf: 'center', marginHorizontal: 20, marginBottom: 30},
   scrollContainerWithAnimation: {
     marginTop: -100,
   },

@@ -194,7 +194,6 @@ export const HomeScreen = () => {
       }).start(),
     [fadeAnim],
   );
-
   return (
     <NotificationPermissionStatusProvider>
       <Box flex={1} alignItems="center" backgroundColor="mainBackground">

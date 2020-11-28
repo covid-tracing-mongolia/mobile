@@ -53,6 +53,7 @@ import PurpleBullet from 'assets/purple-bullet.svg';
 import HeaderLogo from 'assets/header-logo.svg';
 import ErrorIcon from 'assets/error-icon.svg';
 import DisabledIcon from 'assets/icon-disabled.svg';
+import ContactImage from 'assets/contact-image.svg';
 
 const ICONS = {
   'icon-x': IconX,
@@ -110,6 +111,7 @@ const ICONS = {
   'header-logo': HeaderLogo,
   'error-icon': ErrorIcon,
   'icon-disabled': DisabledIcon,
+  'contact-image': ContactImage,
 };
 
 export type IconName = keyof typeof ICONS;

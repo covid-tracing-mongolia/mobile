@@ -137,6 +137,7 @@ const MainNavigator = () => {
         name="OnboardingNavigator"
         component={OnboardingNavigator}
       />
+
       <MainStack.Screen name="Tutorial" component={TutorialScreenWithNavBar} />
       <MainStack.Screen name="DataSharing" component={DataSharingNavigator} />
       <MainStack.Screen name="LanguageSelect" component={LanguageScreenWithNavBar} />

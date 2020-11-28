@@ -96,7 +96,7 @@ export const ButtonSingleLine = ({
         <Box flexDirection="row-reverse" alignItems="flex-start" justifyContent="flex-start">
           {externalLink && (
             <Box flex={0} style={{...styles.iconOffsetExternal}}>
-              <Icon name={externalArrowIcon} size={20} />
+              <Icon name={externalArrowIcon} size={23} />
             </Box>
           )}
           {internalLink && (

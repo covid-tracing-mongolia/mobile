@@ -22,7 +22,6 @@ export const DiagnosedView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: b
     if (exposureStatus.type !== ExposureStatusType.Diagnosed) return null;
     daysLeft = getUploadDaysLeft(exposureStatus.cycleEndsAt);
   }
-
   return (
     <BaseHomeView iconName="hand-thank-you-with-love" testID="diagnosed">
       <Text focusRef={autoFocusRef} variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
