@@ -19,7 +19,7 @@ export const palette = {
   brandRed: '#AF3C43',
   brandGreen: '#333000',
   lightBlue: '#CCEFFF',
-  neutralGrey: '#EEEEEE',
+  neutralGrey: '#F5F9FF',
   darkGrey: '#cecece',
   fadedYellow: '#FFF5D9',
   warn: '#FFCDB3',
@@ -40,11 +40,11 @@ export const palette = {
   link: '#2B4380',
   green2: '#C9E7DE',
   greenCheck: '#33D1A1',
-  info100: '#005B99',
+  info100: '#0055FF',
   focus: '#44BBEE',
 
   // new theme colors
-  backgroundIce: '#F6F6F6',
+  backgroundIce: '#F5F9FF',
   mainBlack: '#00133A',
 
   textColorDark: '#142E63',
@@ -261,12 +261,12 @@ const theme = {
     },
     thinFlat: {
       color: palette.info100,
-      height: 52,
+      height: 51,
       textColor: palette.white,
       fontFamily: 'URW Geometric',
-      fontSize: 20,
-      borderBottomWidth: 4,
-      borderBottomColor: palette.brandBlue,
+      fontWeight: 'bold',
+      fontSize: 18,
+      lineHeight: 29,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
