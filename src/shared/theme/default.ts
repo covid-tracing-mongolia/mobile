@@ -176,11 +176,21 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       lineHeight: 25,
+      fontWeight: '800',
     },
     menuItemSubtitle: {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       lineHeight: 25,
+    },
+    menuItemText: {
+      fontFamily: 'URW Geometric',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      fontSize: 18,
+      lineHeight: 24,
+
+      /* identical to box height, or 133% */
     },
     header: {
       fontFamily: 'URW Geometric',
