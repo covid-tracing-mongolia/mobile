@@ -46,8 +46,8 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NotoSans-Bold.ttf</string>
-		<string>NotoSans-Regular.ttf</string>
+		<string>URWGeometric-Bold.ttf</string>
+		<string>URWGeometric-Regular.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

@@ -49,8 +49,10 @@ import HandNoProvinceYet from 'assets/hand-no-province-yet.svg';
 import StopCOVID from 'assets/StopCOVID.svg';
 import CanadaLogo from 'assets/canada.svg';
 import PurpleBullet from 'assets/purple-bullet.svg';
-import ContactImage from 'assets/contact-image.svg'
-import HomeHeader from 'assets/home-header.svg'
+// new stuff
+import HeaderLogo from 'assets/header-logo.svg';
+import ErrorIcon from 'assets/error-icon.svg';
+import DisabledIcon from 'assets/icon-disabled.svg';
 
 const ICONS = {
   'icon-x': IconX,
@@ -103,8 +105,11 @@ const ICONS = {
   'hand-thank-you-with-love': HandThankYouWithLove,
   'hand-no-province-yet': HandNoProvinceYet,
   'canada-logo': CanadaLogo,
-  'contact-image': ContactImage,
-  'home-header': HomeHeader
+
+  // new
+  'header-logo': HeaderLogo,
+  'error-icon': ErrorIcon,
+  'icon-disabled': DisabledIcon,
 };
 
 export type IconName = keyof typeof ICONS;
