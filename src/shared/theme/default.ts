@@ -51,6 +51,7 @@ export const palette = {
 
   // Old color: #2B4380
   linkBlue: '#0055FF',
+  darkBlue: '#00236A',
 };
 
 const theme = {
@@ -102,6 +103,7 @@ const theme = {
     headerText: palette.mainBlack,
     darkText: palette.textColorDark,
     lightText: palette.textColorLight,
+    actionLabel: palette.darkBlue,
   },
   spacing: {
     /* eslint-disable id-length */
@@ -362,7 +364,7 @@ const theme = {
     text: {
       color: 'transparent',
       height: 52,
-      textColor: palette.linkBlue,
+      textColor: palette.darkBlue,
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
@@ -396,6 +398,16 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 16,
       borderBottomWidth: undefined,
+      disabled: {},
+    },
+    close: {
+      color: 'transparent',
+      height: 52,
+      textColor: palette.black,
+      fontWeight: '800',
+      fontFamily: 'URW Geometric',
+      fontSize: 18,
+      borderWidth: undefined,
       disabled: {},
     },
   },
