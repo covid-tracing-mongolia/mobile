@@ -164,8 +164,11 @@ const theme = {
     },
     overlayTitle: {
       fontFamily: 'URW Geometric',
-      fontSize: 23,
-      lineHeight: 30,
+      fontSize: 20,
+      lineHeight: 23,
+
+      fontStyle: 'normal',
+      fontWeight: '800',
     },
     codeInput: {
       fontFamily: 'URW Geometric',

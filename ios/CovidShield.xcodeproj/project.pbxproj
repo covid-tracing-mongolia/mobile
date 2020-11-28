@@ -18,12 +18,10 @@
 		74B6941E245F15B20077B9DA /* ExposureNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B6941D245F15B20077B9DA /* ExposureNotification.m */; };
 		843B6BB725722A8400D445C5 /* URWGeometric-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843B6BB525722A8400D445C5 /* URWGeometric-Regular.ttf */; };
 		843B6BB825722A8400D445C5 /* URWGeometric-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843B6BB625722A8400D445C5 /* URWGeometric-Bold.ttf */; };
-		92B51DEAB84B429696C44822 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 190AEBD50CE3434EBCFCFBB4 /* NotoSans-Bold.ttf */; };
 		9DCF98527548A48AED34959C /* libPods-CovidShield-CovidShieldTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77A1C8C77A874BCC9042935F /* libPods-CovidShield-CovidShieldTests.a */; };
 		A10A691626414D8AABBB659C /* Device-Large.png in Resources */ = {isa = PBXBuildFile; fileRef = 431D5AB0AA364B5C9E7BFF1D /* Device-Large.png */; };
 		BA054BD27C1A8657F6BF95BB /* libPods-CovidShield.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52445CBEB4F2B88669022976 /* libPods-CovidShield.a */; };
 		E0C908AD8D97409895BCF901 /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 94B4DC3E27534960AEAA5640 /* img_0.png */; };
-		E1EAAA13E1C84385A63D42EA /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E93E71E0D77549B3926CABCB /* NotoSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +45,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CovidShield/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CovidShield/main.m; sourceTree = "<group>"; };
 		179621B4246C643100B9FC0D /* CovidShield.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CovidShield.entitlements; path = CovidShield/CovidShield.entitlements; sourceTree = "<group>"; };
-		190AEBD50CE3434EBCFCFBB4 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Bold.ttf"; path = "../src/assets/fonts/NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		195904152488B84300430369 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		195904192488B85E00430369 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Launch Screen.strings"; sourceTree = "<group>"; };
 		1A0CE02FD9160E9B9AF76381 /* Pods-CovidShield.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidShield.release.xcconfig"; path = "Target Support Files/Pods-CovidShield/Pods-CovidShield.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,7 +65,6 @@
 		B850EA562569729500300878 /* mn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mn; path = "mn.lproj/Launch Screen.strings"; sourceTree = "<group>"; };
 		B850EA572569729500300878 /* mn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mn; path = mn.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DB9A1444C934C41C93EB531F /* Pods-CovidShield.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidShield.debug.xcconfig"; path = "Target Support Files/Pods-CovidShield/Pods-CovidShield.debug.xcconfig"; sourceTree = "<group>"; };
-		E93E71E0D77549B3926CABCB /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NotoSans-Regular.ttf"; path = "../src/assets/fonts/NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FA11CCD8EB9EB39453E3C0AA /* Pods-CovidShield-CovidShieldTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidShield-CovidShieldTests.debug.xcconfig"; path = "Target Support Files/Pods-CovidShield-CovidShieldTests/Pods-CovidShield-CovidShieldTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FAA4C78E2EF7441687865846 /* img_0.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = img_0.svg; path = ../src/assets/animation/images/img_0.svg; sourceTree = "<group>"; };
@@ -136,8 +132,6 @@
 				94B4DC3E27534960AEAA5640 /* img_0.png */,
 				431D5AB0AA364B5C9E7BFF1D /* Device-Large.png */,
 				FAA4C78E2EF7441687865846 /* img_0.svg */,
-				190AEBD50CE3434EBCFCFBB4 /* NotoSans-Bold.ttf */,
-				E93E71E0D77549B3926CABCB /* NotoSans-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -303,8 +297,6 @@
 				E0C908AD8D97409895BCF901 /* img_0.png in Resources */,
 				A10A691626414D8AABBB659C /* Device-Large.png in Resources */,
 				1328B72A4DDB4713970A0673 /* img_0.svg in Resources */,
-				92B51DEAB84B429696C44822 /* NotoSans-Bold.ttf in Resources */,
-				E1EAAA13E1C84385A63D42EA /* NotoSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
