@@ -28,9 +28,9 @@ export const Toolbar = ({title, navText, onIconClicked, accessibilityTitleAutoFo
   }, [onIconClicked]);
 
   return (
-    <Box flexDirection="row" alignItems="center" minHeight={56}>
-      <Box>
-        <Button testID="toolbarCloseButton" text={navText} variant="text" onPress={onIconClicked} />
+    <Box flexDirection="row" alignItems="center" justifyContent="space-between" minHeight={56}>
+      <Box style={styles.invisible}>
+        <Button disabled text={navText} variant="text" onPress={() => {}} />
       </Box>
       {title !== '' && (
         <Box flex={1} justifyContent="center" minWidth={100}>
@@ -44,8 +44,8 @@ export const Toolbar = ({title, navText, onIconClicked, accessibilityTitleAutoFo
           </Text>
         </Box>
       )}
-      <Box style={styles.invisible}>
-        <Button disabled text={navText} variant="text" onPress={() => {}} />
+      <Box>
+        <Button testID="toolbarCloseButton" text={navText} variant="close" onPress={onIconClicked} />
       </Box>
     </Box>
   );

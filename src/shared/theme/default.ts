@@ -1,6 +1,5 @@
 export const palette = {
   brandBlue: '#26374A',
-  linkBlue: '#2B4380',
   bodyBlack: '#000000',
   bodySubdued: '#5B5B5B',
   greenBright: '#A4DE82',
@@ -49,6 +48,10 @@ export const palette = {
 
   textColorDark: '#142E63',
   textColorLight: '#677694',
+
+  // Old color: #2B4380
+  linkBlue: '#0055FF',
+  darkBlue: '#00236A',
 };
 
 const theme = {
@@ -100,6 +103,7 @@ const theme = {
     headerText: palette.mainBlack,
     darkText: palette.textColorDark,
     lightText: palette.textColorLight,
+    actionLabel: palette.darkBlue,
   },
   spacing: {
     /* eslint-disable id-length */
@@ -141,8 +145,10 @@ const theme = {
     },
     settingTitle: {
       fontFamily: 'URW Geometric',
-      fontSize: 23,
-      lineHeight: 30,
+      fontStyle: 'normal',
+      fontWeight: '800',
+      fontSize: 24,
+      lineHeight: 29,
     },
     bodyTitle: {
       fontFamily: 'URW Geometric',
@@ -164,8 +170,11 @@ const theme = {
     },
     overlayTitle: {
       fontFamily: 'URW Geometric',
-      fontSize: 23,
-      lineHeight: 30,
+      fontSize: 20,
+      lineHeight: 23,
+
+      fontStyle: 'normal',
+      fontWeight: '800',
     },
     codeInput: {
       fontFamily: 'URW Geometric',
@@ -370,7 +379,7 @@ const theme = {
     text: {
       color: 'transparent',
       height: 52,
-      textColor: palette.linkBlue,
+      textColor: palette.darkBlue,
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
@@ -393,6 +402,26 @@ const theme = {
       textColor: palette.bodySubdued,
       fontFamily: 'URW Geometric',
       fontSize: 16,
+      borderWidth: undefined,
+      disabled: {},
+    },
+    // New button variants
+    bigFlatLink: {
+      color: palette.linkBlue,
+      textColor: palette.white,
+      height: 52,
+      fontFamily: 'URW Geometric',
+      fontSize: 16,
+      borderBottomWidth: undefined,
+      disabled: {},
+    },
+    close: {
+      color: 'transparent',
+      height: 52,
+      textColor: palette.black,
+      fontWeight: '800',
+      fontFamily: 'URW Geometric',
+      fontSize: 18,
       borderWidth: undefined,
       disabled: {},
     },
