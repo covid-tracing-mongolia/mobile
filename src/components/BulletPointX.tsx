@@ -28,7 +28,7 @@ export const BulletPointX = ({listAccessibile, text}: {listAccessibile: string; 
       <Box accessible accessibilityLabel={bulletLabel} marginTop="xxs">
         <Icon size={20} name="icon-x" />
       </Box>
-      <Text accessibilityLabel={textLabel} variant="bodyText" color="overlayBodyText" marginLeft="m">
+      <Text accessibilityLabel={textLabel} variant="bodyText" color="darkText" marginLeft="m">
         {text}
       </Text>
     </Box>

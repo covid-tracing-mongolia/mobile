@@ -18,7 +18,7 @@ export const ItemView = ({item, image, isActive}: ItemViewProps) => {
 
   return (
     <>
-      <Box marginHorizontal="-m" marginTop="s" marginBottom="l" borderBottomWidth={2} borderBottomColor="gray5">
+      <Box marginHorizontal="-m" marginTop="s" marginBottom="l">
         <Image
           accessible
           ref={autoFocusRef}
@@ -27,15 +27,10 @@ export const ItemView = ({item, image, isActive}: ItemViewProps) => {
           accessibilityLabel={i18n.translate(`Tutorial.${item}AltText`)}
         />
       </Box>
-      <Text variant="bodyTitle" color="overlayBodyText" marginBottom="l" accessible accessibilityRole="header">
+      <Text variant="bodyTitle" color="headerText" marginBottom="l" accessible accessibilityRole="header">
         {i18n.translate(`Tutorial.${item}Title`)}
       </Text>
-      <TextMultiline
-        text={i18n.translate(`Tutorial.${item}`)}
-        variant="bodyText"
-        color="overlayBodyText"
-        marginBottom="l"
-      />
+      <TextMultiline text={i18n.translate(`Tutorial.${item}`)} variant="bodyText" color="darkText" marginBottom="l" />
     </>
   );
 };

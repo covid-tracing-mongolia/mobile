@@ -18,24 +18,22 @@ export interface ItemViewProps {
 export const ItemView = ({item, image, isActive, altText, header, children}: ItemViewProps) => {
   const i18n = useI18n();
   const autoFocusRef = useAccessibilityAutoFocus(isActive);
-  const total = onboardingData.length;
-  const step = i18n.translate('Onboarding.Step');
-  const of = i18n.translate('Onboarding.Of');
-  const x = onboardingData.indexOf(item) + 1;
-  const stepText = `${step} ${x} ${of} ${total}`;
 
   return (
     <>
-      <Text focusRef={autoFocusRef} marginBottom="s" marginTop="s" color="gray2">
-        {stepText}
+      <Text focusRef={autoFocusRef} marginBottom="s" marginTop="s" color="darkText">
+        <Text fontSize={24} fontWeight="bold" color="infoBlockNeutralText">
+          {[i18n.translate('Onboarding.Step'), onboardingData.indexOf(item) + 1].join(' ')}
+        </Text>
+        {[i18n.translate('Onboarding.Of'), onboardingData.length].join('')}
       </Text>
       {image ? (
-        <Box marginHorizontal="-m" marginTop="s" marginBottom="l" borderBottomWidth={2} borderBottomColor="gray5">
+        <Box marginTop="s" marginBottom="l">
           <Image accessible style={styles.image} source={image} accessibilityLabel={altText} />
         </Box>
       ) : null}
 
-      <Text variant="bodyTitle" color="overlayBodyText" marginBottom="l" accessibilityRole="header">
+      <Text variant="bodyTitle" color="headerText" marginBottom="l" accessibilityRole="header">
         {header}
       </Text>
       {children}
@@ -46,7 +44,7 @@ export const ItemView = ({item, image, isActive, altText, header, children}: Ite
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 168,
+    height: 178,
     resizeMode: 'contain',
     alignSelf: 'center',
   },

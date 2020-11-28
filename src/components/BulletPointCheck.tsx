@@ -29,7 +29,7 @@ export const BulletPointCheck = ({listAccessibile, text}: {listAccessibile: stri
         <Icon size={20} name="icon-green-check" />
       </Box>
       <Box flex={1}>
-        <Text accessibilityLabel={textLabel} variant="bodyText" color="overlayBodyText" marginLeft="m">
+        <Text accessibilityLabel={textLabel} variant="bodyText" color="darkText" marginLeft="m">
           {text}
         </Text>
       </Box>
