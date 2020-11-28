@@ -141,8 +141,10 @@ const theme = {
     },
     settingTitle: {
       fontFamily: 'URW Geometric',
-      fontSize: 23,
-      lineHeight: 30,
+      fontStyle: 'normal',
+      fontWeight: '800',
+      fontSize: 24,
+      lineHeight: 29,
     },
     bodyTitle: {
       fontFamily: 'URW Geometric',
