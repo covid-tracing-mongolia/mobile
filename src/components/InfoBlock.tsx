@@ -20,6 +20,7 @@ export interface InfoBlockProps {
   };
   showButton?: boolean;
   focusOnTitle?: boolean;
+  descriptionColor?: string;
 }
 
 export const InfoBlock = ({
@@ -31,6 +32,7 @@ export const InfoBlock = ({
   title,
   titleBolded,
   showButton,
+  descriptionColor,
   focusOnTitle,
 }: InfoBlockProps) => {
   const autoFocusRef = useAccessibilityAutoFocus(focusOnTitle);
@@ -58,7 +60,7 @@ export const InfoBlock = ({
           </Text>
         </Box>
       )}
-      <Text variant="bodyDescription" color="lightText" marginBottom="m">
+      <Text variant="bodyDescription" color={descriptionColor || 'lightText'} marginBottom="m">
         {text}
       </Text>
       {showButton ? (

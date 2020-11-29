@@ -75,7 +75,8 @@ const BluetoothStatusOff = ({i18n}: {i18n: I18n}) => {
     <InfoBlock
       titleBolded={i18n.translate('OverlayOpen.BluetoothCardAction')}
       backgroundColor="danger25Background"
-      color="bodyText"
+      color="bodyTextWhite"
+      descriptionColor="bodyTextWhite"
       button={{
         text: '',
         action: () => {},
@@ -90,11 +91,11 @@ const NotificationStatusOff = ({action, i18n}: {action: () => void; i18n: I18n})
   return (
     <InfoButton
       title={i18n.translate('OverlayOpen.NotificationCardStatus')}
-      color="mainBackground"
+      color="danger25Background"
       internalLink
       text={i18n.translate('OverlayOpen.NotificationCardBody')}
       onPress={action}
-      variant="bigFlatNeutralGrey"
+      variant="danger50Flat"
     />
   );
 
