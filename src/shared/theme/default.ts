@@ -426,6 +426,16 @@ const theme = {
       borderWidth: undefined,
       disabled: {},
     },
+    navigation: {
+      color: 'transparent',
+      height: 52,
+      textColor: palette.darkBlue,
+      fontWeight: '800',
+      fontFamily: 'URW Geometric',
+      fontSize: 18,
+      borderWidth: undefined,
+      disabled: {},
+    },
   },
   maxContentWidth: 500,
 };

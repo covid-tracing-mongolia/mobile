@@ -26,7 +26,7 @@ export const BulletPointCheck = ({listAccessibile, text}: {listAccessibile: stri
   return (
     <Box flexDirection="row" marginBottom="s">
       <Box accessible accessibilityLabel={bulletLabel} marginTop="xxs" flex={0}>
-        <Icon size={20} name="icon-green-check" />
+        <Icon size={20} name="tick" />
       </Box>
       <Box flex={1}>
         <Text accessibilityLabel={textLabel} variant="bodyText" color="darkText" marginLeft="m">
