@@ -7,7 +7,7 @@ import {BaseHomeView} from '../components/BaseHomeView';
 export const NetworkDisabledView = () => {
   const i18n = useI18n();
   return (
-    <BaseHomeView iconName="icon-disabled">
+    <BaseHomeView iconName="error-icon">
       <Text variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.NoConnectivity')}
       </Text>
