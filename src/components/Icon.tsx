@@ -116,8 +116,8 @@ const ICONS = {
   'error-icon': ErrorIcon,
   'icon-disabled': DisabledIcon,
   'contact-image': ContactImage,
-  'cross': CrossIcon,
-  'tick': TickIcon,
+  cross: CrossIcon,
+  tick: TickIcon,
   'icon-share-diagnose': ShareDiagnose,
   'icon-diagnosed': Diagnosed,
 };
