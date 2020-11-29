@@ -105,6 +105,7 @@ export const FormScreen = () => {
           text={i18n.translate('DataUpload.FormView.Action')}
           onPress={() => {
             navigation.navigate('Step2');
+
             /*
             const inputValid = validateInput();
             if (!inputValid) {
