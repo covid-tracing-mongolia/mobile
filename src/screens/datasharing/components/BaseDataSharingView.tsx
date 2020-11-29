@@ -30,7 +30,7 @@ export const BaseDataSharingView = ({children, showBackButton = true}: BaseDataS
       <Box backgroundColor="overlayBackground" flex={1}>
         <SafeAreaView style={styles.flex}>
           <Box style={wrapperStyle} />
-          <Box marginBottom="m">
+          <Box marginBottom="s">
             <Toolbar
               navText={i18n.translate('DataUpload.Close')}
               onIconClicked={close}

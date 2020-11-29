@@ -33,11 +33,11 @@ export const BulletPoint = ({text, listAccessibile}: BulletPointProps) => {
   return (
     <Box flexDirection="row" marginBottom="xs">
       <Box marginRight="xs">
-        <Text accessible accessibilityLabel={bulletLabel} variant="bodyText" color="bodyText">
+        <Text accessible accessibilityLabel={bulletLabel} variant="bodyText" color="lightText">
           {bullet}
         </Text>
       </Box>
-      <Text accessibilityLabel={textLabel} variant="bodyText" color="bodyText">
+      <Text accessibilityLabel={textLabel} variant="bodyText" color="lightText">
         {text}
       </Text>
     </Box>

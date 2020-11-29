@@ -10,8 +10,13 @@ export interface StepXofYProps {
 export const StepXofY = ({currentStep, totalSteps = 3}: StepXofYProps) => {
   const i18n = useI18n();
   return (
-    <Text marginBottom="xs" variant="smallText" color="gray1Text">
-      {i18n.translate('DataUpload.StepXofY', {x: currentStep, y: totalSteps})}
+    <Text marginBottom="s">
+      <Text marginBottom="xs" variant="bodySubTitle" color="greyLightBlue1">
+        {i18n.translate('DataUpload.Step')} {totalSteps}
+      </Text>
+      <Text marginBottom="xs" variant="smallTextBold" color="greyLightBlue1">
+        /{currentStep}
+      </Text>
     </Text>
   );
 };

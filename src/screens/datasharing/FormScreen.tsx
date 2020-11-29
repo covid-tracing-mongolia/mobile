@@ -77,7 +77,7 @@ export const FormScreen = () => {
       <Box marginHorizontal="m" marginBottom="l">
         <StepXofY currentStep={1} />
         <Text
-          variant="bodyTitle"
+          variant="bodyTitle2"
           color="overlayBodyText"
           accessibilityRole="header"
           // eslint-disable-next-line no-unneeded-ternary
@@ -87,7 +87,9 @@ export const FormScreen = () => {
         </Text>
       </Box>
       <Box marginHorizontal="m" marginBottom="l">
-        <Text color="overlayBodyText">{i18n.translate('DataUpload.FormView.Body')}</Text>
+        <Text color="lightText" variant="bodyDescription">
+          {i18n.translate('DataUpload.FormView.Body')}
+        </Text>
       </Box>
       <Box marginBottom="m" paddingHorizontal="m">
         <CodeInput
