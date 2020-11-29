@@ -231,7 +231,7 @@ const theme = {
       fontWeight: 'bold',
       fontSize: 18,
       lineHeight: 29,
-
+      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -245,6 +245,7 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
+      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -258,6 +259,7 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
+      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -271,6 +273,7 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
+      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -284,6 +287,7 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderBottomWidth: undefined,
+      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -298,6 +302,7 @@ const theme = {
       fontWeight: 'bold',
       fontSize: 18,
       lineHeight: 29,
+      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -312,6 +317,7 @@ const theme = {
       fontSize: 18,
       borderBottomWidth: 0,
       borderBottomColor: palette.darkGrey,
+      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -325,6 +331,7 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 16,
       borderBottomWidth: undefined,
+      shadow: 0,
       disabled: {},
     },
     thinFlatNeutralGrey: {
