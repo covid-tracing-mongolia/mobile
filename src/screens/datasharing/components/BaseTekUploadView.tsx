@@ -93,7 +93,6 @@ export const BaseTekUploadView = ({
       <ScrollView style={styles.flex}>{children}</ScrollView>
       <Box paddingHorizontal="m" paddingTop="m" marginBottom="m">
         <Button
-          shadow
           variant="thinFlat"
           text={buttonText}
           onPress={() => {

@@ -71,7 +71,7 @@ export const ButtonSingleLine = ({
   const boxStyles: BoxProps['style'] = {
     backgroundColor: Platform.OS === 'ios' || externalLink ? color : 'transparent',
     minHeight: height,
-    borderWidth: 0,
+    borderWidth,
     borderColor: buttonColor,
     borderBottomWidth,
     borderBottomColor: Platform.OS === 'ios' ? palette.fadedWhiteDark : borderBottomColor,
@@ -79,12 +79,12 @@ export const ButtonSingleLine = ({
     shadowColor: color,
     shadowOffset: {
       width: 0,
-      height: 0,
+      height: 1,
     },
-    shadowOpacity: 0,
-    shadowRadius: 0,
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
 
-    elevation: 0,
+    elevation: 3,
   };
   const content = (
     <Box
@@ -107,7 +107,7 @@ export const ButtonSingleLine = ({
           )}
           {internalLink && (
             <Box flex={0} style={{...styles.iconOffsetChevron}}>
-              <Icon size={25} name="icon-chevron" />
+              <Icon size={25} name="icon-chevron-white" />
             </Box>
           )}
           {iconName && (
@@ -122,8 +122,8 @@ export const ButtonSingleLine = ({
                 ...styles.content,
                 color: textColor || buttonColor,
                 fontWeight: 'bold',
-                fontSize: 16,
-                lineHeight: 20,
+                fontSize: 18,
+                lineHeight: 29,
               }}
             >
               {text}

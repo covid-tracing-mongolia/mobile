@@ -59,7 +59,7 @@ export const Step0Screen = () => {
           </Text>
 
           <Box marginTop="m">
-            <Button shadow variant="thinFlat" text={i18n.translate('DataUpload.Step0.CTA')} onPress={onNext} />
+            <Button variant="thinFlat" text={i18n.translate('DataUpload.Step0.CTA')} onPress={onNext} />
           </Box>
 
           <Box marginTop="m" marginBottom="m">
