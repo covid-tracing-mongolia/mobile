@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {ActivityIndicator, ScrollView, StyleSheet, Alert} from 'react-native';
-import {Box, Button, ButtonSingleLine} from 'components';
+import {Box, Button} from 'components';
 import {useI18n} from 'locale';
 import {useReportDiagnosis, cannotGetTEKsError} from 'services/ExposureNotificationService';
 import {covidshield} from 'services/BackendService/covidshield';
