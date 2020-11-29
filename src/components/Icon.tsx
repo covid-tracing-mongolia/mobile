@@ -17,6 +17,7 @@ import IconClose from 'assets/icon-close.svg';
 import IconEnterCode from 'assets/icon-enter-code.svg';
 import IconExternalArrow from 'assets/icon-external-arrow.svg';
 import IconExternalArrowLight from 'assets/icon-external-arrow-light.svg';
+import IconExternalArrowLightGreen from 'assets/icon-external-arrow-lightgreen.svg';
 import IconImportant from 'assets/icon-important.svg';
 import IconMessages from 'assets/icon-messages.svg';
 import IconNotify from 'assets/icon-notify.svg';
@@ -58,6 +59,7 @@ import CrossIcon from 'assets/icons/cross.svg';
 import TickIcon from 'assets/icons/tick.svg';
 import ShareDiagnose from 'assets/icon-share-diagnose.svg';
 import Diagnosed from 'assets/icon-diagnosed.svg';
+import LightBulb from 'assets/icon-lightbulb.svg';
 
 const ICONS = {
   'icon-x': IconX,
@@ -78,6 +80,7 @@ const ICONS = {
   'icon-ellipsis': Ellipsis,
   'icon-external-arrow': IconExternalArrow,
   'icon-external-arrow-light': IconExternalArrowLight,
+  'icon-external-arrow-lightgreen': IconExternalArrowLightGreen,
   'icon-important': IconImportant,
   'icon-messages': IconMessages,
   'icon-notify': IconNotify,
@@ -120,6 +123,7 @@ const ICONS = {
   tick: TickIcon,
   'icon-share-diagnose': ShareDiagnose,
   'icon-diagnosed': Diagnosed,
+  'icon-lightbulb': LightBulb,
 };
 
 export type IconName = keyof typeof ICONS;
