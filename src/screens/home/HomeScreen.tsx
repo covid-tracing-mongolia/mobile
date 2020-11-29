@@ -54,7 +54,7 @@ const Content = ({isBottomSheetExpanded}: ContentProps) => {
     return <NoExposureNoRegionView isBottomSheetExpanded={isBottomSheetExpanded} />;
   };
 
-  // this is for the test menu
+  // this is for the test menu  ExposureNotificationsDisabledView
   const {forceScreen} = useStorage();
   if (TEST_MODE) {
     switch (forceScreen) {

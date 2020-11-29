@@ -26,7 +26,7 @@ export const Ripple = ({
         borderRadius,
       }}
       onPress={onPress}
-      rippleColor="rgb(0,0,0)"
+      rippleColor="rgb(200,200,200)"
       activeOpacity={0.8}
     >
       <View accessible {...props}>

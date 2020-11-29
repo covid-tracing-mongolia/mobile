@@ -17,7 +17,7 @@ export const TekUploadNoDate = () => {
         <Text variant="bodyTitle" marginBottom="l" accessibilityRole="header" accessibilityAutoFocus>
           {i18n.translate('DataUpload.TekUploadNoDate.Title')}
         </Text>
-        <TextMultiline marginBottom="l" text={i18n.translate('DataUpload.TekUploadNoDate.Body')} />
+        <TextMultiline marginBottom="l" color="lightText" text={i18n.translate('DataUpload.TekUploadNoDate.Body')} />
       </Box>
     </BaseTekUploadView>
   );

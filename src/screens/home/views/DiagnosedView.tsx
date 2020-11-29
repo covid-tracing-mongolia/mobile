@@ -30,13 +30,13 @@ export const DiagnosedView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: b
       </Text>
       {daysLeft < 1 ? null : (
         <>
-          <Text variant="bodyText" color="bodyText" marginBottom="m">
+          <Text variant="bodyDescription" color="lightText" marginBottom="m">
             {i18n.translate(pluralizeKey('Home.DiagnosedView.Body1', daysLeft), {number: daysLeft})}
           </Text>
-          <Text variant="bodyText" color="bodyText" marginBottom="m">
+          <Text variant="bodyDescription" color="lightText" marginBottom="m">
             {i18n.translate('Home.DiagnosedView.Body2')}
           </Text>
-          <Text variant="bodyText" color="bodyText" marginBottom="m">
+          <Text variant="bodyDescription" color="lightText" marginBottom="m">
             {i18n.translate('Home.DiagnosedView.Body3')}
           </Text>
           <Tip />

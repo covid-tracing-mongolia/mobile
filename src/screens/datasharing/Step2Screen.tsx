@@ -30,7 +30,9 @@ export const Step2Screen = () => {
           <Text variant="bodyTitle" marginBottom="l" accessibilityRole="header" accessibilityAutoFocus>
             {i18n.translate('DataUpload.Step2.Title1')}
           </Text>
-          <Text marginBottom="s">{i18n.translate('DataUpload.Step2.Body1')}</Text>
+          <Text marginBottom="s" color="lightText">
+            {i18n.translate('DataUpload.Step2.Body1')}
+          </Text>
           <BulletPoint
             key={i18n.translate('DataUpload.Step2.Symptoms.1')}
             listAccessibile="listStart"
@@ -90,7 +92,9 @@ export const Step2Screen = () => {
           <Text marginTop="l" marginBottom="s" variant="bodyTitle2">
             {i18n.translate('DataUpload.Step2.Title2')}
           </Text>
-          <Text marginBottom="l">{i18n.translate('DataUpload.Step2.Body2')}</Text>
+          <Text marginBottom="l" color="lightText">
+            {i18n.translate('DataUpload.Step2.Body2')}
+          </Text>
 
           <Box marginTop="m" marginBottom="m">
             <Button

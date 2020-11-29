@@ -77,16 +77,6 @@ export const Button = ({
     minHeight: height,
     borderBottomWidth,
     borderBottomColor: Platform.OS === 'ios' ? palette.fadedWhiteDark : borderBottomColor,
-
-    shadowColor: color,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-
-    elevation: 3,
   };
   const content = (
     <Box
@@ -105,7 +95,7 @@ export const Button = ({
         <>
           {backButton && (
             <Box style={styles.backIcon} marginRight="s">
-              <Icon size={14} name="icon-chevron-back" />
+              <Icon size={16} name="icon-chevron-back" />
             </Box>
           )}
           <Text style={{...styles.content, color: textColor || buttonColor, fontWeight, fontFamily, fontSize}}>

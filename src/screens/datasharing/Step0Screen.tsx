@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import {Box, Text, Button} from 'components';
+import {Box, Text, Button, ButtonSingleLine} from 'components';
 import {useI18n} from 'locale';
 import {useNavigation} from '@react-navigation/native';
 
@@ -15,29 +15,61 @@ export const Step0Screen = () => {
     <BaseDataSharingView showBackButton={false}>
       <ScrollView style={styles.flex}>
         <Box paddingHorizontal="m">
-          <Text variant="bodyTitle" marginBottom="l" accessibilityRole="header" accessibilityAutoFocus>
+          <Text
+            color="lightBlack"
+            variant="bodyTitle2"
+            marginBottom="l"
+            accessibilityRole="header"
+            accessibilityAutoFocus
+          >
             {i18n.translate('DataUpload.Step0.Title')}
           </Text>
 
           <Text marginBottom="l">
-            <Text fontWeight="bold">{i18n.translate('DataUpload.Step0.List.1a')}</Text>
-            <Text>{i18n.translate('DataUpload.Step0.List.1b')}</Text>
+            <Text fontWeight="normal" color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.List.1a')}
+            </Text>
+            <Text color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.List.1b')}
+            </Text>
           </Text>
           <Text marginBottom="l">
-            <Text fontWeight="bold">{i18n.translate('DataUpload.Step0.List.2a')}</Text>
-            <Text>{i18n.translate('DataUpload.Step0.List.2b')}</Text>
+            <Text fontWeight="normal" color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.List.2a')}
+            </Text>
+            <Text color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.List.2b')}
+            </Text>
           </Text>
           <Text marginBottom="l">
-            <Text fontWeight="bold">{i18n.translate('DataUpload.Step0.List.3a')}</Text>
-            <Text>{i18n.translate('DataUpload.Step0.List.3b')}</Text>
+            <Text fontWeight="normal" color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.List.3a')}
+            </Text>
+            <Text color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.List.3b')}
+            </Text>
           </Text>
           <Text marginBottom="l">
-            <Text fontWeight="bold">{i18n.translate('DataUpload.Step0.Body1')}</Text>
-            <Text>{i18n.translate('DataUpload.Step0.Body2')}</Text>
+            <Text fontWeight="normal" color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.Body1')}
+            </Text>
+            <Text color="lightText" variant="bodyDescription">
+              {i18n.translate('DataUpload.Step0.Body2')}
+            </Text>
           </Text>
 
           <Box marginTop="m">
             <Button variant="thinFlat" text={i18n.translate('DataUpload.Step0.CTA')} onPress={onNext} />
+          </Box>
+
+          <Box marginTop="m" marginBottom="m">
+            <ButtonSingleLine
+              text={i18n.translate('DataUpload.Step0.NoCode')}
+              variant="bigFlatDarkGrey"
+              color="lightBlack"
+              internalLink
+              onPress={onNext}
+            />
           </Box>
         </Box>
       </ScrollView>

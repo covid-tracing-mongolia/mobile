@@ -34,10 +34,12 @@ export const SymptomOnsetDateScreen = () => {
             selectedDate={data.symptomOnsetDate}
             setDate={setSymptomOnsetDate}
           />
-          <Text variant="bodyTitle2" marginTop="l" marginBottom="s">
+          <Text marginTop="l" color="lightText" variant="bodyDescription" marginBottom="s">
             {i18n.translate('DataUpload.SymptomOnsetDate.Title2')}
           </Text>
-          <Text marginBottom="m">{i18n.translate('DataUpload.SymptomOnsetDate.Body1')}</Text>
+          <Text marginBottom="m" variant="bodyDescription" color="lightText">
+            {i18n.translate('DataUpload.SymptomOnsetDate.Body1')}
+          </Text>
         </Box>
       </ScrollView>
     </BaseTekUploadView>
