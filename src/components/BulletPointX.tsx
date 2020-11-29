@@ -26,7 +26,7 @@ export const BulletPointX = ({listAccessibile, text}: {listAccessibile: string; 
   return (
     <Box flexDirection="row" marginBottom="m">
       <Box accessible accessibilityLabel={bulletLabel} marginTop="xxs">
-        <Icon size={20} name="icon-x" />
+        <Icon size={20} name="cross" />
       </Box>
       <Text accessibilityLabel={textLabel} variant="bodyText" color="darkText" marginLeft="m">
         {text}

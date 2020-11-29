@@ -38,7 +38,7 @@ export const palette = {
   gray4: '#BCBCBC',
   gray7: 'rgba(0, 85, 255, 0.24)',
   link: '#2B4380',
-  green2: '#C9E7DE',
+  green2: '#4ABC2B',
   greenCheck: '#33D1A1',
   info100: '#0055FF',
   focus: '#44BBEE',
@@ -55,6 +55,7 @@ export const palette = {
   darkBlue: '#00236A',
   lightBlack: '#001133',
   greyLightBlue: '#90A5CE',
+  lightGreen: '#EFFFEB',
 };
 
 const theme = {
@@ -69,7 +70,7 @@ const theme = {
     greenBackground: palette.greenBright,
     overlayBackground: palette.white,
     danger10: palette.danger10,
-    danger25Background: palette.danger25,
+    danger25Background: palette.danger50,
     overlayBodyText: palette.bodyBlack,
     fadedBackground: palette.fadedWhite,
     bodyText: palette.bodyBlack,
@@ -310,9 +311,9 @@ const theme = {
       },
     },
     thinFlatBlue: {
-      color: palette.neutralGrey,
+      color: palette.info100,
       height: 52,
-      textColor: palette.textColorDark,
+      textColor: palette.white,
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderBottomWidth: 0,
@@ -335,13 +336,13 @@ const theme = {
       disabled: {},
     },
     thinFlatNeutralGrey: {
-      color: palette.neutralGrey,
-      height: 52,
-      textColor: palette.black,
+      color: palette.lightGreen,
+      height: 51,
+      textColor: palette.green2,
       fontFamily: 'URW Geometric',
+      fontWeight: '700',
       fontSize: 18,
-      borderBottomWidth: 4,
-      borderBottomColor: palette.darkGrey,
+      lineHeight: 29,
       disabled: {},
     },
     bigFlatDarkGrey: {
@@ -444,13 +445,13 @@ const theme = {
       borderWidth: undefined,
       disabled: {},
     },
-    textHeader: {
+    navigation: {
       color: 'transparent',
       height: 52,
       textColor: palette.darkBlue,
       fontWeight: '800',
       fontFamily: 'URW Geometric',
-      fontSize: 16,
+      fontSize: 18,
       borderWidth: undefined,
       disabled: {},
     },

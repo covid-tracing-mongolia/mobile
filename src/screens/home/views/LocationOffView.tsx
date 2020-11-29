@@ -27,11 +27,11 @@ export const LocationOffView = ({isBottomSheetExpanded}: {isBottomSheetExpanded:
   };
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
   return (
-    <BaseHomeView iconName="icon-bluetooth-disabled">
-      <Text focusRef={autoFocusRef} variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
+    <BaseHomeView iconName="error-icon">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.EnDisabled.Title')}
       </Text>
-      <Text variant="bodyText" color="bodyText">
+      <Text variant="bodyDescription" color="lightText">
         {i18n.translate('Home.EnDisabled.Body1')}
       </Text>
       <Box alignSelf="stretch" marginBottom="l" marginTop="l">
@@ -43,14 +43,22 @@ export const LocationOffView = ({isBottomSheetExpanded}: {isBottomSheetExpanded:
         />
       </Box>
       <Box marginBottom="m">
-        <Text marginBottom="m" variant="bodySubTitle">
+        <Text marginBottom="m" variant="bodyTitle" color="darkText">
           {i18n.translate('Home.EnDisabled.AndroidTitle2')}
         </Text>
-        <Text marginBottom="m">{i18n.translate('Home.EnDisabled.AndroidBody1')}</Text>
+        <Text marginBottom="m" variant="bodyDescription" color="lightText">
+          {i18n.translate('Home.EnDisabled.AndroidBody1')}
+        </Text>
         <Text>
-          <Text>{i18n.translate('Home.EnDisabled.AndroidBody2a')}</Text>
-          <Text fontWeight="bold">{i18n.translate('Home.EnDisabled.AndroidBody2b')}</Text>
-          <Text>{i18n.translate('Home.EnDisabled.AndroidBody2c')}</Text>
+          <Text variant="bodyDescription" color="lightText">
+            {i18n.translate('Home.EnDisabled.AndroidBody2a')}
+          </Text>
+          <Text variant="bodyDescription" color="darkText" fontWeight="bold">
+            {i18n.translate('Home.EnDisabled.AndroidBody2b')}
+          </Text>
+          <Text variant="bodyDescription" color="lightText">
+            {i18n.translate('Home.EnDisabled.AndroidBody2c')}
+          </Text>
         </Text>
       </Box>
     </BaseHomeView>

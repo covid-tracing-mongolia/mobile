@@ -12,21 +12,21 @@ export const Tip = () => {
           <Icon name="icon-light-bulb" size={40} />
         </Box>
         <Box flex={1}>
-          <Text>
-            <Text fontWeight="bold">{i18n.translate('Home.DiagnosedView.Tip.Title')}</Text>
-            <Text>
-              Vous pouvez vous préparer pour l’appel de la Santé publique sur le site Web des résultats du test.
-            </Text>
+          <Text color="bodyTextWhite" variant="bodyTitle" fontWeight="bold">
+            {i18n.translate('Home.DiagnosedView.Tip.Title')}
+          </Text>
+          <Text marginTop="s" color="bodyTextWhite" variant="bodyDescription">
+            Та доорх сайтаас COVID-19 халдварын талаар дэлгэрэнгүй мэдээлэл авах боломжтой
           </Text>
         </Box>
       </Box>
 
       <Box paddingHorizontal="m" paddingTop="s">
         <ButtonSingleLine
-          text="Site des résultats du test"
+          text="Тусламж авах"
           variant="thinFlatNeutralGrey"
           externalLink
-          onPress={() => Linking.openURL(`https://nema.gov.mn`)}
+          onPress={() => Linking.openURL(`https://covid19.mohs.mn`)}
         />
       </Box>
     </Box>
