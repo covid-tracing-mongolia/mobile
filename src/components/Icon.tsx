@@ -60,6 +60,8 @@ import TickIcon from 'assets/icons/tick.svg';
 import ShareDiagnose from 'assets/icon-share-diagnose.svg';
 import Diagnosed from 'assets/icon-diagnosed.svg';
 import LightBulb from 'assets/icon-lightbulb.svg';
+import AmericaFlag from 'assets/america-flag.svg';
+import MongoliaFlag from 'assets/mongolia-flag.svg';
 
 const ICONS = {
   'icon-x': IconX,
@@ -124,6 +126,8 @@ const ICONS = {
   'icon-share-diagnose': ShareDiagnose,
   'icon-diagnosed': Diagnosed,
   'icon-lightbulb': LightBulb,
+  'america-flag': AmericaFlag,
+  'mongolia-flag': MongoliaFlag,
 };
 
 export type IconName = keyof typeof ICONS;
