@@ -23,20 +23,20 @@ export const DiagnosedView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: b
     daysLeft = getUploadDaysLeft(exposureStatus.cycleEndsAt);
   }
   return (
-    <BaseHomeView iconName="hand-thank-you-with-love" testID="diagnosed">
-      <Text focusRef={autoFocusRef} variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
+    <BaseHomeView iconName="icon-diagnosed" testID="diagnosed">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.DiagnosedView.Title')}
         {/* No exposure detected */}
       </Text>
       {daysLeft < 1 ? null : (
         <>
-          <Text variant="bodyText" color="bodyText" marginBottom="m">
+          <Text variant="bodyDescription" color="lightText" marginBottom="m">
             {i18n.translate(pluralizeKey('Home.DiagnosedView.Body1', daysLeft), {number: daysLeft})}
           </Text>
-          <Text variant="bodyText" color="bodyText" marginBottom="m">
+          <Text variant="bodyDescription" color="lightText" marginBottom="m">
             {i18n.translate('Home.DiagnosedView.Body2')}
           </Text>
-          <Text variant="bodyText" color="bodyText" marginBottom="m">
+          <Text variant="bodyDescription" color="lightText" marginBottom="m">
             {i18n.translate('Home.DiagnosedView.Body3')}
           </Text>
           <Tip />

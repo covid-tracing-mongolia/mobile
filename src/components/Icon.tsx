@@ -56,6 +56,8 @@ import DisabledIcon from 'assets/icon-disabled.svg';
 import ContactImage from 'assets/contact-image.svg';
 import CrossIcon from 'assets/icons/cross.svg';
 import TickIcon from 'assets/icons/tick.svg';
+import ShareDiagnose from 'assets/icon-share-diagnose.svg';
+import Diagnosed from 'assets/icon-diagnosed.svg';
 
 const ICONS = {
   'icon-x': IconX,
@@ -114,9 +116,10 @@ const ICONS = {
   'error-icon': ErrorIcon,
   'icon-disabled': DisabledIcon,
   'contact-image': ContactImage,
-
-  cross: CrossIcon,
-  tick: TickIcon,
+  'cross': CrossIcon,
+  'tick': TickIcon,
+  'icon-share-diagnose': ShareDiagnose,
+  'icon-diagnosed': Diagnosed,
 };
 
 export type IconName = keyof typeof ICONS;

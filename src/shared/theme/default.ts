@@ -37,7 +37,7 @@ export const palette = {
   gray3: '#8A8A8A',
   gray4: '#BCBCBC',
   link: '#2B4380',
-  green2: '#C9E7DE',
+  green2: '#4ABC2B',
   greenCheck: '#33D1A1',
   info100: '#0055FF',
   focus: '#44BBEE',
@@ -52,6 +52,7 @@ export const palette = {
   // Old color: #2B4380
   linkBlue: '#0055FF',
   darkBlue: '#00236A',
+  lightGreen: '#EFFFEB',
 };
 
 const theme = {
@@ -316,13 +317,13 @@ const theme = {
       disabled: {},
     },
     thinFlatNeutralGrey: {
-      color: palette.neutralGrey,
-      height: 52,
-      textColor: palette.black,
+      color: palette.lightGreen,
+      height: 51,
+      textColor: palette.green2,
       fontFamily: 'URW Geometric',
+      fontWeight: '700',
       fontSize: 18,
-      borderBottomWidth: 4,
-      borderBottomColor: palette.darkGrey,
+      lineHeight: 29,
       disabled: {},
     },
     bigFlatDarkGrey: {

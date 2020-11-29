@@ -15,15 +15,15 @@ const ExposureText = ({isBottomSheetExpanded}: {isBottomSheetExpanded: boolean})
 
   return (
     <>
-      <Text focusRef={autoFocusRef} variant="bodyTitle2" color="darkText" marginBottom="m" accessibilityRole="header">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.ExposureDetected.Title')}
       </Text>
-      <Text marginBottom="m" variant="smallText" color="lightText">
+      <Text marginBottom="m" variant="bodyDescription" color="lightText">
         {i18n.translate('Home.ExposureDetected.Body1')}
       </Text>
       {/* <ExposureDateView /> */}
 
-      <Text variant="bodyTitle2" marginBottom="m" color="darkText" accessibilityRole="header">
+      <Text variant="bodyTitle" marginBottom="m" color="darkText" accessibilityRole="header">
         {i18n.translate('Home.ExposureDetected.Title2')}
       </Text>
 

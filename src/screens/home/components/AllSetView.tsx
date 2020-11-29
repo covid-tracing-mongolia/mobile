@@ -20,13 +20,13 @@ export const AllSetView = ({
         testID={testID}
         focusRef={autoFocusRef}
         variant="bodyTitle"
-        color="bodyText"
+        color="darkText"
         marginBottom="m"
         accessibilityRole="header"
       >
         {titleText}
       </Text>
-      <TextMultiline text={bodyText} marginBottom="m" />
+      <TextMultiline color="lightText" variant="bodyDescription" text={bodyText} marginBottom="m" />
     </>
   );
 };
