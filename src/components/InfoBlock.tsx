@@ -1,3 +1,4 @@
+import {ResponsiveValue} from '@shopify/restyle';
 import React from 'react';
 import {Theme} from 'shared/theme';
 import {useAccessibilityAutoFocus} from 'shared/useAccessibilityAutoFocus';
@@ -20,7 +21,7 @@ export interface InfoBlockProps {
   };
   showButton?: boolean;
   focusOnTitle?: boolean;
-  descriptionColor?: string;
+  descriptionColor?: ResponsiveValue<keyof Theme['colors'], Theme>;
 }
 
 export const InfoBlock = ({
