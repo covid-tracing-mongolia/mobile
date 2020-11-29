@@ -98,6 +98,7 @@ export const Step2Screen = () => {
 
           <Box marginTop="m" marginBottom="m">
             <Button
+              shadow
               variant="thinFlat"
               text={i18n.translate('DataUpload.Step2.CTA')}
               onPress={() => {

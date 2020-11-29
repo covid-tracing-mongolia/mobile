@@ -59,14 +59,14 @@ export const Step0Screen = () => {
           </Text>
 
           <Box marginTop="m">
-            <Button variant="thinFlat" text={i18n.translate('DataUpload.Step0.CTA')} onPress={onNext} />
+            <Button shadow variant="thinFlat" text={i18n.translate('DataUpload.Step0.CTA')} onPress={onNext} />
           </Box>
 
           <Box marginTop="m" marginBottom="m">
             <ButtonSingleLine
               text={i18n.translate('DataUpload.Step0.NoCode')}
               variant="bigFlatDarkGrey"
-              color="lightBlack"
+              // color="textColorDark"
               internalLink
               onPress={onNext}
             />

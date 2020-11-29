@@ -18,11 +18,11 @@ export const Toolbar = ({navText, onIconClicked, showBackButton}: ToolbarProps) 
     <Box flexDirection="row" alignItems="center" minHeight={56}>
       {showBackButton ? (
         <Box>
-          <Button backButton text={i18n.translate('DataUpload.Back')} variant="textHeader" onPress={onBack} />
+          <Button backButton text={i18n.translate('DataUpload.Back')} variant="text" onPress={onBack} />
         </Box>
       ) : null}
       <Box style={styles.right}>
-        <Button testID="toolbarCloseButton" text={navText} variant="textHeader" onPress={onIconClicked} />
+        <Button testID="toolbarCloseButton" text={navText} variant="text" onPress={onIconClicked} />
       </Box>
     </Box>
   );

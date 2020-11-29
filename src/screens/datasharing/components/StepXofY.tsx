@@ -12,7 +12,7 @@ export const StepXofY = ({currentStep, totalSteps = 3}: StepXofYProps) => {
   return (
     <Text marginBottom="s">
       <Text marginBottom="xs" variant="bodySubTitle" color="greyLightBlue1">
-        {i18n.translate('DataUpload.StepXofY', {x: currentStep, y: totalSteps})}
+        {i18n.translate('DataUpload.Step')} {totalSteps}
       </Text>
       <Text marginBottom="xs" variant="smallTextBold" color="greyLightBlue1">
         /{currentStep}

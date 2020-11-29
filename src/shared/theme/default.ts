@@ -141,9 +141,9 @@ const theme = {
     },
     smallTextBold: {
       fontFamily: 'URW Geometric',
-      fontSize: 16,
+      fontSize: 14,
       lineHeight: 23,
-      fontWeight: '800',
+      fontWeight: 'bold',
     },
     bodyText: {
       fontFamily: 'URW Geometric',
@@ -232,7 +232,6 @@ const theme = {
       fontWeight: 'bold',
       fontSize: 18,
       lineHeight: 29,
-      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -246,7 +245,6 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
-      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -260,7 +258,6 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
-      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -274,7 +271,6 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderWidth: undefined,
-      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -288,7 +284,6 @@ const theme = {
       fontFamily: 'URW Geometric',
       fontSize: 18,
       borderBottomWidth: undefined,
-      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -297,13 +292,14 @@ const theme = {
     },
     thinFlat: {
       color: palette.info100,
-      height: 51,
+      height: 52,
       textColor: palette.white,
       fontFamily: 'URW Geometric',
       fontWeight: 'bold',
       fontSize: 18,
       lineHeight: 29,
-      shadow: 0,
+      borderBottomWidth: 0,
+      borderBottomColor: undefined,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -318,7 +314,6 @@ const theme = {
       fontSize: 18,
       borderBottomWidth: 0,
       borderBottomColor: palette.darkGrey,
-      shadow: 0,
       disabled: {
         color: palette.gray4,
         textColor: palette.bodyBlack,
@@ -328,11 +323,10 @@ const theme = {
     bigFlatNeutralGrey: {
       color: palette.neutralGrey,
       height: 52,
-      textColor: palette.black,
+      textColor: palette.textColorDark,
       fontFamily: 'URW Geometric',
       fontSize: 16,
       borderBottomWidth: undefined,
-      shadow: 0,
       disabled: {},
     },
     thinFlatNeutralGrey: {
@@ -347,10 +341,11 @@ const theme = {
     },
     bigFlatDarkGrey: {
       color: palette.neutralGrey,
-      height: 52,
-      textColor: palette.black,
+      height: 51,
+      textColor: palette.textColorDark,
       fontFamily: 'URW Geometric',
-      fontSize: 18,
+      fontSize: 16,
+      fontWeight: 'bold',
       borderWidth: undefined,
       paddingHorizontal: 5,
       paddingVertical: 10,

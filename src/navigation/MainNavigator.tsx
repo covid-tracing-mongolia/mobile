@@ -131,6 +131,7 @@ const MainNavigator = () => {
     >
       <MainStack.Screen name="Landing" component={LandingScreenWithNavBar} />
       <MainStack.Screen name="Home" component={HomeScreenWithNavBar} />
+
       <MainStack.Screen
         options={{cardStyleInterpolator: forFade}}
         name="OnboardingNavigator"

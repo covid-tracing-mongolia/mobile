@@ -23,7 +23,7 @@ export const CodeInput = ({value, onChange, accessibilityLabel}: CodeInputProps)
         borderWidth={4}
         borderColor={isFocus ? 'overlayBackground' : 'overlayBackground'}
       >
-        <Box flex={1} paddingHorizontal="xs" borderWidth={1} borderColor={isFocus ? 'gray5' : 'gray5'} borderRadius={5}>
+        <Box flex={1} paddingHorizontal="xs" borderWidth={1} borderColor={isFocus ? 'gray7' : 'gray7'} borderRadius={5}>
           <TextInput
             color="bodyText"
             value={value}
