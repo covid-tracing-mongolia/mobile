@@ -1,7 +1,7 @@
 {
   "Home": {
     "NoExposureDetected": {
-      "AllSetTitle": "You’re all set",
+      "AllSetTitle": "Хавьтагч илрээгүй",
       "RegionCovered": {
         "Title": "Хавьтагч илрээгүй",
         "Body": "Шинэ хавьталт илрүүлээгүй байна.",
@@ -11,13 +11,13 @@
       "NoRegion": {
         "Title": "Хавьтагч илрээгүй",
         "Body": "Энэ апп-г хэрэглэж буй хүмүүсээс аль нь ч одоогоор халдвар аваагүй байна. \n\nГэхдээ энэ нь батлагдсан тохиолдол байхгүй гэсэн үг биш. Апп хэрэглэдэггүй эсвэл аппруугаа халдварын оношилгоогоо оруулаагүй хүн байж болно.",
-        "AllSetBody": ""
+        "AllSetBody": "Шинэ хавьталт илрүүлээгүй байна."
       },
       "RegionNotCovered": {
         "Title": "Таны ойролцоо халдвар илрээгүй байна",
         "Body": "",
         "GuidanceUrl": "https://www.canada.ca/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html",
-        "AllSetBody": ""
+        "AllSetBody": "Энэ апп-г хэрэглэж буй хүмүүсээс аль нь ч одоогоор халдвар аваагүй байна."
       }
     },
     "ExposureDetected": {

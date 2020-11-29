@@ -19,15 +19,17 @@ export const DiagnosedShareView = ({isBottomSheetExpanded}: {isBottomSheetExpand
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
 
   return (
-    <BaseHomeView iconName="hand-reminder" testID="diagnosedShare">
-      <Text focusRef={autoFocusRef} variant="bodyTitle" color="bodyText" marginBottom="m" accessibilityRole="header">
+    <BaseHomeView iconName="icon-share-diagnose" testID="diagnosedShare">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.DiagnosedShareView.Title')}
       </Text>
-      <Text variant="bodyText" color="bodyText" marginBottom="m">
+      <Text variant="bodyDescription" color="lightText" marginBottom="m">
         {i18n.translate('Home.DiagnosedShareView.Body1')}
       </Text>
-      <Text variant="bodyText" color="bodyText">
-        <Text fontWeight="bold">{i18n.translate('Home.DiagnosedShareView.Body2')}</Text>
+      <Text variant="bodyDescription" color="lightText">
+        <Text variant="bodyDescription" color="lightText">
+          {i18n.translate('Home.DiagnosedShareView.Body2')}
+        </Text>
         {i18n.translate('Home.DiagnosedShareView.Body3')}
       </Text>
       <Box alignSelf="stretch" marginTop="l" marginBottom="m">
