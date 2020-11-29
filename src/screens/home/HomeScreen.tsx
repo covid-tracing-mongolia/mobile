@@ -208,7 +208,7 @@ export const HomeScreen = () => {
           <SafeAreaView>
             <Header />
             <Animated.View style={[styles.card, {opacity: fadeAnim}]}>
-              <Content isBottomSheetExpanded={isBottomSheetExpanded} />
+              <DiagnosedView isBottomSheetExpanded={isBottomSheetExpanded} />
             </Animated.View>
           </SafeAreaView>
         </Box>

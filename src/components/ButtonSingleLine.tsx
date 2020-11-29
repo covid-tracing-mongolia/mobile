@@ -24,7 +24,7 @@ export interface ButtonSingleLineProps {
   color?: keyof Theme['colors'];
   disabled?: boolean;
   loading?: boolean;
-  externalLink?: boolean;
+  externalLink?: boolean | IconName;
   internalLink?: boolean;
   iconName?: IconName;
   testID?: string;
@@ -60,7 +60,13 @@ export const ButtonSingleLine = ({
         accessibilityRole: 'link' as AccessibilityRole,
       }
     : {};
-  const externalArrowIcon = 'icon-external-arrow-light';
+
+  let externalArrowIcon: IconName = 'icon-external-arrow-light';
+
+  if (typeof externalLink === 'string') {
+    externalArrowIcon = externalLink;
+  }
+
   const borderRadius = 13;
   const boxStyles: BoxProps['style'] = {
     backgroundColor: Platform.OS === 'ios' || externalLink ? color : 'transparent',
