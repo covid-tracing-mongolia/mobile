@@ -25,19 +25,32 @@ export const LandingScreen = () => {
       <Box flex={1} marginBottom="s" style={{...styles.imageBackround}}>
         <Box flex={1} justifyContent="flex-start" alignItems="center" paddingTop="s">
           <Image
-            resizeMode="contain"
+            resizeMethod="scale"
             style={{...styles.imagePad}}
             accessible
             accessibilityLabel={i18n.translate('Landing.AltText')}
-            source={require('assets/landingintro.png')}
+            source={require('assets/landing-screen.png')}
           />
         </Box>
         <Box style={styles.overlay} paddingVertical="m">
-          <Box paddingHorizontal="m" marginTop="s" marginBottom="s">
-            <Button testID="enButton" onPress={toggle('en')} text={i18n.translate('Landing.En')} variant="thinFlat" />
-          </Box>
           <Box paddingHorizontal="m">
-            <Button testID="frButton" onPress={toggle('mn')} text={i18n.translate('Landing.Mn')} variant="thinFlat" />
+            <Button
+              testID="frButton"
+              onPress={toggle('mn')}
+              text="Монгол"
+              variant="bigFlatNeutralGrey"
+              flagIcon="mongolia-flag"
+            />
+          </Box>
+
+          <Box paddingHorizontal="m" marginTop="s" marginBottom="s">
+            <Button
+              testID="enButton"
+              onPress={toggle('en')}
+              text="English"
+              variant="bigFlatNeutralGrey"
+              flagIcon="america-flag"
+            />
           </Box>
         </Box>
       </Box>
@@ -52,8 +65,7 @@ const styles = StyleSheet.create({
     marginTop: -50,
   },
   imageBackround: {
-    backgroundColor: '#EEEEEE',
-    paddingTop: 50,
+    backgroundColor: '#F5F9FF',
   },
   imagePad: {flex: 1, width: '100%'},
   overlay: {

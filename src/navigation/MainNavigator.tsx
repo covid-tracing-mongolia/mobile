@@ -100,7 +100,6 @@ const DataSharingNavigator = () => {
   const setTestDate = (val: string) => {
     setState({...state, testDate: val});
   };
-
   return (
     <FormContext.Provider value={{data: state, toggleModal, setSymptomOnsetDate, setTestDate}}>
       <DataSharingStack.Navigator screenOptions={{headerShown: false}} initialRouteName="Step0">
@@ -132,6 +131,7 @@ const MainNavigator = () => {
     >
       <MainStack.Screen name="Landing" component={LandingScreenWithNavBar} />
       <MainStack.Screen name="Home" component={HomeScreenWithNavBar} />
+
       <MainStack.Screen
         options={{cardStyleInterpolator: forFade}}
         name="OnboardingNavigator"

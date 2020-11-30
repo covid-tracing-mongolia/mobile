@@ -16,7 +16,7 @@ export const FrameworkUnavailableView = ({isBottomSheetExpanded}: {isBottomSheet
 
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
   return (
-    <BaseHomeView iconName="icon-disabled">
+    <BaseHomeView iconName="error-icon">
       <Text focusRef={autoFocusRef} variant="bodyTitle" color="darkText" marginBottom="m" accessibilityRole="header">
         {i18n.translate('Home.FrameworkUnavailable.Title')}
       </Text>

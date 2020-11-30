@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   outline: {
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: '#000',
+    borderColor: 'rgba(0, 85, 255, 0.24)',
   },
   centeredView: {
     flex: 1,

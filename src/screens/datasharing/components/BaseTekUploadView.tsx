@@ -106,7 +106,7 @@ export const BaseTekUploadView = ({
       </Box>
       {secondaryButtonText && secondaryButtonOnPress ? (
         <Box paddingHorizontal="m" marginBottom="m">
-          <Button variant="thinFlatBlue" text={secondaryButtonText} onPress={secondaryButtonOnPress} />
+          <Button variant="bigFlatDarkGrey" text={secondaryButtonText} onPress={secondaryButtonOnPress} />
         </Box>
       ) : null}
     </BaseDataSharingView>

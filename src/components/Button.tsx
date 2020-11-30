@@ -27,6 +27,7 @@ export interface ButtonProps {
   externalLink?: boolean;
   internalLink?: boolean;
   backButton?: boolean;
+  flagIcon?: IconName;
   iconName?: IconName;
   testID?: string;
 }
@@ -43,6 +44,7 @@ export const Button = ({
   backButton,
   iconName,
   testID,
+  flagIcon,
 }: ButtonProps) => {
   const i18n = useI18n();
   const theme = useTheme<Theme>();
@@ -108,6 +110,12 @@ export const Button = ({
               <Icon size={14} name="icon-chevron-back" />
             </Box>
           )}
+          {flagIcon && (
+            <Box marginRight="s">
+              <Icon size={25} name={flagIcon} />
+            </Box>
+          )}
+
           <Text style={{...styles.content, color: textColor || buttonColor, fontWeight, fontFamily, fontSize}}>
             {text}
           </Text>

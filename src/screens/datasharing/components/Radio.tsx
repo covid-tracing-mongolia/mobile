@@ -19,7 +19,9 @@ export const RadioButton = (props: any) => {
             {selected ? <View style={styles.checkedCircle} /> : <View />}
           </Box>
           <Box style={styles.label}>
-            <Text variant="bodyText">{props.text}</Text>
+            <Text color="lightText" variant="bodyText">
+              {props.text}
+            </Text>
           </Box>
         </Box>
       </TouchableOpacity>
@@ -30,27 +32,27 @@ export const RadioButton = (props: any) => {
 const styles = StyleSheet.create({
   circle: {
     flex: 0,
-    height: 40,
-    width: 40,
-    borderRadius: 30,
+    height: 32,
+    width: 32,
+    borderRadius: 16,
     borderWidth: 2,
-    borderColor: '#000',
+    borderColor: '#0055ff',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
   },
   label: {
     flex: 1,
-    paddingTop: 7,
+    justifyContent: 'flex-end',
   },
   active: {
-    borderWidth: 4,
+    borderWidth: 2,
   },
   checkedCircle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: '#000',
+    width: 17,
+    height: 17,
+    borderRadius: 9,
+    backgroundColor: '#0055ff',
     borderWidth: 0,
   },
 });

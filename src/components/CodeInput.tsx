@@ -21,15 +21,9 @@ export const CodeInput = ({value, onChange, accessibilityLabel}: CodeInputProps)
         marginHorizontal="none"
         borderRadius={9}
         borderWidth={4}
-        borderColor={isFocus ? 'focus' : 'overlayBackground'}
+        borderColor={isFocus ? 'overlayBackground' : 'overlayBackground'}
       >
-        <Box
-          flex={1}
-          paddingHorizontal="xs"
-          borderWidth={2}
-          borderColor={isFocus ? 'overlayBodyText' : 'gray2'}
-          borderRadius={5}
-        >
+        <Box flex={1} paddingHorizontal="xs" borderWidth={1} borderColor={isFocus ? 'gray7' : 'gray7'} borderRadius={5}>
           <TextInput
             color="bodyText"
             value={value}

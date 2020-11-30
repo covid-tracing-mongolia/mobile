@@ -17,6 +17,7 @@ import IconClose from 'assets/icon-close.svg';
 import IconEnterCode from 'assets/icon-enter-code.svg';
 import IconExternalArrow from 'assets/icon-external-arrow.svg';
 import IconExternalArrowLight from 'assets/icon-external-arrow-light.svg';
+import IconExternalArrowLightGreen from 'assets/icon-external-arrow-lightgreen.svg';
 import IconImportant from 'assets/icon-important.svg';
 import IconMessages from 'assets/icon-messages.svg';
 import IconNotify from 'assets/icon-notify.svg';
@@ -54,6 +55,13 @@ import HeaderLogo from 'assets/header-logo.svg';
 import ErrorIcon from 'assets/error-icon.svg';
 import DisabledIcon from 'assets/icon-disabled.svg';
 import ContactImage from 'assets/contact-image.svg';
+import CrossIcon from 'assets/icons/cross.svg';
+import TickIcon from 'assets/icons/tick.svg';
+import ShareDiagnose from 'assets/icon-share-diagnose.svg';
+import Diagnosed from 'assets/icon-diagnosed.svg';
+import LightBulb from 'assets/icon-lightbulb.svg';
+import AmericaFlag from 'assets/america-flag.svg';
+import MongoliaFlag from 'assets/mongolia-flag.svg';
 
 const ICONS = {
   'icon-x': IconX,
@@ -74,6 +82,7 @@ const ICONS = {
   'icon-ellipsis': Ellipsis,
   'icon-external-arrow': IconExternalArrow,
   'icon-external-arrow-light': IconExternalArrowLight,
+  'icon-external-arrow-lightgreen': IconExternalArrowLightGreen,
   'icon-important': IconImportant,
   'icon-messages': IconMessages,
   'icon-notify': IconNotify,
@@ -112,6 +121,13 @@ const ICONS = {
   'error-icon': ErrorIcon,
   'icon-disabled': DisabledIcon,
   'contact-image': ContactImage,
+  cross: CrossIcon,
+  tick: TickIcon,
+  'icon-share-diagnose': ShareDiagnose,
+  'icon-diagnosed': Diagnosed,
+  'icon-lightbulb': LightBulb,
+  'america-flag': AmericaFlag,
+  'mongolia-flag': MongoliaFlag,
 };
 
 export type IconName = keyof typeof ICONS;
