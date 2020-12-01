@@ -10,11 +10,16 @@ export const ApiNotConnectedView = () => {
 
   const autoFocusRef = useAccessibilityAutoFocus(true);
   return (
-    <BaseErrorView iconName="icon-bluetooth-disabled">
-      <Text focusRef={autoFocusRef} variant="bodyTitle" marginBottom="m" accessibilityRole="header">
+    <BaseErrorView iconName="error-icon">
+      <Text focusRef={autoFocusRef} variant="bodyTitle" marginBottom="m" accessibilityRole="header" color="darkText">
         {i18n.translate('Errors.ApiNotConnected.Title')}
       </Text>
-      <TextMultiline marginBottom="m" text={i18n.translate('Errors.ApiNotConnected.Body')} />
+      <TextMultiline
+        variant="bodyDescription"
+        color="lightText"
+        marginBottom="m"
+        text={i18n.translate('Errors.ApiNotConnected.Body')}
+      />
     </BaseErrorView>
   );
 };
