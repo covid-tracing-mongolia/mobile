@@ -109,6 +109,7 @@ export const OnboardingScreen = () => {
 
           <Box flex={0} style={{...styles.offset3}}>
             <Button
+              color="bodyTextWhite"
               testID="onboardingNextButton"
               text={i18n.translate(`Onboarding.Action${isEnd ? 'End' : 'Next'}`)}
               variant="navigation"

@@ -69,7 +69,7 @@ export const ButtonSingleLine = ({
 
   const borderRadius = 13;
   const boxStyles: BoxProps['style'] = {
-    backgroundColor: Platform.OS === 'ios' || externalLink ? color : 'transparent',
+    backgroundColor: color,
     minHeight: height,
     borderWidth,
     borderColor: buttonColor,
@@ -83,8 +83,6 @@ export const ButtonSingleLine = ({
     },
     shadowOpacity: 0.3,
     shadowRadius: 10,
-
-    elevation: 3,
   };
   const content = (
     <Box

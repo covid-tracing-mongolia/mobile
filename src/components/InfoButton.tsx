@@ -68,8 +68,6 @@ export const InfoButton = ({
     shadowOpacity: 0.3,
     shadowRadius: 10,
 
-    elevation: 3,
-
     padding: 14,
   };
 
@@ -80,7 +78,7 @@ export const InfoButton = ({
         minHeight: height,
         borderWidth,
         borderColor: buttonColor,
-        backgroundColor: Platform.OS === 'ios' ? buttonColor : undefined,
+        backgroundColor: buttonColor,
 
         ...boxStyle,
       }}

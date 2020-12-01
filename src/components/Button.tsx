@@ -75,7 +75,7 @@ export const Button = ({
 
   const borderRadius = 13;
   const boxStyles: BoxProps['style'] = {
-    backgroundColor: Platform.OS === 'ios' ? color : 'transparent',
+    backgroundColor: color,
     minHeight: height,
     borderBottomWidth,
     borderBottomColor: Platform.OS === 'ios' ? palette.fadedWhiteDark : borderBottomColor,
@@ -87,8 +87,6 @@ export const Button = ({
     },
     shadowOpacity: 0.3,
     shadowRadius: 10,
-
-    elevation: 3,
   };
   const content = (
     <Box
