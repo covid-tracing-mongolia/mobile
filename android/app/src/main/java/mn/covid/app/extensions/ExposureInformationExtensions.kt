@@ -1,6 +1,6 @@
-package app.covidshield.extensions
+package mn.covid.app.extensions
 
-import app.covidshield.models.Information
+import mn.covid.app.models.Information
 import com.google.android.gms.nearby.exposurenotification.ExposureInformation
 
 fun ExposureInformation.toInformation(): Information {

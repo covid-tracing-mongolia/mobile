@@ -1,4 +1,4 @@
-package app.covidshield.module
+package mn.covid.app.module
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -8,11 +8,10 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getSystemService
-import app.covidshield.MainActivity
-import app.covidshield.R
-import app.covidshield.extensions.launch
-import app.covidshield.extensions.parse
-import app.covidshield.extensions.toJson
+import mn.covid.app.MainActivity
+import mn.covid.app.extensions.launch
+import mn.covid.app.extensions.parse
+import mn.covid.app.extensions.toJson
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
@@ -21,6 +20,7 @@ import com.facebook.react.bridge.ReadableMap
 import com.google.gson.annotations.SerializedName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import mn.covid.app.R
 import kotlin.coroutines.CoroutineContext
 
 private const val CHANNEL_ID = "COVID Alert"

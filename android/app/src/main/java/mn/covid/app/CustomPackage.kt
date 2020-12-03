@@ -1,12 +1,12 @@
-package app.covidshield
+package mn.covid.app
 
 import android.content.Intent
 import android.view.View
-import app.covidshield.module.CovidShieldModule
-import app.covidshield.module.ExposureNotificationModule
-import app.covidshield.module.PushNotificationModule
-import app.covidshield.receiver.ExposureNotificationBroadcastReceiver
-import app.covidshield.utils.ActivityResultHelper
+import mn.covid.app.module.CovidShieldModule
+import mn.covid.app.module.ExposureNotificationModule
+import mn.covid.app.module.PushNotificationModule
+import mn.covid.app.receiver.ExposureNotificationBroadcastReceiver
+import mn.covid.app.utils.ActivityResultHelper
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext

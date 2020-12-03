@@ -1,4 +1,4 @@
-package app.covidshield.extensions
+package mn.covid.app.extensions
 
 import com.facebook.react.bridge.Promise
 import kotlinx.coroutines.CoroutineExceptionHandler

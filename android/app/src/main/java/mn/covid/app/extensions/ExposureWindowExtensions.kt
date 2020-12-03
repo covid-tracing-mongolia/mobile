@@ -1,7 +1,7 @@
-package app.covidshield.extensions
+package mn.covid.app.extensions
 
-import app.covidshield.models.Window
-import app.covidshield.models.Scan
+import mn.covid.app.models.Window
+import mn.covid.app.models.Scan
 import com.google.android.gms.nearby.exposurenotification.ExposureWindow
 import com.google.android.gms.nearby.exposurenotification.ScanInstance
 

@@ -1,4 +1,4 @@
-package app.covidshield.models
+package mn.covid.app.models
 
 import com.google.gson.annotations.SerializedName
 

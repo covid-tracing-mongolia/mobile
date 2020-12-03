@@ -1,7 +1,7 @@
-package app.covidshield.extensions
+package mn.covid.app.extensions
 
 import android.util.Base64
-import app.covidshield.models.ExposureKey
+import mn.covid.app.models.ExposureKey
 import com.google.android.gms.nearby.exposurenotification.TemporaryExposureKey
 
 fun TemporaryExposureKey.toExposureKey(): ExposureKey {

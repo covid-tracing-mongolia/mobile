@@ -1,4 +1,4 @@
-package app.covidshield.module
+package mn.covid.app.module
 
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
@@ -8,30 +8,30 @@ import android.content.Intent
 import android.content.IntentSender
 import android.location.LocationManager
 import androidx.core.location.LocationManagerCompat
-import app.covidshield.extensions.cleanup
-import app.covidshield.extensions.launch
-import app.covidshield.extensions.log
-import app.covidshield.extensions.parse
-import app.covidshield.extensions.toExposureConfiguration
-import app.covidshield.extensions.toExposureKey
-import app.covidshield.extensions.toExposureWindow
-import app.covidshield.extensions.toInformation
-import app.covidshield.extensions.toSummary
-import app.covidshield.extensions.toWritableArray
-import app.covidshield.extensions.toWritableMap
-import app.covidshield.models.Configuration
-import app.covidshield.models.ExposureKey
-import app.covidshield.receiver.ExposureNotificationBroadcastReceiver
-import app.covidshield.utils.ActivityResultHelper
-import app.covidshield.utils.CovidShieldException.ApiNotConnectedException
-import app.covidshield.utils.CovidShieldException.ApiNotEnabledException
-import app.covidshield.utils.CovidShieldException.InvalidActivityException
-import app.covidshield.utils.CovidShieldException.NoResolutionRequiredException
-import app.covidshield.utils.CovidShieldException.PermissionDeniedException
-import app.covidshield.utils.CovidShieldException.PlayServicesNotAvailableException
-import app.covidshield.utils.CovidShieldException.SendIntentException
-import app.covidshield.utils.CovidShieldException.UnknownException
-import app.covidshield.utils.PendingTokenManager
+import mn.covid.app.extensions.cleanup
+import mn.covid.app.extensions.launch
+import mn.covid.app.extensions.log
+import mn.covid.app.extensions.parse
+import mn.covid.app.extensions.toExposureConfiguration
+import mn.covid.app.extensions.toExposureKey
+import mn.covid.app.extensions.toExposureWindow
+import mn.covid.app.extensions.toInformation
+import mn.covid.app.extensions.toSummary
+import mn.covid.app.extensions.toWritableArray
+import mn.covid.app.extensions.toWritableMap
+import mn.covid.app.models.Configuration
+import mn.covid.app.models.ExposureKey
+import mn.covid.app.receiver.ExposureNotificationBroadcastReceiver
+import mn.covid.app.utils.ActivityResultHelper
+import mn.covid.app.utils.CovidShieldException.ApiNotConnectedException
+import mn.covid.app.utils.CovidShieldException.ApiNotEnabledException
+import mn.covid.app.utils.CovidShieldException.InvalidActivityException
+import mn.covid.app.utils.CovidShieldException.NoResolutionRequiredException
+import mn.covid.app.utils.CovidShieldException.PermissionDeniedException
+import mn.covid.app.utils.CovidShieldException.PlayServicesNotAvailableException
+import mn.covid.app.utils.CovidShieldException.SendIntentException
+import mn.covid.app.utils.CovidShieldException.UnknownException
+import mn.covid.app.utils.PendingTokenManager
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
@@ -49,6 +49,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import mn.covid.app.utils.CovidShieldException
 import java.io.File
 import java.util.*
 import kotlin.coroutines.CoroutineContext
@@ -160,7 +161,7 @@ class ExposureNotificationModule(context: ReactApplicationContext) : ReactContex
     fun getPendingExposureSummary(promise: Promise) {
         promise.launch(this) {
             if (getStatusInternal() == Status.DISABLED) {
-                throw ApiNotEnabledException()
+                throw CovidShieldException.ApiNotEnabledException()
             }
 
             val tokens = PendingTokenManager.instance.retrieve()
@@ -191,7 +192,7 @@ class ExposureNotificationModule(context: ReactApplicationContext) : ReactContex
     fun getTemporaryExposureKeyHistory(promise: Promise) {
         promise.launch(this) {
             if (getStatusInternal() == Status.DISABLED) {
-                throw ApiNotEnabledException()
+                throw CovidShieldException.ApiNotEnabledException()
             }
 
             val exposureKeys = getTemporaryExposureKeyHistoryInternal()

@@ -1,10 +1,10 @@
-package app.covidshield.receiver.worker
+package mn.covid.app.receiver.worker
 
 import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import app.covidshield.extensions.log
-import app.covidshield.receiver.ExposureNotificationBroadcastReceiver
+import mn.covid.app.extensions.log
+import mn.covid.app.receiver.ExposureNotificationBroadcastReceiver
 import com.facebook.react.ReactApplication
 import com.google.android.gms.nearby.exposurenotification.ExposureNotificationClient.EXTRA_TOKEN
 

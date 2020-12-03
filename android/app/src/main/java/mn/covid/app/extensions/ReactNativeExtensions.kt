@@ -1,4 +1,4 @@
-package app.covidshield.extensions
+package mn.covid.app.extensions
 
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap

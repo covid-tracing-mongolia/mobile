@@ -1,4 +1,4 @@
-package app.covidshield.receiver
+package mn.covid.app.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -7,11 +7,11 @@ import androidx.work.Data
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import app.covidshield.extensions.log
-import app.covidshield.receiver.worker.HeadlessJsTaskWorker
-import app.covidshield.receiver.worker.HeadlessJsTaskWorker.Companion.shouldStartHeadlessJsTask
-import app.covidshield.receiver.worker.StateUpdatedWorker
-import app.covidshield.utils.PendingTokenManager
+import mn.covid.app.extensions.log
+import mn.covid.app.receiver.worker.HeadlessJsTaskWorker
+import mn.covid.app.receiver.worker.HeadlessJsTaskWorker.Companion.shouldStartHeadlessJsTask
+import mn.covid.app.receiver.worker.StateUpdatedWorker
+import mn.covid.app.utils.PendingTokenManager
 import com.google.android.gms.nearby.exposurenotification.ExposureNotificationClient.ACTION_EXPOSURE_NOT_FOUND
 import com.google.android.gms.nearby.exposurenotification.ExposureNotificationClient.ACTION_EXPOSURE_STATE_UPDATED
 import com.google.android.gms.nearby.exposurenotification.ExposureNotificationClient.EXTRA_TOKEN

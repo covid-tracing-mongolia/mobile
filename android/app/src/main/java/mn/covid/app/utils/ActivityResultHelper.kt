@@ -1,4 +1,4 @@
-package app.covidshield.utils
+package mn.covid.app.utils
 
 import android.content.Intent
 

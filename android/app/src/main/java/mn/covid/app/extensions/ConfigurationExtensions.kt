@@ -1,6 +1,6 @@
-package app.covidshield.extensions
+package mn.covid.app.extensions
 
-import app.covidshield.models.Configuration
+import mn.covid.app.models.Configuration
 import com.google.android.gms.nearby.exposurenotification.ExposureConfiguration
 
 fun Configuration.toExposureConfiguration(): ExposureConfiguration {

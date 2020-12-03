@@ -1,8 +1,8 @@
-package app.covidshield.module
+package mn.covid.app.module
 
 import android.content.Context
 import android.util.Base64
-import app.covidshield.extensions.launch
+import mn.covid.app.extensions.launch
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule

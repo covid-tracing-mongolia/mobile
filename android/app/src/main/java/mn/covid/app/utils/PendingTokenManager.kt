@@ -1,8 +1,8 @@
-package app.covidshield.utils
+package mn.covid.app.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
-import app.covidshield.MainApplication
+import mn.covid.app.MainApplication
 
 private const val TOKEN = "TOKEN"
 
