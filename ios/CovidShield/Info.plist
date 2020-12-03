@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-  <key>NSAppTransportSecurity</key>
-  <dict>
-    <key>NSAllowsLocalNetworking</key>
-    <true/>
-    <key>NSAllowsArbitraryLoads</key>
-    <false/>
-  </dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>app.covidshield.exposure-notification</string>
@@ -37,8 +30,8 @@
 	<integer>1</integer>
 	<key>ENDeveloperRegion</key>
 	<string>CA</string>
-  <key>ITSAppUsesNonExemptEncryption</key>
-  <false/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>instagram</string>
@@ -46,6 +39,13 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>URWGeometric-Bold.ttf</string>
