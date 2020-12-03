@@ -134,7 +134,7 @@ static IMP _BGTaskScheduler_submitTaskRequest_orig = NULL;
 
 static BOOL preSubmitTaskHook(id me, SEL selector, BGTaskRequest *req, NSError **perr) {
   if([req isKindOfClass: [BGProcessingTaskRequest class]] &&
-     [req.identifier isEqualToString: @"app.covidshield.exposure-notification"]) {
+     [req.identifier isEqualToString: @"mn.covid.app.exposure-notification"]) {
     ((BGProcessingTaskRequest*)req).requiresNetworkConnectivity = YES;
     ((BGProcessingTaskRequest*)req).requiresExternalPower = NO;
   }
