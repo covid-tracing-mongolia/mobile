@@ -92,7 +92,7 @@ private class PushNotificationConfig(
     @SerializedName("priority") val _priority: Int?
 ) {
 
-    val uuid get() = _uuid ?: "app.covidshield.exposure-notification"
+    val uuid get() = _uuid ?: "mn.covid.app.exposure-notification"
 
     val priority get() = _priority ?: NotificationCompat.PRIORITY_MAX
 }
