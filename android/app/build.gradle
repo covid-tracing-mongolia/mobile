@@ -143,7 +143,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode project.env.get("APP_VERSION_CODE") as Integer
         versionName project.env.get("APP_VERSION_NAME")
-        resValue "string", "build_config_package", "app.covidshield"
+        resValue "string", "build_config_package", "mn.covid.app"
         testBuildType System.getProperty('testBuildType', 'debug')
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
