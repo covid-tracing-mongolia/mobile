@@ -23,8 +23,7 @@ export const TEST_MODE = Config.TEST_MODE === 'true' || false;
 
 export const MOCK_SERVER = Config.MOCK_SERVER === 'true' || false;
 
-// TODO: figure out what all this region json is abouts
-// export const REGION_JSON_URL = Config.REGION_JSON_URL;
+export const REGION_JSON_URL = Config.REGION_JSON_URL;
 
 export const EN_CONFIG_URL = Config.EN_CONFIG_URL;
 

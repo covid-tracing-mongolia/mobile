@@ -6,7 +6,7 @@ import {ExposureConfiguration, TemporaryExposureKey} from 'bridge/ExposureNotifi
 import nacl from 'tweetnacl';
 import {getRandomBytes, downloadDiagnosisKeysFile} from 'bridge/CovidShield';
 import {blobFetch} from 'shared/fetch';
-import {MCC_CODE} from 'env';
+import {MCC_CODE, REGION_JSON_URL} from 'env';
 import {captureMessage, captureException} from 'shared/log';
 import {getMillisSinceUTCEpoch, hoursSinceEpoch} from 'shared/date-fns';
 import {ContagiousDateInfo, ContagiousDateType} from 'shared/DataSharing';
@@ -16,7 +16,7 @@ import {covidshield} from './covidshield';
 import {BackendInterface, SubmissionKeySet} from './types';
 
 const MAX_UPLOAD_KEYS = 28;
-// const FETCH_HEADERS = {headers: {'Cache-Control': 'no-store'}};
+const FETCH_HEADERS = {headers: {'Cache-Control': 'no-store'}};
 const TRANSMISSION_RISK_LEVEL = 1;
 const TEN_MINUTE_PERIODS_PER_HOUR = 6;
 export const LAST_UPLOADED_TEK_START_TIME = 'LAST_UPLOADED_TEK_START_TIME';
@@ -62,28 +62,10 @@ export class BackendService implements BackendInterface {
   // };
 
   async getExposureConfiguration(): Promise<ExposureConfiguration> {
-    // TODO: ON region config
-    return {
-      minimumRiskScore: 0,
-      minimumExposureDurationMinutes: 2,
-      attenuationDurationThresholds: [1, 2],
-      attenuationLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
-      attenuationWeight: 50,
-      daysSinceLastExposureLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
-      daysSinceLastExposureWeight: 50,
-      durationLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
-      durationWeight: 50,
-      transmissionRiskLevelValues: [1, 2, 3, 4, 5, 6, 7, 8],
-      transmissionRiskWeight: 50,
-    };
-    // purposely setting 'region' to the default value of `CA` regardless of what the user selected.
     // this is only for the purpose of downloading the configuration file.
-    // const region = 'CA';
-    // const exposureConfigurationUrl = EN_CONFIG_URL
-    //   ? EN_CONFIG_URL
-    //   : `${this.retrieveUrl}/exposure-configuration/${region}.json`;
-    // captureMessage('getExposureConfiguration', {exposureConfigurationUrl});
-    // return (await fetch(exposureConfigurationUrl, FETCH_HEADERS)).json();
+    const exposureConfigurationUrl = REGION_JSON_URL;
+    captureMessage('getExposureConfiguration', {exposureConfigurationUrl});
+    return (await fetch(exposureConfigurationUrl, FETCH_HEADERS)).json();
   }
 
   async claimOneTimeCode(oneTimeCode: string): Promise<SubmissionKeySet> {
