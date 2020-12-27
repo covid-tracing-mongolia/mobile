@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.covidshield">
+    package="mn.covid.app">
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
@@ -9,14 +9,14 @@
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
-        android:name="app.covidshield.MainApplication"
+        android:name="mn.covid.app.MainApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
         <activity
-            android:name="app.covidshield.MainActivity"
+            android:name="mn.covid.app.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
             android:label="@string/app_name"
             android:launchMode="singleTask"

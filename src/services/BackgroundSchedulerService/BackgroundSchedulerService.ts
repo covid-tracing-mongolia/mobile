@@ -3,7 +3,7 @@ import {Platform} from 'react-native';
 import {TEST_MODE} from 'env';
 import {captureMessage, captureException} from 'shared/log';
 
-const BACKGROUND_TASK_ID = 'app.covidshield.exposure-notification';
+const BACKGROUND_TASK_ID = 'mn.covid.app.exposure-notification';
 
 interface PeriodicTask {
   (): Promise<void>;
