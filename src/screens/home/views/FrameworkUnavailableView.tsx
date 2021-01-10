@@ -1,11 +1,11 @@
-import { useI18n } from 'locale';
-import { Text, TextMultiline } from 'components';
+import {useI18n} from 'locale';
+import {Text, TextMultiline} from 'components';
 import React from 'react';
-import { useAccessibilityAutoFocus } from 'shared/useAccessibilityAutoFocus';
+import {useAccessibilityAutoFocus} from 'shared/useAccessibilityAutoFocus';
 
-import { BaseHomeView } from '../components/BaseHomeView';
+import {BaseHomeView} from '../components/BaseHomeView';
 
-export const FrameworkUnavailableView = ({ isBottomSheetExpanded }: { isBottomSheetExpanded: boolean }) => {
+export const FrameworkUnavailableView = ({isBottomSheetExpanded}: {isBottomSheetExpanded: boolean}) => {
   const i18n = useI18n();
 
   const autoFocusRef = useAccessibilityAutoFocus(!isBottomSheetExpanded);
