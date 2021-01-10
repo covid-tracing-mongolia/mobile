@@ -19,6 +19,7 @@ import {OnboardingScreen} from 'screens/onboarding';
 import {LandingScreen} from 'screens/landing';
 import {TestScreen} from 'screens/testScreen';
 import {ErrorScreen} from 'screens/errorScreen/ErrorScreen';
+import {FrameworkUnavailableView} from 'screens/home/views/FrameworkUnavailableView';
 
 import {FormContext, FormContextDefaults} from '../shared/FormContext';
 
@@ -143,6 +144,7 @@ const MainNavigator = () => {
       <MainStack.Screen name="LanguageSelect" component={LanguageScreenWithNavBar} />
       <MainStack.Screen name="TestScreen" component={TestScreenWithNavBar} />
       <MainStack.Screen name="ErrorScreen" component={ErrorScreenWithNavBar} />
+      <MainStack.Screen name="FrameworkUnavailableScreen" component={FrameworkUnavailableView} />
     </MainStack.Navigator>
   );
 };
