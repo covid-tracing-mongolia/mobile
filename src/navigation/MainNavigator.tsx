@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {StatusBar} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {HomeScreen} from 'screens/home';
-import {TutorialScreen} from 'screens/tutorial';
+import React, { useState } from 'react';
+import { StatusBar } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { HomeScreen } from 'screens/home';
+import { TutorialScreen } from 'screens/tutorial';
 import {
   FormScreen,
   Step0Screen,
@@ -12,15 +12,17 @@ import {
   TekUploadSubsequentDays,
   TestDateScreen,
 } from 'screens/datasharing';
-import {LanguageScreen} from 'screens/language';
-import {useStorage} from 'services/StorageService';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {OnboardingScreen} from 'screens/onboarding';
-import {LandingScreen} from 'screens/landing';
-import {TestScreen} from 'screens/testScreen';
-import {ErrorScreen} from 'screens/errorScreen/ErrorScreen';
+import { LanguageScreen } from 'screens/language';
+import { useStorage } from 'services/StorageService';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { OnboardingScreen } from 'screens/onboarding';
+import { LandingScreen } from 'screens/landing';
+import { TestScreen } from 'screens/testScreen';
+import { ErrorScreen } from 'screens/errorScreen/ErrorScreen';
+import { DismissAlertScreen } from 'screens/home/views/ClearExposureView';
+import { FrameworkUnavailableView } from 'screens/home/views/FrameworkUnavailableView';
 
-import {FormContext, FormContextDefaults} from '../shared/FormContext';
+import { FormContext, FormContextDefaults } from '../shared/FormContext';
 
 const MainStack = createStackNavigator();
 
@@ -83,7 +85,7 @@ const OnboardingWithNavBar = withDarkNavNonModal(OnboardingScreen);
 const OnboardingStack = createStackNavigator();
 const OnboardingNavigator = () => {
   return (
-    <OnboardingStack.Navigator screenOptions={{headerShown: false}} initialRouteName="Onboarding">
+    <OnboardingStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Onboarding">
       <OnboardingStack.Screen name="Onboarding" component={OnboardingWithNavBar} />
     </OnboardingStack.Navigator>
   );
@@ -92,17 +94,17 @@ const DataSharingStack = createStackNavigator();
 const DataSharingNavigator = () => {
   const [state, setState] = useState(FormContextDefaults);
   const toggleModal = (val: boolean) => {
-    setState({...state, modalVisible: val});
+    setState({ ...state, modalVisible: val });
   };
   const setSymptomOnsetDate = (val: string) => {
-    setState({...state, symptomOnsetDate: val});
+    setState({ ...state, symptomOnsetDate: val });
   };
   const setTestDate = (val: string) => {
-    setState({...state, testDate: val});
+    setState({ ...state, testDate: val });
   };
   return (
-    <FormContext.Provider value={{data: state, toggleModal, setSymptomOnsetDate, setTestDate}}>
-      <DataSharingStack.Navigator screenOptions={{headerShown: false}} initialRouteName="Step0">
+    <FormContext.Provider value={{ data: state, toggleModal, setSymptomOnsetDate, setTestDate }}>
+      <DataSharingStack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Step0">
         <DataSharingStack.Screen name="Step0" component={Step0ScreenWithNavBar} />
         <DataSharingStack.Screen name="FormView" component={FormScreenWithNavBar} />
         <DataSharingStack.Screen name="Step2" component={Step2ScreenWithNavBar} />
@@ -115,17 +117,17 @@ const DataSharingNavigator = () => {
   );
 };
 
-const forFade = ({current}: {current: any}) => ({
+const forFade = ({ current }: { current: any }) => ({
   cardStyle: {
     opacity: current.progress,
   },
 });
 
 const MainNavigator = () => {
-  const {isOnboarding} = useStorage();
+  const { isOnboarding } = useStorage();
   return (
     <MainStack.Navigator
-      screenOptions={{headerShown: false}}
+      screenOptions={{ headerShown: false }}
       initialRouteName={isOnboarding ? 'Landing' : 'Home'}
       mode="modal"
     >
@@ -133,7 +135,7 @@ const MainNavigator = () => {
       <MainStack.Screen name="Home" component={HomeScreenWithNavBar} />
 
       <MainStack.Screen
-        options={{cardStyleInterpolator: forFade}}
+        options={{ cardStyleInterpolator: forFade }}
         name="OnboardingNavigator"
         component={OnboardingNavigator}
       />
@@ -143,6 +145,7 @@ const MainNavigator = () => {
       <MainStack.Screen name="LanguageSelect" component={LanguageScreenWithNavBar} />
       <MainStack.Screen name="TestScreen" component={TestScreenWithNavBar} />
       <MainStack.Screen name="ErrorScreen" component={ErrorScreenWithNavBar} />
+      <MainStack.Screen name="FrameworkUnavailableScreen" component={FrameworkUnavailableView} />
     </MainStack.Navigator>
   );
 };

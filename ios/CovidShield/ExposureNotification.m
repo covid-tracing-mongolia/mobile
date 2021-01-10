@@ -6,9 +6,11 @@
 //
 
 #import "ExposureNotification.h"
+
+#import "ENActivityHandling.h"
+
 #import <React/RCTConvert.h>
-
-
+#import <TSBackgroundFetch/TSBackgroundFetch.h>
 
 @interface ExposureNotification ()
 @property (nonatomic) NSMutableArray *reportedSummaries;
@@ -34,12 +36,42 @@
   self.enManager = nil;
 }
 
++ (ExposureNotificationSupportType) exposureNotificationSupportType {
+  if (@available(iOS 13.5, *)) {
+    return ENSupportTypeVersion13dot5AndLater;
+  } else if (NSClassFromString(@"ENManager") != nil) { // This check is specific to iOS 12.5
+    return ENSupportTypeVersion12dot5;
+  } else {
+    return ENSupportTypeUnsupported;
+  }
+}
+
 RCT_EXPORT_MODULE();
 
-RCT_REMAP_METHOD(start, startWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+RCT_REMAP_METHOD(isExposureNotificationsFrameworkSupported, isExposureNotificationsFrameworkSupportedWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
-  if (self.enManager) return;
+  if ([ExposureNotification exposureNotificationSupportType] == ENSupportTypeUnsupported) {
+    reject(@"API_NOT_AVAILABLE", @"Exposure Notifications Framework is not supported", nil);
+  } else {
+    resolve(nil);
+  }
+}
+
+RCT_REMAP_METHOD(activate, activateWithCompletionHandler:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+  if (self.enManager) {
+    resolve(nil);
+    return;
+  };
+
   self.enManager = [ENManager new];
+
+  if ([ExposureNotification exposureNotificationSupportType] == ENSupportTypeVersion12dot5) {
+    [self.enManager setLaunchActivityHandler:^() {
+      TSBackgroundFetch *fetchManager = [TSBackgroundFetch sharedInstance];
+      [fetchManager performFetchWithCompletionHandler:^void(UIBackgroundFetchResult r) {}
+                                     applicationState:UIApplicationStateBackground];
+    }];
+  }
 
   [self.enManager activateWithCompletionHandler:^(NSError * _Nullable error) {
     if (error) {
@@ -154,7 +186,7 @@ RCT_REMAP_METHOD(detectExposure, detectExposureWithConfiguration:(NSDictionary *
     reject(@"API_NOT_ENABLED", [NSString stringWithFormat:@"Exposure Notification not authorized: %ld", ENManager.authorizationStatus], nil);
     return;
   }
-  
+
   ENExposureConfiguration *configuration = [ENExposureConfiguration new];
 
   if (configDict[@"metadata"]) {
@@ -164,7 +196,7 @@ RCT_REMAP_METHOD(detectExposure, detectExposureWithConfiguration:(NSDictionary *
   if (configDict[@"minimumRiskScore"]) {
     configuration.minimumRiskScore = [configDict[@"minimumRiskScore"] intValue];
   }
-  
+
   if (configDict[@"attenuationDurationThresholds"]) {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 13.6) {
       configuration.attenuationDurationThresholds = mapIntValues(configDict[@"attenuationDurationThresholds"]);
@@ -172,11 +204,11 @@ RCT_REMAP_METHOD(detectExposure, detectExposureWithConfiguration:(NSDictionary *
       configuration.metadata = @{@"attenuationDurationThresholds": mapIntValues(configDict[@"attenuationDurationThresholds"])};
     }
   }
-  
+
   if (configDict[@"attenuationLevelValues"]) {
     configuration.attenuationLevelValues = mapIntValues(configDict[@"attenuationLevelValues"]);
   }
-  
+
   if (configDict[@"attenuationWeight"]) {
     configuration.attenuationWeight = [configDict[@"attenuationWeight"] doubleValue];
   }
@@ -227,4 +259,3 @@ RCT_REMAP_METHOD(detectExposure, detectExposureWithConfiguration:(NSDictionary *
 }
 
 @end
-  
