@@ -5,7 +5,7 @@
       "RegionCovered": {
         "Title": "No exposure detected",
         "Body": "The app has not found any new exposures.",
-        "GuidanceUrl": "https://www.canada.ca/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html",
+        "GuidanceUrl": "https://covid19.mohs.mn/p/%D0%B7%D3%A9%D0%B2%D0%BB%D3%A9%D0%B3%D3%A9%D3%A9/27/#title8",
         "AllSetBody": "Your phone is now running Bluetooth to collect codes from nearby phones."
       },
       "NoRegion": {
@@ -16,7 +16,7 @@
       "RegionNotCovered": {
         "Title": "Таны дүүрэгт мэдээлэл ирээгүй байна",
         "Body": "People in your province or territory are not yet able to report a COVID-19 diagnosis through this app.\n\nIt’s still helpful to turn COVID Alert on. That way, when people are able to report a diagnosis, you’ll be notified if you were near them.",
-        "GuidanceUrl": "https://www.canada.ca/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html",
+        "GuidanceUrl": "https://covid19.mohs.mn/p/%D0%B7%D3%A9%D0%B2%D0%BB%D3%A9%D0%B3%D3%A9%D3%A9/27/#title8",
         "AllSetBody": "We’ll let you know as soon as people in your area can report a diagnosis through COVID Alert.\n\nIt’s still helpful to keep COVID Alert on.\n\nThat way, when people are able to report a diagnosis, you’ll find out if you were near them."
       }
     },
@@ -42,7 +42,7 @@
     "ChooseRegionCTA": "Choose province or territory",
     "How": "Diagnosed with COVID-19?",
     "CTA": "What to do next",
-    "HowUrl": "https://www.canada.ca/",
+    "HowUrl": "https://covid19.mohs.mn/",
     "ExposedHelpCTA": "What to do if you’re exposed",
     "DiagnosedView": {
       "Title": "Thanks for helping fight COVID-19",
@@ -56,7 +56,7 @@
         "Title": "TIP: "
       }
     },
-    "SymptomTrackerUrl": "https://ca.thrive.health/covid19app/action/88a5e9a7-db9e-487b-bc87-ce35035f8e5c?from=/home&navigateTo=/tracker/complete",
+    "SymptomTrackerUrl": "https://covid19.mohs.mn/",
     "DiagnosedShareView": {
       "Title": "Upload random codes",
       "Body1": "Thanks for helping slow the spread!",
@@ -143,16 +143,16 @@
   },
   "Info": {
     "CheckSymptoms": "Check symptoms",
-    "SymptomsUrl": "https://ca.thrive.health/covid19/en",
+    "SymptomsUrl": "https://covid19.mohs.mn/p/%D0%B7%D3%A9%D0%B2%D0%BB%D3%A9%D0%B3%D3%A9%D3%A9/27/#title3",
     "TellAFriend": "Share app",
     "LearnMore": "How it works",
     "Help": "Help",
-    "HelpUrl": "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/covid-alert/help.html",
+    "HelpUrl": "https://covid19.mohs.mn/",
     "GetCode": "Get a one-time key",
     "ChangeLanguage": "Change language",
     "ChangeRegion": "Change province or territory",
     "Privacy": "How it protects your privacy",
-    "PrivacyUrl": "https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/covid-alert/privacy-policy.html",
+    "PrivacyUrl": "https://covidmongolia.app/privacy-policy/",
     "SettingsTitle": "Settings",
     "InformationTitle": "About COVID Alert"
   },
